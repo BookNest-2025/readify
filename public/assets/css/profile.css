@@ -1,0 +1,166 @@
+.profile-header {
+    position: relative;
+    width: 100%;
+    background: #f4f4f9;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-cover {
+    width: 100%;
+    height: 180px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-details {
+    margin-left: 20px;
+}
+
+.profile-details h2 {
+    font-size: 1.8rem;
+    color: #222;
+}
+
+.profile-details p {
+    color: #555;
+    margin: 5px 0 10px;
+}
+
+.edit-btn {
+    padding: 8px 16px;
+    background: var(--color-secondary);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.edit-btn:hover {
+    background: var(--color-primary);
+}
+
+.profile-content {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    background: #f9fafb;
+    min-height: 70vh;
+}
+
+.profile-main {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    color: #222;
+}
+
+.card p,
+.card li {
+    color: #555;
+    font-size: 0.95rem;
+    margin: 6px 0;
+}
+
+.card ul {
+    padding-left: 20px;
+    list-style: disc;
+}
+
+@media (max-width: 900px) {
+
+    .profile-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-details {
+        margin-left: 0;
+        margin-top: 12px;
+    }
+
+    .profile-content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-details h2 {
+        font-size: 1.5rem;
+    }
+
+    .card h3 {
+        font-size: 1.1rem;
+    }
+
+    .card p,
+    .card li {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 412px) {
+    .profile-cover {
+        height: 140px;
+    }
+
+    .profile-pic {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-details h2 {
+        font-size: 1.2rem;
+    }
+
+    .profile-details p {
+        font-size: 0.85rem;
+    }
+
+    .edit-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    .card {
+        padding: 15px;
+    }
+}

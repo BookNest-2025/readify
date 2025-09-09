@@ -1,0 +1,318 @@
+1. 5_lov_languages.jpg
+Book Name: The 5 Love Languages: The Secret to Love That Lasts
+
+Author: Gary Chapman
+
+Description: A renowned relationship book that identifies five ways people express and experience love, offering a framework for strengthening relationships.
+
+Category: Self-Help, Relationships, Nonfiction
+
+Price: $16.99
+
+2. a_memory_called_empire.jpg
+Book Name: A Memory Called Empire
+
+Author: Arkady Martine
+
+Description: A debut space opera thriller about an ambassador who must navigate the deadly politics of a galactic empire while hiding a secret that could prevent war or ensure her own execution.
+
+Category: Science Fiction
+
+Price: $17.00
+
+3. ancillary_justice.jpg
+Book Name: Ancillary Justice
+
+Author: Ann Leckie
+
+Description: The groundbreaking first novel in the Imperial Radch trilogy, following the journey of a starship's AI trapped in a single human body and seeking revenge.
+
+Category: Science Fiction
+
+Price: $15.99
+
+4. atomic_habits.jpg
+Book Name: Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones
+
+Author: James Clear
+
+Description: A practical guide focused on the power of tiny, incremental changes to build sustainable good habits and break bad ones.
+
+Category: Self-Help, Personal Development
+
+Price: $18.99
+
+5. book_lovers.jpg
+Book Name: Book Lovers
+
+Author: Emily Henry
+
+Description: A witty romantic comedy about a cutthroat literary agent who constantly finds herself crossing paths with a grumpy editor in a small town.
+
+Category: Romance, Contemporary Fiction
+
+Price: $16.00
+
+6. deep_work.jpg
+Book Name: Deep Work: Rules for Focused Success in a Distracted World
+
+Author: Cal Newport
+
+Description: A philosophy and guide for cultivating the ability to focus without distraction on cognitively demanding tasks, a skill vital for success.
+
+Category: Self-Help, Business, Productivity
+
+Price: $16.99
+
+7. desert_flower.jpg
+Book Name: Desert Flower
+
+Author: Waris Dirie
+
+Description: The autobiography of Waris Dirie, recounting her journey from a nomadic life in Somalia to becoming an international supermodel and anti-FGM activist.
+
+Category: Autobiography, Memoir
+
+Price: $17.95
+
+8. eloved.jpg
+Book Name: Beloved
+
+Author: Toni Morrison
+
+Description: A Pulitzer Prize-winning novel about Sethe, an escaped enslaved woman haunted by the ghost of her baby daughter and the trauma of her past.
+
+Category: Literary Fiction, Historical Fiction
+
+Price: $14.99
+
+9. hyperion.jpg
+Book Name: Hyperion
+
+Author: Dan Simmons
+
+Description: A science fiction classic structured like Chaucer's Canterbury Tales, following seven pilgrims on a journey to the terrifying Shrike creature, each telling their story.
+
+Category: Science Fiction
+
+Price: $18.00
+
+10. it_ends_with_us.jpg
+Book Name: It Ends with Us
+
+Author: Colleen Hoover
+
+Description: A powerful contemporary novel that follows Lily Bloom as she navigates a new relationship while confronting the patterns of her parents' troubled marriage.
+
+Category: Contemporary Fiction, Romance
+
+Price: $16.99
+
+11. long_walk_to_freedom.jpg
+Book Name: Long Walk to Freedom
+
+Author: Nelson Mandela
+
+Description: The autobiography of Nelson Mandela, chronicling his early life, education, 27 years in prison, and his pivotal role in dismantling apartheid in South Africa.
+
+Category: Autobiography, History, Politics
+
+Price: $20.00
+
+12. lord_of_the_rings.jpg
+Book Name: The Lord of the Rings
+
+Author: J.R.R. Tolkien
+
+Description: The epic high fantasy trilogy that follows the quest to destroy the One Ring and defeat the Dark Lord Sauron. This is a one-volume edition.
+
+Category: Fantasy, Fiction
+
+Price: $24.99
+
+13. mindset.jpg
+Book Name: Mindset: The New Psychology of Success
+
+Author: Carol S. Dweck, Ph.D.
+
+Description: The book explores the concept of "fixed" vs. "growth" mindsets and how our beliefs about our own abilities fundamentally impact our success in all areas of life.
+
+Category: Psychology, Self-Help
+
+Price: $17.99
+
+14. one_hundred_years_of_solitude.jpg
+Book Name: One Hundred Years of Solitude
+
+Author: Gabriel García Márquez
+
+Description: A landmark of magical realism that tells the multi-generational story of the Buendía family in the mythical town of Macondo.
+
+Category: Literary Fiction, Magical Realism
+
+Price: $16.00
+
+15. the_diary_of_a_young_girl.jpg
+Book Name: The Diary of a Young Girl
+
+Author: Anne Frank
+
+Description: The poignant and powerful diary written by a Jewish girl while she and her family were in hiding for two years during the Nazi occupation of the Netherlands.
+
+Category: Autobiography, History, Diary
+
+Price: $9.99
+
+16. the_fault_in_our_stars.jpg
+Book Name: The Fault in Our Stars
+
+Author: John Green
+
+Description: A heart-wrenching yet funny young adult novel about two teenagers, Hazel and Augustus, who meet and fall in love at a cancer support group.
+
+Category: Young Adult, Fiction
+
+Price: $12.99
+
+17. the_glass_castle.jpg
+Book Name: The Glass Castle
+
+Author: Jeannette Walls
+
+Description: A remarkable memoir of resilience and redemption, recounting the author's impoverished, nomadic, and often deeply troubled childhood.
+
+Category: Memoir, Autobiography
+
+Price: $15.99
+
+18. the_great_gatsby.jpg
+Book Name: The Great Gatsby
+
+Author: F. Scott Fitzgerald
+
+Description: A classic American novel set in the Jazz Age, exploring themes of idealism, decadence, resistance to change, and the American Dream through the tragic story of Jay Gatsby.
+
+Category: Classic Literature, Fiction
+
+Price: $8.99
+
+19. the_hate_u_give.jpg
+Book Name: The Hate U Give
+
+Author: Angie Thomas
+
+Description: A powerful and award-winning young adult novel about Starr Carter, who witnesses the police shooting of her unarmed best friend and must find her voice to fight for justice.
+
+Category: Young Adult, Contemporary Fiction
+
+Price: $14.99
+
+20. the_love_hypothesis.jpg
+Book Name: The Love Hypothesis
+
+Author: Ali Hazelwood
+
+Description: A popular STEMinist romantic comedy about a Ph.D. candidate who fake-dates a famous young professor to convince her friend she's over her ex, only for things to get very real.
+
+Category: Romance, Contemporary Fiction
+
+Price: $16.99
+
+1. the_martian.jpg
+Book Name: The Martian
+
+Author: Andy Weir
+
+Description: A gripping science fiction novel about an astronaut who is mistakenly left behind on Mars and must use his ingenuity and engineering skills to survive and signal Earth that he is alive.
+
+Category: Science Fiction, Thriller
+
+Price: $15.99
+
+2. the_power_of_now.jpg
+Book Name: The Power of Now: A Guide to Spiritual Enlightenment
+
+Author: Eckhart Tolle
+
+Description: A groundbreaking guide to spiritual self-help that emphasizes the importance of living in the present moment to find joy and overcome pain and anxiety.
+
+Category: Spirituality, Self-Help, Nonfiction
+
+Price: $16.99
+
+3. the_sun_is_also_a_star.jpg
+Book Name: The Sun Is Also a Star
+
+Author: Nicola Yoon
+
+Description: A young adult romance novel about Natasha, a pragmatic girl being deported, and Daniel, a poet, who meet and fall in love over the course of a single day in New York City.
+
+Category: Young Adult, Romance
+
+Price: $12.99
+
+4. the_three-body_problem.jpg
+Book Name: The Three-Body Problem
+
+Author: Cixin Liu
+
+Description: The first book in the acclaimed Remembrance of Earth's Past trilogy, a science fiction epic that begins with a secret Chinese military project making contact with an alien civilization.
+
+Category: Science Fiction, Hard SF
+
+Price: $17.99
+
+5. the_witness.jpg
+Book Name: The Witness
+
+Author: Nora Roberts
+
+Description: A romantic suspense thriller about a woman who, after witnessing a brutal crime, enters witness protection and builds a new, isolated life, only to have her past catch up with her.
+
+Category: Romance, Suspense, Thriller
+
+Price: $16.00
+
+6. the-hating_game.jpg
+Book Name: The Hating Game
+
+Author: Sally Thorne
+
+Description: A hilarious and steamy romantic comedy about two rival executive assistants who engage in constant pranks and mind games, until their tension erupts into something more.
+
+Category: Romance, Contemporary Fiction
+
+Price: $15.00
+
+7. to_kill_a_mockingbird.jpg
+Book Name: To Kill a Mockingbird
+
+Author: Harper Lee
+
+Description: A Pulitzer Prize-winning classic novel that explores racial inequality and moral growth through the eyes of young Scout Finch in the Depression-era South.
+
+Category: Classic Literature, Fiction
+
+Price: $9.99
+
+8. trevornoah_born_a_crime.jpg
+Book Name: Born a Crime: Stories from a South African Childhood
+
+Author: Trevor Noah
+
+Description: The comedic and compelling memoir of "The Daily Show" host, recounting his childhood growing up mixed-race in South Africa during the last years of apartheid.
+
+Category: Autobiography, Memoir, Humor
+
+Price: $18.00
+
+9. turtles_all_the_way_down.jpg
+Book Name: Turtles All the Way Down
+
+Author: John Green
+
+Description: A young adult novel that follows sixteen-year-old Aza Holmes as she investigates the disappearance of a fugitive billionaire while grappling with her own intense obsessive-compulsive disorder (OCD).
+
+Category: Young Adult, Fiction
+
+Price: $13.99

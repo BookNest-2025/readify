@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/root.css" />
+    <link rel="stylesheet" href="./assets/css/profile.css" />
+    <link rel="stylesheet" href="./assets/css/footer.css" />
+    <link rel="stylesheet" href="./assets/css/navbar.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-left">
+        <img
+          src="/public/assets/images/logos/logo_transparent.png"
+          alt="Logo"
+        />
+      </div>
+
+      <ul class="navbar-center">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Books</a></li>
+        <li><a href="#">Reviews</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+
+      <div class="navbar-right">
+        <div class="icon-row">
+          <i class="fa fa-search" id="search-icon"></i>
+          <a href="#"><i class="fa fa-shopping-cart"></i></a>
+          <a href="#"><i class="fa fa-sign-out"></i> </a>
+          <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
+        </div>
+      </div>
+    </nav>
+    <div class="search-panel" id="search-panel">
+      <input
+        type="text"
+        id="search-input-field"
+        placeholder="Search books..."
+      />
+    </div>
+    <div id="toggle-handler-search"></div>
+    <div id="toggle-handler-menu"></div>
+
+    <div class="navbar-background"></div>
+
+    <section class="profile-header">
+      <div class="profile-cover"></div>
+      <div class="profile-info">
+        <div class="profile-pic">
+          <img
+            src="./assets/images/profile_images/WhatsApp Image 2025-08-26 at 15.10.52_6ffb8d12.png"
+            alt="User Profile"
+          />
+        </div>
+        <div class="profile-details">
+          <h2>Avishka Ishan</h2>
+          <p>Software Engineering Undergraduate</p>
+          <button class="edit-btn">Edit Profile</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="profile-content">
+      <div class="profile-main">
+        <div class="card">
+          <h3>About Me</h3>
+          <p>
+            Passionate about books and technology. Currently managing my online
+            bookstore and pursuing Software Engineering at the University of
+            Kelaniya.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Contact Information</h3>
+          <p><strong>Email:</strong><span></span></p>
+          <p><strong>Phone:</strong><span></span></p>
+          <p><strong>Address:</strong><span></span></p>
+        </div>
+
+        <div class="card">
+          <h3>Recent Activity</h3>
+          <ul>
+            <li>Added a new book: "Clean Code"</li>
+            <li>Updated delivery partner details</li>
+            <li>Completed 3 new orders today</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="footer">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Readify</h3>
+            <br />
+            <p>Your Next Chapter, Anytime, Anywhere.</p>
+            <p>
+              Your trusted online bookstore, bringing stories, knowledge, and
+              imagination together. Discover, learn, and enjoy books anytime,
+              anywhere.
+            </p>
+            <br />
+            <div class="quick-social-media">
+              <ul>
+                <li><a href="#" class="fa fa-facebook"></a></li>
+                <li><a href="#" class="fa fa-twitter"></a></li>
+                <li><a href="#" class="fa fa-instagram"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Links</h3>
+            <div class="quick-media">
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Books</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">Admin</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Contact Us</h3>
+            <br />
+            <p>Telephone Number :</p>
+            <p>+94 77 659 9189</p>
+            <p>Address :</p>
+            <p>171, Dharmashoka Mawatha, Lewalla, Kandy</p>
+            <br />
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Readify. All rights reserved.</p>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="./assets/js/navbar.js"></script>
+    <script src="./assets/js/profile.js"></script>
+  </body>
+</html>

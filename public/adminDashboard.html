@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="./assets/css/root.css" />
+    <link rel="stylesheet" href="./assets/css/admin.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  </head>
+  <body>
+    <div class="dashboard_admin_body">
+      <div class="sidebar">
+        <a class="toggler" onclick="hideSidebar()">
+          <i class="fa fa-bars"></i>
+        </a>
+        <img src="./assets/images/logo.png" alt="" />
+        <a href="#">
+          <i class="fa fa-dashboard"></i>
+          <span class="names">Dashboard</span>
+        </a>
+        <a href="addBooks.html">
+          <i class="fa fa-plus"></i>
+          <span class="names">Add Books</span>
+        </a>
+        <a href="updateBooks.html">
+          <i class="fa fa-pencil-square"></i>
+          <span class="names">Update books</span>
+        </a>
+        <a href="deleteBooks.html">
+          <i class="fa fa-trash"></i>
+          <span class="names">Delete Books</span>
+        </a>
+        <a href="#orders">
+          <i class="fa fa-sort-amount-desc"></i>
+          <span class="names">Ongoing Orders</span>
+        </a>
+        <a href="#orders">
+          <i class="fa fa fa-history"></i>
+          <span class="names">Order history</span>
+        </a>
+
+        <a href="" onclick="logout()">
+          <i class="fa fa-sign-out"></i>
+          <span class="names">Logout</span>
+        </a>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main">
+        <div class="header">
+          <h1>Welcome,<span>Admin</span>👋</h1>
+        </div>
+        <div class="card">acsssssssssssss</div>
+
+        <div class="card">
+          <h3>Ongoing Orders</h3>
+          <div class="status-cards">
+            <div class="card details">
+              <h4 class="status">To Pack</h4>
+              <h3 class="count to-pack">0</h3>
+              <button><a href="./ordersAdmin.html">View</a></button>
+            </div>
+            <div class="card details">
+              <h4 class="status">To Ship</h4>
+              <h3 class="count to-ship">0</h3>
+              <button><a href="./ordersAdmin.html">View</a></button>
+            </div>
+            <div class="card details">
+              <h4 class="status shipped">Shipped</h4>
+              <h3 class="count shipped">0</h3>
+              <button><a href="./ordersAdmin.html">View</a></button>
+            </div>
+            <div class="card details">
+              <h4 class="status">Cancelled</h4>
+              <h3 class="count cancelled">0</h3>
+              <button><a href="./ordersAdmin.html">View</a></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/js/admin.js"></script>
+  </body>
+</html>

@@ -1,92 +1,93 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book Details</title>
   <link rel="stylesheet" href="./assets/css/books.css">
   <link rel="stylesheet" href="./assets/css/navbar.css">
   <link rel="stylesheet" href="./assets/css/footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
 </head>
 
 <body>
+  <div class="book-container">
 
+    <div class="book-image">
+      <img src="./assets/images/book_images/5_lov_languages.jpg" alt="Book Cover">
 
+    <div class="book-details">
+      <h1>The 5 Love Languages</h1>
+      <h3>by Gary Chapman</h3>
 
-
-
-  <div class="container">
-   <div class="book-img">
-    <img src="./assets/images/book_images/5_lov_languages.jpg" alt="book">
-    <h1>THE 5 LOVE LANGUAGES</h1>
-    <P>$12.29</P>
-   </div>
-
-
-  <div class="section">
-    <h3>About this book</h3>
-    <div id="description">This is a sample description of the book. It explains core ideas, target audience, and what
-      readers will learn. Use this section to talk about the book's themes, structure and why it's valuable.\n\n•
-      Concise examples\n• Practical exercises\n• Real-world projects</div>
-  </div>
-
-
-  <div class="section">
-    <div>
-      <h3>Reviews</h3>
-      <div class="rating">
-        <div class="stars" id="avg-stars"></div>
-        <div id="avg-score">4.8</div>
+      <div class="price-section">
+        <span class="current-price">$12.29</span>
+        <span class="original-price">$24.99</span>
+        <span class="discount">50% OFF</span>
       </div>
+
+      <button class="btn add-cart">Add to Cart</button>
+      <button class="btn buy-now">Buy Now</button>  
     </div>
+  </div>   
+  <div class="book-box">
+     <h2>About this book</h2>
+      <p>
+        This is a sample description of the book. It explains core ideas,
+        target audience, and what readers will learn. Use this section
+        to talk about the book's themes, structure and why it's valuable.
+      </p>
 
+      <h2>Reviews</h2>
+      <div class="review">
+          <div class="rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>(4.8/5)
+        <p>"Amazing book! Helped improve my relationship a lot." - Jane</p>
+      </div>
+      <div class="review">
+         <div class="rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div> (5/5)
+        <p>"Simple yet powerful concepts explained very clearly." - Mark</p>
+      </div>
 
-    <div id="reviews-list">
-      <!-- reviews inserted by JS -->
-    </div>
-
-
-    <div>
-      <h4>Leave a review</h4>
-      <form id="review-form" onsubmit="return false">
-        <div>
-          <input id="reviewer" placeholder="Your name">
-          <select id="review-rating">
-            <option value="5">5 — Excellent</option>
-            <option value="4">4 — Very good</option>
-            <option value="3">3 — Good</option>
-            <option value="2">2 — Fair</option>
-            <option value="1">1 — Poor</option>
-          </select>
-        </div>
-        <textarea id="review-text" placeholder="Write your review"></textarea>
-        <div>
-          <button id="submit-review">Submit</button>
-          <button id="clear-review">Clear</button>
-        </div>
+      <h2>Leave a review</h2>
+      <form>
+        <input type="text" placeholder="Your name">
+        <select>
+          <option>5 - Excellent</option>
+          <option>4 - Very Good</option>
+          <option>3 - Good</option>
+          <option>2 - Fair</option>
+          <option>1 - Poor</option>
+        </select>
+        <textarea placeholder="Write your review"></textarea>
+        <button type="submit" class="btn">Submit</button>
       </form>
+
+      <h2>Product details</h2>
+      <ul>
+        <li>Format: Paperback • 320 pages</li>
+        <li>Publisher: Moody Publishers</li>
+        <li>Language: English</li>
+        <li>Dimensions: 6 x 9 inches</li>
+      </ul>
+  </div> 
+      
     </div>
 
-
-  </div>
-
-
-  </section>
-
-
-  <section class="card">
-    <h3>Product details</h3>
-    <ul>
-      <li>Format: Paperback • 320 pages</li>
-      <li>Publisher: Example Press</li>
-      <li>Language: English</li>
-      <li>Dimensions: 6 x 9 inches</li>
-    </ul>
-  </section>
-  </main>
-  </div>
-  </div>
+ 
 
 
   <div class="cart-pill" id="cart-pill">

@@ -1,14 +1,14 @@
-.book-img{
-  max-width: 1200px;
+.book-container{
+    max-width: 1200px;
   width: 90%;
   margin: 50px auto;
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-gap: 20px;
-  max-height: 300px;
+  max-height: 1000px;
   
 }
-.section{
-  
+.book-details{
+  display: inline; 
 }

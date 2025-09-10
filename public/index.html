@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <link rel="stylesheet" href="./assets/css/root.css" />
+  <link rel="stylesheet" href="./assets/css/index.css" />
+  <link rel="stylesheet" href="./assets/css/footer.css" />
+  <link rel="stylesheet" href="./assets/css/navbar.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+  <body>
+    <nav class="navbar">
+      <div class="navbar-left">
+        <img src="assets/images/logos/logo_transparent.png" alt="Logo" />
+      </div>
+      <ul class="navbar-center">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Books</a></li>
+        <li><a href="#">Reviews</a></li>
+        <li><a href="#">Admin</a></li>
+      </ul>
+      <div class="navbar-right">
+        <div class="icon-row">
+          <i class="fa fa-search" id="search-icon"></i>
+          <a href="#"><i class="fa fa-user"></i></a>
+          <a href="#"><i class="fa fa-shopping-cart"></i></a>
+          <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
+        </div>
+      </div>
+    </nav>
+    <div class="search-panel" id="search-panel">
+      <input
+        type="text"
+        id="search-input-field"
+        placeholder="Search books..."
+      />
+    </div>
+    <div id="toggle-handler-search"></div>
+    <div id="toggle-handler-menu"></div>
+    <div class="navbar-background"></div>
+
+    <section class="container">
+      <div class="slider-wrapper">
+        <div class="slider" id="slider">
+          <div class="slide">
+            <img src="/public/assets/images/carousel/1.png" alt="Slide 1" />
+            <div class="caption">
+              <h2>Welcome to Readify</h2>
+              <p>
+                Welcome to Readify, your ultimate destination for books and
+                stories. Explore timeless classics and trending titles while
+                enjoying a seamless and immersive reading experience designed
+                just for you.
+              </p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="/public/assets/images/carousel/2.png" alt="Slide 2" />
+            <div class="caption">
+              <h2>New Arrivals</h2>
+              <p>
+                Check out the newest arrivals at Readify. From thrilling
+                adventures to inspiring non-fiction, each book is carefully
+                curated to bring fresh ideas and unforgettable experiences to
+                every reader.
+              </p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="/public/assets/images/carousel/3.png" alt="Slide 3" />
+            <div class="caption">
+              <h2>Exclusive Offers</h2>
+              <p>
+                Unlock exclusive offers at Readify. Grab bestsellers, special
+                bundles, and limited-time deals to expand your bookshelf while
+                enjoying incredible savings and handpicked selections made just
+                for you.
+              </p>
+            </div>
+          </div>
+          <div class="slide">
+            <img
+              src="/public/assets/images/carousel/1.png"
+              alt="Slide 1 Clone"
+            />
+            <div class="caption">
+              <h2>Welcome to Readify</h2>
+              <p>
+                Welcome to Readify, your ultimate destination for books and
+                stories. Explore timeless classics and trending titles while
+                enjoying a seamless and immersive reading experience designed
+                just for you.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="new_arrivals">
+      <div class="new_arrivals_top">
+        <h2>New Arrivals</h2>
+        <button class="btn_new_arrivals">More</button>
+      </div>
+      <div class="book-container" id="book-container">
+        <!-- Books will be dynamically inserted here -->
+        <div class="book-card">
+          <img
+            src="./assets/images/book_images/5_lov_languages.jpg"
+            alt="Book 1"
+          />
+          <h4>
+            <span>The 5 Love Languages</span>
+          </h4>
+          <p><span class="author" id="author">Gary Chapman</span></p>
+          <p><span class="price">$ 16.7</span></p>
+
+          <div class="buttons">
+            <button class="btn">Add to Cart</button>
+            <button class="btn">More Info</button>
+          </div>
+        </div>
+        <div class="book-card">
+          <img
+            src="./assets/images/book_images/a_memory_called_empire.jpg"
+            alt="Book 2"
+          />
+          <h4>
+            <span>A Memory Called Empire</span>
+          </h4>
+          <p><span class="author" id="author">Arkady Martine</span></p>
+          <p><span class="price" id="price">$ 15.99</span></p>
+          <div class="buttons">
+            <button class="btn">Add to Cart</button>
+            <button class="btn">More Info</button>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <img
+            src="./assets/images/book_images/ancillary_justice.jpg"
+            alt="Book 3"
+          />
+          <h4>
+            <span>Ancillary Justice</span>
+          </h4>
+          <p><span class="author" id="author">Ann Leckie</span></p>
+          <p><span class="price" id="price">$ 17.00</span></p>
+          <div class="buttons">
+            <button class="btn">Add to Cart</button>
+            <button class="btn">More Info</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="featured_books">
+      <div class="featured_books_top">
+        <h2>Featured Books</h2>
+        <button class="btn_featured_books">More</button>
+      </div>
+      <div class="book-container" id="book-container">
+        <!-- Books will be dynamically inserted here -->
+        <div class="book-card">
+          <img
+            src="./assets/images/book_images/5_lov_languages.jpg"
+            alt="Book 1"
+          />
+          <h4>
+            <span>The 5 Love Languages</span>
+          </h4>
+          <p><span class="author" id="author">Gary Chapman</span></p>
+          <p><span class="price">$ 16.7</span></p>
+
+          <div class="buttons">
+            <button class="btn">Add to Cart</button>
+            <button class="btn">More Info</button>
+          </div>
+        </div>
+        <div class="book-card">
+          <img
+            src="./assets/images/book_images/a_memory_called_empire.jpg"
+            alt="Book 2"
+          />
+          <h4>
+            <span>A Memory Called Empire</span>
+          </h4>
+          <p><span class="author" id="author">Arkady Martine</span></p>
+          <p><span class="price" id="price">$ 15.99</span></p>
+          <div class="buttons">
+            <button class="btn">Add to Cart</button>
+            <button class="btn">More Info</button>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <img
+            src="./assets/images/book_images/ancillary_justice.jpg"
+            alt="Book 3"
+          />
+          <h4>
+            <span>Ancillary Justice</span>
+          </h4>
+          <p><span class="author" id="author">Ann Leckie</span></p>
+          <p><span class="price" id="price">$ 17.00</span></p>
+          <div class="buttons">
+            <button class="btn">Add to Cart</button>
+            <button class="btn">More Info</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="review" id="review">
+      <h1 class="heading">Customer's Review</h1>
+      <div class="review-slider">
+        <div class="box">
+          <img
+            src="./assets/images/profile_images/WhatsApp Image 2025-08-26 at 15.10.52_6ffb8d12.png"
+            alt="pic_01"
+          />
+          <p>
+            "Absolutely love the freshness and quality of the products! The
+            delivery was super fast too. Definitely my go-to store from now on!"
+          </p>
+          <h3>Lily Parker</h3>
+          <div class="stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+        </div>
+
+        <div class="box">
+          <img
+            src="./assets/images/profile_images/WhatsApp Image 2025-08-26 at 15.10.52_6ffb8d12.png"
+            alt="pic_01"
+          />
+          <p>
+            "High quality at affordable prices. The avocados and dairy products
+            were super fresh. 10/10 would recommend!"
+          </p>
+          <h3>Chinthana Sandeepa</h3>
+          <div class="stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+        </div>
+
+        <div class="box">
+          <img
+            src="./assets/images/profile_images/WhatsApp Image 2025-08-26 at 15.10.52_6ffb8d12.png"
+            alt="pic_01"
+          />
+          <p>
+            "Good experience overall. Some items were a little pricey, but the
+            quality made up for it. Will shop again!"
+          </p>
+          <h3>Emma Collins</h3>
+          <div class="stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Readify</h3>
+            <br />
+            <p>Your Next Chapter, Anytime, Anywhere.</p>
+            <p>
+              Your trusted online bookstore, bringing stories, knowledge, and
+              imagination together. Discover, learn, and enjoy books anytime,
+              anywhere.
+            </p>
+            <br />
+            <div class="quick-social-media">
+              <ul>
+                <li><a href="#" class="fa fa-facebook"></a></li>
+                <li><a href="#" class="fa fa-twitter"></a></li>
+                <li><a href="#" class="fa fa-instagram"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Links</h3>
+            <div class="quick-media">
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Books</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">Admin</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Contact Us</h3>
+            <br />
+            <p>Telephone Number :</p>
+            <p>+94 77 659 9189</p>
+            <p>Address :</p>
+            <p>171, Dharmashoka Mawatha, Lewalla, Kandy</p>
+            <br />
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Readify. All rights reserved.</p>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/navbar.js"></script>
+  </body>
+</html>

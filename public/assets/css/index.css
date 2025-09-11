@@ -148,7 +148,7 @@
     padding: 10px;
     border-radius: 10px;
     background-color: var(--color-accent);
-    color: var(--color-primary);
+    color: black;
     font-size: 13px;
     font-weight: 500;
     border: none;

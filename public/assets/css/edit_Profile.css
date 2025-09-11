@@ -1,0 +1,158 @@
+.edit-profile {
+    display: flex;
+    margin: 90px 100px 0px;
+    padding: 20px;
+    max-width: 1400px;
+    justify-content: center;
+    gap: 90px;
+}
+
+.profile-pic-upload img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    margin: 40px 0;
+    border-radius: 50%;
+}
+
+.profile-pic-upload {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 20px;
+    color: rgb(84, 0, 0);
+}
+
+.profile_form {
+    width: 450px;
+    padding: 25px;
+    background: #f4f4f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px;
+    margin-bottom: 5px;
+    width: 400px;
+    border: #cccccc00;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    transition: border 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+.form-actions {
+    margin: 10px 0;
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+
+@media (max-width: 992px) {
+    .edit-profile {
+        flex-direction: column;
+        align-items: center;
+        margin: 40px 20px;
+        gap: 30px;
+    }
+
+    .profile-pic-upload img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .profile_form {
+        width: 100%;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-actions {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .edit-profile {
+        flex-direction: column;
+        align-items: center;
+        margin: 40px 20px;
+        gap: 30px;
+    }
+
+    .profile-pic-upload {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .profile-pic-upload img {
+        width: 220px;
+        height: 220px;
+        margin: 20px 0;
+    }
+
+    .profile_form {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-actions {
+        width: 100%;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile_form h2 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .profile-pic-upload img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.8rem;
+        padding: 10px;
+    }
+}

@@ -15,6 +15,38 @@
 </head>
 
 <body>
+     
+    <nav class="navbar">
+      <div class="navbar-left">
+        <img src="assets/images/logos/logo_transparent.png" alt="Logo" />
+      </div>
+      <ul class="navbar-center">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Books</a></li>
+        <li><a href="#">Reviews</a></li>
+        <li><a href="#">Admin</a></li>
+      </ul>
+      <div class="navbar-right">
+        <div class="icon-row">
+          <i class="fa fa-search" id="search-icon"></i>
+          <a href="#"><i class="fa fa-user"></i></a>
+          <a href="#"><i class="fa fa-shopping-cart"></i></a>
+          <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
+        </div>
+      </div>
+    </nav>
+    <div class="search-panel" id="search-panel">
+      <input
+        type="text"
+        id="search-input-field"
+        placeholder="Search books..."
+      />
+    </div>
+    <div id="toggle-handler-search"></div>
+    <div id="toggle-handler-menu"></div>
+    <div class="navbar-background"></div>
+    <script src="./assets/js/navbar.js"></script><br><br><br><br>
+
   <div class="book-container">
 
     <div class="book-image">
@@ -52,57 +84,65 @@
   </div>
 
   <div class="book-box">
-    <h2>About this book</h2>
-    <p>
-      This is a sample description of the book. It explains core ideas,
-      target audience, and what readers will learn. Use this section
-      to talk about the book's themes, structure and why it's valuable.
-    </p>
-
-    <h2>Reviews</h2>
-    <div class="review">
-      <div class="rating">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-      </div>(4.8/5)
-      <p>"Amazing book! Helped improve my relationship a lot." - Jane</p>
+    <div class="book-about">
+      <h2>About this book</h2>
+      <p>
+        A perennial New York Times bestseller for over a decade!
+      
+        Falling in love is easy. Staying in love that’s the challenge. How can you keep your relationship fresh and growing
+        amid the demands, conflicts, and just plain boredom of everyday life?
+      
+        In the #1 New York Times international bestseller The 5 Love Languages, you’ll discover the secret that has
+        transformed millions of relationships worldwide. Whether your relationship is flourishing or failing, Dr. Gary
+        Chapman’s proven approach to showing and receiving love will help you experience deeper and richer levels of intimacy
+        with your partner—starting today.
+      
+        The 5 Love Languages® is as practical as it is insightful. Updated to reflect the complexities of relationships today,
+        this new edition reveals intrinsic truths and applies relevant, actionable wisdom in ways that work.
+      
+        Includes the Love Language assessment so you can discover your love language and that of your loved one.
+      </p>
     </div>
-    <div class="review">
-      <div class="rating">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-      </div> (5/5)
-      <p>"Simple yet powerful concepts explained very clearly." - Mark</p>
+    <div class="book-review">
+      <h2>Reviews</h2>
+      <div class="review">
+        <div class="rating">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <p>"Amazing book! Helped improve my relationship a lot." - Jane</p>
+      </div>
+      <div class="review">
+        <div class="rating">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div> 
+        <p>"Simple yet powerful concepts explained very clearly." - Mark</p>
+      </div>
     </div>
-
-    <h2>Leave a review</h2>
-    <form>
-      <input type="text" placeholder="Your name">
-      <select>
-        <option>5 - Excellent</option>
-        <option>4 - Very Good</option>
-        <option>3 - Good</option>
-        <option>2 - Fair</option>
-        <option>1 - Poor</option>
-      </select>
-      <textarea placeholder="Write your review"></textarea>
-      <button type="submit" class="btn">Submit</button>
-    </form>
-
-
+    <div class="book-leave">
+      <h2>Leave a review</h2>
+      <form>
+        <input type="text" placeholder="Your name">
+        <select>
+          <option>5 - Excellent</option>
+          <option>4 - Very Good</option>
+          <option>3 - Good</option>
+          <option>2 - Fair</option>
+          <option>1 - Poor</option>
+        </select>
+        <textarea placeholder="Write your review"></textarea>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </div>
+  
   </div>
-
-
-
-
-
-
 
   <footer>
     <div class="footer">

@@ -47,10 +47,13 @@ try {
     $response["success"] = true;
     if ($user['category'] === 'customers') {
         $response["redirect"] = "index.html";
+        $response["message"]  = "Login successfully!.<br>Directing to the Dashboard...";
+
     } else {
         $response["redirect"] = "adminDashboard.html";
+        $response["message"]  = "Login successfully!.<br>Directing to the Homepage...";
+
     }
-    $response["message"]   = "Login successfully!.<br>Directing to the Homepage...";
     $_SESSION['user_type'] = $user['category'];
     $_SESSION['email']     = $email;
     session_regenerate_id(true);

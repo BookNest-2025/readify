@@ -48,3 +48,21 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleHandlerMenu.classList.remove("active");
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const userIcon = document.getElementById("user-icon");
+  userIcon &&
+    connectBackEnd({
+      backendUrl: "../backend/checkUserLogin.php",
+      callback: (data) => {
+        if (data.isLoggedIn) {
+          if (data.category === "admin") userIcon.href = "adminDashboard.html";
+          else userIcon.href = "profile.html";
+        } else {
+          userIcon.href = "login.html";
+          console.log("login");
+        }
+      },
+      method: "GET",
+    });
+});

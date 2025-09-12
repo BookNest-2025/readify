@@ -17,17 +17,17 @@ const redirect = (location, time = 2000) => {
   }, time);
 };
 
-const logout = () => {
-  fetch("../ajax/logout.php", { method: "POST" })
-    .then((res) => res.json())
-    .then((data) => {
-      if (data.success) {
-        addAlert(data.message, false);
-        redirect(data.redirect);
-      }
-    })
-    .catch((err) => console.error("Logout failed:", err));
-};
+// const logout = () => {
+//   fetch("../ajax/logout.php", { method: "POST" })
+//     .then((res) => res.json())
+//     .then((data) => {
+//       if (data.success) {
+//         addAlert(data.message, false);
+//         redirect(data.redirect);
+//       }
+//     })
+//     .catch((err) => console.error("Logout failed:", err));
+// };
 
 const connectBackEnd = ({
   backendUrl,
@@ -68,4 +68,17 @@ const connectBackEnd = ({
   } else {
     sendRequest();
   }
+};
+
+const logout = (e) => {
+  e.preventDefault();
+  connectBackEnd({
+    backendUrl: "../backend/logout.php",
+    method: "GET",
+    callback: (data) => {
+      if (data.success) addAlert(data.message, false);
+      if (data.error) addAlert(data.error);
+      if (data.redirect) redirect(data.redirect);
+    },
+  });
 };

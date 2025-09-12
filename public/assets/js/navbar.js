@@ -60,7 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
           else userIcon.href = "profile.html";
         } else {
           userIcon.href = "login.html";
-          console.log("login");
         }
       },
       method: "GET",

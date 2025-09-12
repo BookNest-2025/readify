@@ -85,3 +85,33 @@ const checkAdmin = () => {
     },
   });
 };
+
+const showBookCards = (books, containerId) => {
+  const newArrivals = document.getElementById(containerId);
+  return books.map((book) => {
+    console.log(book);
+    const { book_id, image, title, authors, price } = book;
+    newArrivals.innerHTML += `<div class="book-card">
+              <a href="book.html?id=${book_id}">
+                <img
+                  src="./uploads/${image}"
+                  alt="book${book_id}"
+                />
+                <h4>
+                  <span>${title}</span>
+                </h4>
+                <p>
+                  <span class="author" id="author">
+                    ${authors.join(", ")}
+                  </span>
+                </p>
+                <p>
+                  <span class="price">${price} LKR</span>
+                </p>
+              </a>
+              <div class="buttons">
+                <button class="btn" onclick="addToCart(${book_id})">Add to Cart</button>
+              </div>
+            </div>`;
+  });
+};

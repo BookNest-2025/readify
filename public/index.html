@@ -10,12 +10,10 @@
     <link rel="stylesheet" href="./assets/css/navbar.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <style>
       .loading,
       .no-books,
@@ -39,6 +37,7 @@
     </style>
   </head>
   <body>
+    <div class="alert"></div>
     <header>
       <nav class="navbar">
         <div class="navbar-left">
@@ -63,8 +62,7 @@
         <input
           type="text"
           id="search-input-field"
-          placeholder="Search books..."
-        />
+          placeholder="Search books..." />
       </div>
       <div id="toggle-handler-search"></div>
       <div id="toggle-handler-menu"></div>
@@ -131,8 +129,8 @@
         <h2>New Arrivals</h2>
         <button class="btn_new_arrivals">More</button>
       </div>
-      <div class="book-container" id="book-container-new">
-        <!-- Books will be dynamically inserted from database -->
+      <div class="book-container" id="new-arrivals">
+        <!-- Books will be dynamically inserted here -->
       </div>
     </section>
 
@@ -152,8 +150,7 @@
         <div class="box">
           <img
             src="./assets/images/profile_images/WhatsApp Image 2025-08-26 at 15.10.52_6ffb8d12.png"
-            alt="pic_01"
-          />
+            alt="pic_01" />
           <p>
             "Absolutely love the freshness and quality of the products! The
             delivery was super fast too. Definitely my go-to store from now on!"
@@ -170,8 +167,7 @@
         <div class="box">
           <img
             src="./assets/images/profile_images/WhatsApp Image 2025-08-26 at 15.10.52_6ffb8d12.png"
-            alt="pic_01"
-          />
+            alt="pic_01" />
           <p>
             "High quality at affordable prices. The avocados and dairy products
             were super fresh. 10/10 would recommend!"
@@ -188,8 +184,7 @@
         <div class="box">
           <img
             src="./assets/images/profile_images/WhatsApp Image 2025-08-26 at 15.10.52_6ffb8d12.png"
-            alt="pic_01"
-          />
+            alt="pic_01" />
           <p>
             "Good experience overall. Some items were a little pricey, but the
             quality made up for it. Will shop again!"
@@ -256,8 +251,8 @@
         </ul>
       </div>
     </footer>
-    <script src="./assets/js/index.js"></script>
     <script src="./assets/js/reusableFunctions.js"></script>
+    <script src="./assets/js/index.js"></script>
     <script src="./assets/js/navbar.js"></script>
   </body>
 </html>

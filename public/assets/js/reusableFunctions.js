@@ -17,18 +17,6 @@ const redirect = (location, time = 2000) => {
   }, time);
 };
 
-// const logout = () => {
-//   fetch("../ajax/logout.php", { method: "POST" })
-//     .then((res) => res.json())
-//     .then((data) => {
-//       if (data.success) {
-//         addAlert(data.message, false);
-//         redirect(data.redirect);
-//       }
-//     })
-//     .catch((err) => console.error("Logout failed:", err));
-// };
-
 const connectBackEnd = ({
   backendUrl,
   callback = (data) => {},
@@ -79,6 +67,21 @@ const logout = (e) => {
       if (data.success) addAlert(data.message, false);
       if (data.error) addAlert(data.error);
       if (data.redirect) redirect(data.redirect);
+    },
+  });
+};
+
+const checkAdmin = () => {
+  connectBackEnd({
+    backendUrl: "../backend/checkUserLogin.php",
+    method: "GET",
+    callback: (data) => {
+      if (!data.isLoggedIn || data.category !== "admin") {
+        addAlert(
+          "Can not view page without log in as an Admin.<br>Directiong to Homepage..."
+        );
+        redirect("index.html");
+      }
     },
   });
 };

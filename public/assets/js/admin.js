@@ -6,3 +6,5 @@ const hideSidebar = () => {
   main.classList.toggle("active");
   names.forEach((name) => name.classList.toggle("active"));
 };
+
+checkAdmin();

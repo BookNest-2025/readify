@@ -47,16 +47,15 @@ try {
     $response["success"] = true;
     if ($user['category'] === 'customers') {
         $response["redirect"] = "index.html";
-        $response["message"]  = "Login successfully!.<br>Directing to the Dashboard...";
+        $response["message"]  = "Login successfully!.<br>Directing to the Homepage...";
 
     } else {
-        $response["redirect"] = "adminDashboard.html";
-        $response["message"]  = "Login successfully!.<br>Directing to the Homepage...";
+        $response["redirect"] = "index.html";
+        $response["message"]  = "Login successfully!.<br>Directing to the Dashboard...";
 
     }
     $_SESSION['user_type'] = $user['category'];
     $_SESSION['email']     = $email;
-    session_regenerate_id(true);
 } catch (Exception $e) {
     $response['error'] = $e->getMessage();
 }

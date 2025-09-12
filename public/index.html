@@ -11,48 +11,47 @@
   <link rel="stylesheet" href="./assets/css/navbar.css" />
   <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-  />
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <body>
-    <nav class="navbar">
-      <div class="navbar-left">
-        <img src="assets/images/logos/logo_transparent.png" alt="Logo" />
-      </div>
-      <ul class="navbar-center">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Books</a></li>
-        <li><a href="#">Reviews</a></li>
-        <li><a href="#">Admin</a></li>
-      </ul>
-      <div class="navbar-right">
-        <div class="icon-row">
-          <i class="fa fa-search" id="search-icon"></i>
-          <a href="#"><i class="fa fa-user"></i></a>
-          <a href="#"><i class="fa fa-shopping-cart"></i></a>
-          <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
+    <header>
+      <nav class="navbar">
+        <div class="navbar-left">
+          <img src="assets/images/logos/logo_transparent.png" alt="Logo" />
         </div>
+        <ul class="navbar-center">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Books</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="#">Admin</a></li>
+        </ul>
+        <div class="navbar-right">
+          <div class="icon-row">
+            <i class="fa fa-search" id="search-icon"></i>
+            <a href="login.html"><i class="fa fa-user"></i></a>
+            <a href="#"><i class="fa fa-shopping-cart"></i></a>
+            <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
+          </div>
+        </div>
+      </nav>
+      <div class="search-panel" id="search-panel">
+        <input
+          type="text"
+          id="search-input-field"
+          placeholder="Search books..." />
       </div>
-    </nav>
-    <div class="search-panel" id="search-panel">
-      <input
-        type="text"
-        id="search-input-field"
-        placeholder="Search books..."
-      />
-    </div>
-    <div id="toggle-handler-search"></div>
-    <div id="toggle-handler-menu"></div>
-    <div class="navbar-background"></div>
+      <div id="toggle-handler-search"></div>
+      <div id="toggle-handler-menu"></div>
+      <div class="navbar-background"></div>
+    </header>
 
     <section class="container">
       <div class="slider-wrapper">
         <div class="slider" id="slider">
           <div class="slide">
-            <img src="/public/assets/images/carousel/1.png" alt="Slide 1" />
+            <img src="./assets/images/carousel/1.png" alt="Slide 1" />
             <div class="caption">
               <h2>Welcome to Readify</h2>
               <p>
@@ -64,7 +63,7 @@
             </div>
           </div>
           <div class="slide">
-            <img src="/public/assets/images/carousel/2.png" alt="Slide 2" />
+            <img src="./assets/images/carousel/2.png" alt="Slide 2" />
             <div class="caption">
               <h2>New Arrivals</h2>
               <p>
@@ -76,7 +75,7 @@
             </div>
           </div>
           <div class="slide">
-            <img src="/public/assets/images/carousel/3.png" alt="Slide 3" />
+            <img src="./assets/images/carousel/3.png" alt="Slide 3" />
             <div class="caption">
               <h2>Exclusive Offers</h2>
               <p>
@@ -88,10 +87,7 @@
             </div>
           </div>
           <div class="slide">
-            <img
-              src="/public/assets/images/carousel/1.png"
-              alt="Slide 1 Clone"
-            />
+            <img src="./assets/images/carousel/1.png" alt="Slide 1 Clone" />
             <div class="caption">
               <h2>Welcome to Readify</h2>
               <p>
@@ -116,8 +112,7 @@
           <div class="book-card">
             <img
               src="./assets/images/book_images/5_lov_languages.jpg"
-              alt="Book 1"
-            />
+              alt="Book 1" />
             <h4>
               <span>The 5 Love Languages</span>
             </h4>
@@ -133,8 +128,7 @@
           <div class="book-card">
             <img
               src="./assets/images/book_images/a_memory_called_empire.jpg"
-              alt="Book 2"
-            />
+              alt="Book 2" />
             <h4>
               <span>A Memory Called Empire</span>
             </h4>
@@ -150,8 +144,7 @@
           <div class="book-card">
             <img
               src="./assets/images/book_images/ancillary_justice.jpg"
-              alt="Book 3"
-            />
+              alt="Book 3" />
             <h4>
               <span>Ancillary Justice</span>
             </h4>
@@ -176,8 +169,7 @@
           <div class="book-card">
             <img
               src="./assets/images/book_images/5_lov_languages.jpg"
-              alt="Book 1"
-            />
+              alt="Book 1" />
             <h4>
               <span>The 5 Love Languages</span>
             </h4>
@@ -193,8 +185,7 @@
           <div class="book-card">
             <img
               src="./assets/images/book_images/a_memory_called_empire.jpg"
-              alt="Book 2"
-            />
+              alt="Book 2" />
             <h4>
               <span>A Memory Called Empire</span>
             </h4>
@@ -209,8 +200,7 @@
           <div class="book-card">
             <img
               src="./assets/images/book_images/ancillary_justice.jpg"
-              alt="Book 3"
-            />
+              alt="Book 3" />
             <h4>
               <span>Ancillary Justice</span>
             </h4>
@@ -230,8 +220,7 @@
         <div class="box">
           <img
             src="./assets/images/profile_images/WhatsApp Image 2025-08-26 at 15.10.52_6ffb8d12.png"
-            alt="pic_01"
-          />
+            alt="pic_01" />
           <p>
             "Absolutely love the freshness and quality of the products! The
             delivery was super fast too. Definitely my go-to store from now on!"
@@ -248,8 +237,7 @@
         <div class="box">
           <img
             src="./assets/images/profile_images/WhatsApp Image 2025-08-26 at 15.10.52_6ffb8d12.png"
-            alt="pic_01"
-          />
+            alt="pic_01" />
           <p>
             "High quality at affordable prices. The avocados and dairy products
             were super fresh. 10/10 would recommend!"
@@ -266,8 +254,7 @@
         <div class="box">
           <img
             src="./assets/images/profile_images/WhatsApp Image 2025-08-26 at 15.10.52_6ffb8d12.png"
-            alt="pic_01"
-          />
+            alt="pic_01" />
           <p>
             "Good experience overall. Some items were a little pricey, but the
             quality made up for it. Will shop again!"

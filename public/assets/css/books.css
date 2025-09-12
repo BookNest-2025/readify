@@ -170,13 +170,4 @@ form .btn:hover {
   background: #86e4eb;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .book-container {
-    flex-direction: column;
-  }
 
-  .book-image img {
-    margin: 0 auto 20px;
-  }
-}

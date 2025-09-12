@@ -4,17 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Readify</title>
+    <link rel="stylesheet" href="./assets/css/root.css" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <link rel="stylesheet" href="./assets/css/footer.css" />
+    <link rel="stylesheet" href="./assets/css/navbar.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      .loading,
+      .no-books,
+      .error-message {
+        text-align: center;
+        padding: 2rem;
+        grid-column: 1 / -1;
+      }
+
+      .loading {
+        color: #666;
+        font-style: italic;
+      }
+
+      .error-message {
+        color: #d9534f;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        border-radius: 4px;
+      }
+    </style>
   </head>
-  <link rel="stylesheet" href="./assets/css/root.css" />
-  <link rel="stylesheet" href="./assets/css/index.css" />
-  <link rel="stylesheet" href="./assets/css/footer.css" />
-  <link rel="stylesheet" href="./assets/css/navbar.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <body>
     <header>
       <nav class="navbar">
@@ -40,7 +63,8 @@
         <input
           type="text"
           id="search-input-field"
-          placeholder="Search books..." />
+          placeholder="Search books..."
+        />
       </div>
       <div id="toggle-handler-search"></div>
       <div id="toggle-handler-menu"></div>
@@ -101,60 +125,14 @@
         </div>
       </div>
     </section>
+
     <section class="new_arrivals">
       <div class="new_arrivals_top">
         <h2>New Arrivals</h2>
         <button class="btn_new_arrivals">More</button>
       </div>
-      <div class="book-container" id="book-container">
-        <!-- Books will be dynamically inserted here -->
-        <a href="#">
-          <div class="book-card">
-            <img
-              src="./assets/images/book_images/5_lov_languages.jpg"
-              alt="Book 1" />
-            <h4>
-              <span>The 5 Love Languages</span>
-            </h4>
-            <p><span class="author" id="author">Gary Chapman</span></p>
-            <p><span class="price">$ 16.7</span></p>
-
-            <div class="buttons">
-              <button class="btn">Add to Cart</button>
-            </div>
-          </div>
-        </a>
-        <a href="#">
-          <div class="book-card">
-            <img
-              src="./assets/images/book_images/a_memory_called_empire.jpg"
-              alt="Book 2" />
-            <h4>
-              <span>A Memory Called Empire</span>
-            </h4>
-            <p><span class="author" id="author">Arkady Martine</span></p>
-            <p><span class="price" id="price">$ 15.99</span></p>
-            <div class="buttons">
-              <button class="btn">Add to Cart</button>
-            </div>
-          </div>
-        </a>
-
-        <a href="">
-          <div class="book-card">
-            <img
-              src="./assets/images/book_images/ancillary_justice.jpg"
-              alt="Book 3" />
-            <h4>
-              <span>Ancillary Justice</span>
-            </h4>
-            <p><span class="author" id="author">Ann Leckie</span></p>
-            <p><span class="price" id="price">$ 17.00</span></p>
-            <div class="buttons">
-              <button class="btn">Add to Cart</button>
-            </div>
-          </div>
-        </a>
+      <div class="book-container" id="book-container-new">
+        <!-- Books will be dynamically inserted from database -->
       </div>
     </section>
 
@@ -163,54 +141,8 @@
         <h2>Featured Books</h2>
         <button class="btn_featured_books">More</button>
       </div>
-      <div class="book-container" id="book-container">
-        <!-- Books will be dynamically inserted here -->
-        <a href="#">
-          <div class="book-card">
-            <img
-              src="./assets/images/book_images/5_lov_languages.jpg"
-              alt="Book 1" />
-            <h4>
-              <span>The 5 Love Languages</span>
-            </h4>
-            <p><span class="author" id="author">Gary Chapman</span></p>
-            <p><span class="price">$ 16.7</span></p>
-
-            <div class="buttons">
-              <button class="btn">Add to Cart</button>
-            </div>
-          </div>
-        </a>
-        <a href="#">
-          <div class="book-card">
-            <img
-              src="./assets/images/book_images/a_memory_called_empire.jpg"
-              alt="Book 2" />
-            <h4>
-              <span>A Memory Called Empire</span>
-            </h4>
-            <p><span class="author" id="author">Arkady Martine</span></p>
-            <p><span class="price" id="price">$ 15.99</span></p>
-            <div class="buttons">
-              <button class="btn">Add to Cart</button>
-            </div>
-          </div>
-        </a>
-        <a href="">
-          <div class="book-card">
-            <img
-              src="./assets/images/book_images/ancillary_justice.jpg"
-              alt="Book 3" />
-            <h4>
-              <span>Ancillary Justice</span>
-            </h4>
-            <p><span class="author" id="author">Ann Leckie</span></p>
-            <p><span class="price" id="price">$ 17.00</span></p>
-            <div class="buttons">
-              <button class="btn">Add to Cart</button>
-            </div>
-          </div>
-        </a>
+      <div class="book-container" id="book-container-featured">
+        <!-- Books will be dynamically inserted from database -->
       </div>
     </div>
 
@@ -220,7 +152,8 @@
         <div class="box">
           <img
             src="./assets/images/profile_images/WhatsApp Image 2025-08-26 at 15.10.52_6ffb8d12.png"
-            alt="pic_01" />
+            alt="pic_01"
+          />
           <p>
             "Absolutely love the freshness and quality of the products! The
             delivery was super fast too. Definitely my go-to store from now on!"
@@ -237,7 +170,8 @@
         <div class="box">
           <img
             src="./assets/images/profile_images/WhatsApp Image 2025-08-26 at 15.10.52_6ffb8d12.png"
-            alt="pic_01" />
+            alt="pic_01"
+          />
           <p>
             "High quality at affordable prices. The avocados and dairy products
             were super fresh. 10/10 would recommend!"
@@ -254,7 +188,8 @@
         <div class="box">
           <img
             src="./assets/images/profile_images/WhatsApp Image 2025-08-26 at 15.10.52_6ffb8d12.png"
-            alt="pic_01" />
+            alt="pic_01"
+          />
           <p>
             "Good experience overall. Some items were a little pricey, but the
             quality made up for it. Will shop again!"

@@ -50,7 +50,7 @@ try {
         $response["message"]  = "Login successfully!.<br>Directing to the Homepage...";
 
     } else {
-        $response["redirect"] = "index.html";
+        $response["redirect"] = "adminDashboard.html";
         $response["message"]  = "Login successfully!.<br>Directing to the Dashboard...";
 
     }

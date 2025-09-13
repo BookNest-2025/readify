@@ -43,18 +43,19 @@ const showBook = ({
               <span class="discount">50% OFF</span>
               <span class="sold">${sold} sold</span>
             </div>
+            <div class="book-about">
+              <h2>About this book</h2>
+              <p>
+                ${description}
+              </p>
+            </div>
             <div class="book-button">
               <button class="btn add-cart" onclick="addToCart(${book_id})">Add to Cart</button>
               <button class="btn buy-now" onclick="buyNow(${book_id})">Buy Now</button>
             </div>
           </div>
         </div>
-        <div class="book-about">
-          <h2>About this book</h2>
-          <p>
-            ${description}
-          </p>
-        </div>
+        
       </div>
     `);
 

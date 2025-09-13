@@ -1,255 +1,441 @@
-.book-container {
-  display: flex;
-  max-width: 1100px;
-  margin: auto;
-  padding: 50px 20px;
-  box-sizing: content-box;
-  box-shadow: 0 3px 8px #60b2e6;
-  margin-top: 105px;
-  flex-direction: column;
-}
-
 .main {
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 120px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
 }
 
 .book-image {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .book-image img {
+  max-width: 350px;
   width: 100%;
-  max-width: 400px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-}
-.book-box {
-  display: grid;
-  max-width: 1100px;
-  margin: auto;
-  padding: 20px;
-}
-.book-about h2 {
-  margin: 5px 0;
-  color: #111;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
 }
 
-.book-about p {
-  font-size: 16px;
-  color: #444;
-  margin-bottom: 15px;
-}
-
-/* Reviews */
-.book-review h2 {
-  padding-bottom: 10px;
-}
-.review {
-  margin-bottom: 15px;
-  padding: 12px;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  background: var(--color-text-secondary);
-}
-
-.rating {
-  color: #f39c12;
-  margin-bottom: 6px;
-}
-
-/* Review form */
-form {
+.book-details {
+  flex: 2;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-form input,
-form select,
-form textarea {
-  padding: 10px;
-  font-size: 14px;
-  border: none;
-  border-radius: 6px;
-}
-
-form textarea {
-  resize: vertical;
-  min-height: 70px;
-}
-
-form .btn {
-  background: #1d3557;
-  color: white;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-form .btn:hover {
-  background: #457b9d;
-}
-
-/* Right side: product details */
-.book-details {
-  display: grid;
+  gap: 35px;
   justify-content: center;
 }
 
-.book-title h1 h3 {
-  color: #111;
+.book-title h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #1d3557;
 }
 
-.book-product ul {
-  list-style: none;
-  width: 500px;
-  padding: 0;
-  margin: 0 0 15px 0;
-}
-
-.book-product ul li {
-  font-size: 14px;
-  margin-bottom: 5px;
+.book-title h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
   color: #555;
 }
 
-/* Price section */
 .price-section {
-  width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
 }
 
 .current-price {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   color: #e63946;
-  margin-right: 10px;
 }
 
 .original-price {
   text-decoration: line-through;
-  color: #888;
-  margin-right: 8px;
+  color: #aaa;
 }
 
 .discount {
-  color: #2a9d8f;
-  font-weight: bold;
+  background: #2a9d8f;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
 }
 
 .sold {
-  color: #2a9d8f;
+  font-size: 14px;
+  color: var(--color-secondary);
 }
 
-/* Buttons */
+.book-about h2 {
+  margin-bottom: 8px;
+  font-size: 1.4rem;
+  color: #1d3557;
+}
+
+.book-about p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.book-button {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
 .btn {
-  width: 100px;
-  height: 50px;
-  font-size: 14px;
+  flex: 1;
+  min-width: 130px;
+  height: 48px;
+  font-size: 15px;
+  font-weight: 600;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
 }
 
 .add-cart {
-  border: 1px solid #f4a261;
-  color: #f4a261;
-  background-color: white;
+  border: 2px;
+  color: #ffffff;
+  background: #f4a261;
 }
 
 .add-cart:hover {
-  background: #efd1c9;
+  background: #930000;
+  color: #fff;
 }
 
 .buy-now {
   background: var(--color-secondary);
-  color: white;
+  color: #fff;
 }
 
 .buy-now:hover {
-  background: #86e4eb;
+  background: var(--color-primary);
 }
 
-@media (max-width: 768px) {
-  .book-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 15px;
-    margin-top: 98px;
+.book-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.book-review {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.book-review h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1d3557;
+  margin-bottom: 10px;
+}
+
+/* Each review card */
+.review {
+  padding: 18px 20px;
+  border-radius: 10px;
+  background: #f9f9f9;
+  border-left: 5px solid #457b9d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.review p {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+  font-style: italic;
+}
+
+.rating {
+  color: #f4a261;
+  font-size: 16px;
+}
+
+.book-leave {
+  flex: 1;
+  background: var(--color-background);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.book-leave h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #1d3557;
+}
+
+.book-leave form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.book-leave input,
+.book-leave select,
+.book-leave textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.book-leave input:focus,
+.book-leave select:focus,
+.book-leave textarea:focus {
+  border-color: #457b9d;
+  box-shadow: 0 0 5px rgba(69, 123, 157, 0.3);
+}
+
+.book-leave textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.book-leave .btn {
+  background: var(--color-secondary);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.book-leave .btn:hover {
+  background: var(--color-primary);
+}
+
+@media (max-width: 1024px) {
+  .main {
+    gap: 30px;
+    padding: 20px;
   }
 
   .book-image img {
-    max-width: 250px;
-    margin: 0 auto 20px auto;
+    max-width: 280px;
+  }
+
+  .book-title h1 {
+    font-size: 1.8rem;
+  }
+
+  .price-section {
+    font-size: 15px;
+  }
+
+  .book-about p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 900px) {
+  .main {
+    flex-direction: column;
+    text-align: center;
   }
 
   .book-details {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
-    gap: 15px;
   }
 
-  .book-product ul,
   .price-section {
+    justify-content: center;
+  }
+
+  .book-about p {
+    text-align: center;
+  }
+
+  .book-button {
+    flex-direction: column;
     width: 100%;
   }
 
   .btn {
     width: 100%;
-    height: 45px;
-    font-size: 15px;
-  }
-
-  .book-button {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
   }
 
   .book-box {
-    display: flex;
     flex-direction: column;
-    gap: 20px;
+    padding: 20px;
+  }
+
+  .book-leave {
+    order: -1;
+
+  }
+}
+
+
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    text-align: center;
+    margin: 60px auto;
+    padding: 20px;
+  }
+
+  .book-details {
+    align-items: center;
+    gap: 25px;
+  }
+
+  .book-title h1 {
+    font-size: 1.6rem;
+  }
+
+  .book-title h3 {
+    font-size: 1rem;
+  }
+
+  .price-section {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .book-about p {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .book-button {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    height: 45px;
+  }
+
+  .book-box {
+    flex-direction: column;
+    padding: 20px;
+    gap: 25px;
+  }
+
+  .book-leave {
+    order: -1;
   }
 }
 
 @media (max-width: 480px) {
-  .book-container {
-    padding: 10px;
-  }
   .main {
-    flex-direction: column;
+    margin: 120px auto;
+    padding: 15px;
+    gap: 20px;
   }
 
   .book-image img {
-    max-width: 200px;
+    max-width: 220px;
   }
 
   .book-title h1 {
-    font-size: 20px;
+    font-size: 1.4rem;
   }
 
   .book-title h3 {
-    font-size: 16px;
+    font-size: 0.9rem;
+  }
+
+  .price-section {
+    font-size: 14px;
+    gap: 6px;
   }
 
   .current-price {
     font-size: 18px;
   }
 
-  .original-price {
-    font-size: 14px;
+  .discount {
+    font-size: 11px;
+    padding: 2px 6px;
   }
 
-  .discount {
+  .book-about h2 {
+    font-size: 1.2rem;
+  }
+
+  .book-about p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .review p {
+    font-size: 13px;
+  }
+
+  .book-leave input,
+  .book-leave select,
+  .book-leave textarea {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .book-leave .btn {
     font-size: 14px;
+    height: 42px;
+  }
+}
+
+@media (max-width: 360px) {
+  .book-image img {
+    max-width: 180px;
+  }
+
+  .book-title h1 {
+    font-size: 1.2rem;
+  }
+
+  .book-title h3 {
+    font-size: 0.8rem;
+  }
+
+  .btn {
+    font-size: 13px;
+    height: 40px;
+  }
+
+  .review,
+  .book-leave {
+    padding: 15px;
   }
 }

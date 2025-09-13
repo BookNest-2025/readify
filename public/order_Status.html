@@ -47,7 +47,79 @@
     <div id="toggle-handler-search"></div>
     <div id="toggle-handler-menu"></div>
     <div class="navbar-background"></div>
-
+    <!-- ------------------------------------------------------------------------------------------------------ -->
+    <div class="order_status">
+      <div class="filter">
+        <label for="statusFilter">Filter by Status:</label>
+        <select id="statusFilter">
+          <option value="all">All</option>
+          <option value="processing">Processing</option>
+          <option value="completed">Completed</option>
+        </select>
+      </div>
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th>Order</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Total</th>
+              <th>Actions</th>
+              <th>Service</th>
+              <th>Due Date/Time</th>
+            </tr>
+          </thead>
+          <tbody id="orderTable">
+            <div class="order">
+              <tr data-status="completed">
+                <td><span>#1</span> <span>Joe Blogs</span></td>
+                <td>11 Apr 2022</td>
+                <td><span class="status completed">Completed</span></td>
+                <td>$34.20</td>
+                <td><button class="action-btn"></button></td>
+                <td><span class="service">Delivery</span></td>
+                <td>-</td>
+              </tr>
+            </div>
+            <div class="order">
+              <tr data-status="processing">
+                <td><span>#1</span> <span>Joe Blogs</span></td>
+                <td>11 Apr 2022</td>
+                <td><span class="status processing">Processing</span></td>
+                <td>$18.00</td>
+                <td><button class="action-btn"></button></td>
+                <td><span class="service">Delivery</span></td>
+                <td>-</td>
+              </tr>
+            </div>
+            <div class="order">
+              <tr data-status="processing">
+                <td><span>#1</span> <span>Joe Blogs</span></td>
+                <td>5 Apr 2022</td>
+                <td><span class="status processing">Processing</span></td>
+                <td>$27.98</td>
+                <td><button class="action-btn"></button></td>
+                <td><span class="service">Delivery</span></td>
+                <td>Date: 23 Apr 2022<br />Time: 11:00 am</td>
+              </tr>
+            </div>
+            <div class="order">
+              <tr data-status="completed">
+                <td><span>#1</span> <span>Joe Blogs</span></td>
+                <td>3 Apr 2022</td>
+                <td><span class="status completed">Completed</span></td>
+                <td>$22.50</td>
+                <td><button class="action-btn"></button></td>
+                <td><span class="service">Pickup</span></td>
+                <td>-</td>
+              </tr>
+            </div>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- ----------------------------------------------------------------------------------------------------- -->
     <footer>
       <div class="footer">
         <div class="footer-content">

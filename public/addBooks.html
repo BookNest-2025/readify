@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/root.css" />
+    <link rel="stylesheet" href="./assets/css/navbar.css" />
+    <link rel="stylesheet" href="./assets/css/footer.css" />
+    <link rel="stylesheet" href="./assets/css/addBooks.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <title>Readify</title>
+  </head>
+  <body>
+    <div class="alert"></div>
+
+    <header>
+      <nav class="navbar">
+        <div class="navbar-left">
+          <img src=".//assets//images//logo.png" alt="Logo" />
+        </div>
+        <ul class="navbar-center">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Books</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="#">Admin</a></li>
+        </ul>
+        <div class="navbar-right">
+          <div class="icon-row">
+            <i class="fa fa-search" id="search-icon"></i>
+            <a href="#"><i class="fa fa-user"></i></a>
+            <a href="#"><i class="fa fa-shopping-cart"></i></a>
+            <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
+          </div>
+        </div>
+      </nav>
+
+      <div class="search-panel" id="search-panel">
+        <input
+          type="text"
+          id="search-input-field"
+          placeholder="Search books..." />
+      </div>
+      <div id="toggle-handler-search"></div>
+      <div id="toggle-handler-menu"></div>
+      <div class="navbar-background"></div>
+    </header>
+
+    <div class="page">
+      <form id="addBookForm" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="Title" required />
+        <label for="bookPoster">Poster</label>
+        <input type="file" name="poster" id="bookPoster" required />
+
+        <div class="uploadedImage"><img id="preview" src="" alt="" /></div>
+        <input type="text" name="price" placeholder="Price (LKR)" required />
+        <input
+          type="text"
+          name="authors"
+          placeholder="Authors (Seperate with comma)"
+          required />
+
+        <input type="text" name="quantity" placeholder="Quantity" required />
+        <textarea
+          name="description"
+          placeholder="Description"
+          required></textarea>
+
+        <select name="category" required>
+          <option value="">Select Category</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Education">Education</option>
+          <option value="Science">Science</option>
+          <option value="History">History</option>
+        </select>
+        <button type="submit">Add Book</button>
+      </form>
+    </div>
+
+    <footer>
+      <div class="footer">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>BookNest</h3>
+            <br />
+            <p>Where Stories Find A Home</p>
+            <p>
+              Dive into a world of imagination with BookNest <br />
+              your cozy corner for books you love, from timeless classics to
+              trending titles. Curated with care for every kind of reader.
+            </p>
+            <br />
+            <div class="quick-social-media">
+              <ul>
+                <li><a href="#" class="fa fa-facebook"></a></li>
+                <li><a href="#" class="fa fa-twitter"></a></li>
+                <li><a href="#" class="fa fa-instagram"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Links</h3>
+            <div class="quick-media">
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Books</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">Admin</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Contact Us</h3>
+            <br />
+            <p>Telephone Number :</p>
+            <p>+94 77 659 9189</p>
+            <p>Address :</p>
+            <p>171, Dharmashoka Mawatha, Lewalla, Kandy</p>
+            <br />
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 BookNest. All rights reserved.</p>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="./assets/js/reusableFunctions.js"></script>
+    <script>
+      checkAdmin();
+      const bookPoster = document.getElementById("bookPoster");
+      const preview = document.getElementById("preview");
+
+      // form.addEventListener("submit", (e) => {
+      //   e.preventDefault();
+
+      //   const formData = new FormData(form);
+      //   fetch("../ajax/addBooks.php", {
+      //     method: "POST",
+      //     body: formData,
+      //   })
+      //     .then((res) => res.json())
+      //     .then((data) => {
+      //       if (data.success) addAlert(data.message, false);
+      //       if (data.error) addAlert(data.error);
+      //       if (data.redirect) redirect(data.redirect);
+      //     })
+      //     .catch((err) => {
+      //       addAlert("Something went wrong. Please try again.");
+      //     });
+      // });
+
+      connectBackEnd({
+        backendUrl: "../backend/addBooks.php",
+        formId: "addBookForm",
+        callback: (data) => {
+          if (data.success) addAlert(data.message, false);
+          if (data.error) addAlert(data.error);
+          if (data.redirect) redirect(data.redirect);
+        },
+      });
+
+      bookPoster.addEventListener("change", () => {
+        const file = bookPoster.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = () => {
+            preview.src = reader.result;
+            preview.style.display = "block";
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    </script>
+  </body>
+</html>

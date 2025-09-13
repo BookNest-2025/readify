@@ -10,20 +10,16 @@
     <link rel="stylesheet" href="./assets/css/navbar.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   </head>
+  <div class="alert"></div>
   <body>
     <nav class="navbar">
       <div class="navbar-left">
-        <img
-          src="/public/assets/images/logos/logo_transparent.png"
-          alt="Logo"
-        />
+        <img src="./assets/images/logos/logo_transparent.png" alt="Logo" />
       </div>
 
       <ul class="navbar-center">
@@ -37,7 +33,9 @@
         <div class="icon-row">
           <i class="fa fa-search" id="search-icon"></i>
           <a href="#"><i class="fa fa-shopping-cart"></i></a>
-          <a href="#"><i class="fa fa-sign-out"></i> </a>
+          <a href="#" onclick="logout(event)"
+            ><i class="fa fa-sign-out"></i>
+          </a>
           <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
         </div>
       </div>
@@ -46,8 +44,7 @@
       <input
         type="text"
         id="search-input-field"
-        placeholder="Search books..."
-      />
+        placeholder="Search books..." />
     </div>
     <div id="toggle-handler-search"></div>
     <div id="toggle-handler-menu"></div>
@@ -60,8 +57,7 @@
         <div class="profile-pic">
           <img
             src="./assets/images/profile_images/WhatsApp Image 2025-08-26 at 15.10.52_6ffb8d12.png"
-            alt="User Profile"
-          />
+            alt="User Profile" />
         </div>
         <div class="profile-details">
           <h2>Avishka Ishan</h2>
@@ -152,7 +148,7 @@
       </div>
     </footer>
 
+    <script src="./assets/js/reusableFunctions.js"></script>
     <script src="./assets/js/navbar.js"></script>
-    <script src="./assets/js/profile.js"></script>
   </body>
 </html>

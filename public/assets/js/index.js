@@ -1,3 +1,4 @@
+// Carousel functionality
 const slider = document.getElementById("slider");
 const slides = document.querySelectorAll(".slide");
 const totalSlides = slides.length;
@@ -11,11 +12,24 @@ function nextSlide() {
 
   if (index === totalSlides - 1) {
     setTimeout(() => {
-    slider.style.transition = "none";
-    slider.style.transform = "translateX(0)";
-    index = 0;
+      slider.style.transition = "none";
+      slider.style.transform = "translateX(0)";
+      index = 0;
     }, 800);
   }
 }
 
-  setInterval(nextSlide, 9000);
+setInterval(nextSlide, 9000);
+
+const fetchLeatestBooks = () => {
+  connectBackEnd({
+    backendUrl: "../backend/fetchBooks.php?param=new-arrived",
+    callback: (data) => {
+      if (data.success) {
+        showBookCards(data.books, "new-arrivals");
+      }
+    },
+  });
+};
+
+fetchLeatestBooks();

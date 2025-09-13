@@ -58,7 +58,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto;
+  margin: 0 10px;
   font-size: 15px;
 }
 
@@ -78,9 +78,10 @@
 .book-container {
   margin: 20px 0px;
   display: flex;
-  gap: 30px;
+  gap: 15px;
   flex-wrap: wrap;
   justify-content: flex-start;
+
 }
 
 .book-card {
@@ -265,10 +266,6 @@
     font-size: 2.2em;
   }
 
-  .book-card {
-    height: 450px;
-  }
-
   .review-slider {
     flex-direction: column;
     align-items: center;
@@ -277,12 +274,18 @@
     gap: 20px;
   }
 
+  .book-card {
+    width: calc(60% - 150px);
+    height: 580px;
+    margin: 0 0 10px 0;
+  }
+
   .box {
     width: 500px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .slider-wrapper {
     height: 60vh;
   }
@@ -306,6 +309,11 @@
   .buttons {
     flex-direction: column;
     gap: 8px;
+  }
+
+  .book-card {
+    width: 100%;
+    height: auto;
   }
 
   .btn {

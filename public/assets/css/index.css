@@ -78,16 +78,19 @@
 .book-container {
   margin: 20px 0px;
   display: flex;
-  gap: 25px;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .book-card {
-  flex: 1;
-  max-width: 250px;
+  width: 250px;
   height: 550px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0 5px;
   border-radius: 10px;
   background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 0 0 auto;
 }
 
 .book-card:hover {
@@ -279,7 +282,6 @@
   }
 }
 
-/* Mobiles (≤ 768px) */
 @media (max-width: 768px) {
   .slider-wrapper {
     height: 60vh;

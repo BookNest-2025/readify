@@ -4,53 +4,133 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout</title>
+  <link rel="stylesheet" href="../public/assets/css/chechout.css">
+  <link rel="stylesheet" href="../public/assets/css/footer.css">
+  <link rel="stylesheet" href="../public/assets/css/root.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
-  <div class="checkout-container">
 
-    <!-- Address -->
-    <div class="section address">
-      <div class="address-icon">🏠</div>
-      <div>
-        <strong>sanira deneth</strong><br>
-        0781003580 <br>
-        312, ampe, balapitiya, Ahungalla, Galle, Southern
+  <div class="checkout-wrapper">
+
+    <!-- LEFT: Checkout form -->
+    <div class="checkout-left">
+      <h2>Checkout</h2>
+      <p>a checkout is a counter where you pay for things you are buying</p>
+
+      <!-- Contact info -->
+      <div class="section-title">1. Contact Information</div>
+      <div class="input-row">
+        <div class="input-group">
+          <label>First Name</label>
+          <input type="text" placeholder="first name">
+        </div>
+        <div class="input-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="last name">
+        </div>
+      </div>
+      <div class="input-row">
+        <div class="input-group">
+          <label>Phone Number</label>
+          <input type="text" placeholder="+94 123 456 78">
+        </div>
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" placeholder="abcd@gmail.com">
+        </div>
+      </div>
+
+      <!-- Delivery -->
+      <div class="section-title">2. Delivery Method</div>
+      <div class="delivery-methods">
+        <div class="delivery-btn active"><i class="fa-solid fa-truck-fast"></i> Same-day</div>
+        <div class="delivery-btn"><i class="fa-solid fa-rocket"></i> Express</div>
+        <div class="delivery-btn"><i class="fa-solid fa-box"></i> Normal</div>
+      </div>
+
+      <!-- Payment -->
+      <div class="section-title">3. Payment Method</div>
+      <div class="payment-methods">
+        <button class="pay-btn"><i class="fa-solid fa-credit-card"></i> Pay</button>
+        <button class="pay-btn"><i class="fa-brands fa-apple-pay"></i> Pay</button>
+        <button class="pay-btn"><i class="fa-brands fa-google-pay"></i> Pay</button>
       </div>
     </div>
 
-    <!-- Product -->
-    <div class="section product-card">
-      <img src="https://via.placeholder.com/60" alt="Product">
-      <div class="product-details">
-        <strong>Earphones Corded EO-IG955</strong><br>
-        Rs. 273 × 3 <br>
-        Seller: iStyles-LK
+    <!-- RIGHT: Card + Summary -->
+    <div class="checkout-right">
+      <div class="credit-card">
+        <div>Exp 09 / 27</div>
+        <div class="card-number">**** 5478</div>
+        <div>Mr. Sanira Dineth</div>
       </div>
-    </div>
 
-    <!-- Delivery -->
-    <div class="section delivery-option">
-      <strong>Delivery Option</strong><br>
-      Standard: Rs. 280 <br>
-      Get by 16-18 Sep
-    </div>
+      <div class="summary">
+        <div><span>3 Items</span></div>
+        <div><span>Subtotal</span><span> 581.00</span></div>
+        <div><span>Discount</span><span>-  100</span></div>
+        <div><span>Delivery Service</span><span>+  30</span></div>
+        <div class="total"><span>Total</span><span>  499.00</span></div>
+      </div>
 
-    <!-- Summary -->
-    <div class="section summary">
-      <div><span>Merchandise Subtotal (3 Items)</span><span>Rs. 819</span></div>
-      <div><span>Shipping Fee Subtotal</span><span>Rs. 280</span></div>
-      <div><span>Voucher & Code</span><span>---</span></div>
-      <div><span>Shipping Fee Voucher</span><span>None</span></div>
-      <div><span>Gems</span><span>- Rs. 8</span></div>
+      <button class="pay-btn-main">Place Order </button>
     </div>
-
-    <!-- Total -->
-    <div class="total">
-      <span>Total:</span> <span>Rs. 1,099</span>
-    </div>
-
-    <!-- Place Order -->
-    <button class="place-order">Place Order</button>
   </div>
+
+   <footer>
+      <div class="footer">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Readify</h3>
+            <br />
+            <p>Your Next Chapter, Anytime, Anywhere.</p>
+            <p>
+              Your trusted online bookstore, bringing stories, knowledge, and
+              imagination together. Discover, learn, and enjoy books anytime,
+              anywhere.
+            </p>
+            <br />
+            <div class="quick-social-media">
+              <ul>
+                <li><a href="#" class="fa fa-facebook"></a></li>
+                <li><a href="#" class="fa fa-twitter"></a></li>
+                <li><a href="#" class="fa fa-instagram"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Links</h3>
+            <div class="quick-media">
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Books</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">Admin</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Contact Us</h3>
+            <br />
+            <p>Telephone Number :</p>
+            <p>+94 77 659 9189</p>
+            <p>Address :</p>
+            <p>171, Dharmashoka Mawatha, Lewalla, Kandy</p>
+            <br />
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Readify. All rights reserved.</p>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </footer>
+
 </body>
 </html>

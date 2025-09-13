@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store Checkout</title>
+    <link rel="stylesheet" href="./assets/css/selectpayment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <div class="order-page-content">
+        <h1>Your Order</h1>
+        <p>Confirm your items and proceed to payment.</p>
+        <button id="openPaymentModalBtn" class="checkout-button">Select Payment Method</button>
+    </div>
+
+
+    <div id="paymentModal" class="modal-overlay">
+        <div class="payment-modal-content">
+
+            <div class="modal-header">
+                <h2>Select Payment Method</h2>
+                <span class="close-button">&times;</span>
+            </div>
+
+            <div class="modal-body">
+                <div class="payment-section">
+                    <h3 class="section-title">Recommended method(s)</h3>
+                    <div class="payment-option recommended">
+                        <input type="radio" id="points" name="payment_method" value="points" checked>
+                        <label for="points">
+                            <div class="method-info">
+                                <img src="https://img.icons8.com/color/48/000000/star--v1.png" alt="Points Icon" class="method-icon">
+                                <div class="method-text">
+                                    <h4>Points</h4>
+                                    <p>Select to top-up & pay</p>
+                                </div>
+                            </div>
+                            <div class="method-details">
+                                <span class="amount">Rs. 0</span>
+                                <span class="radio-custom"></span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="payment-section">
+                    <h3 class="section-title">Other Payment Methods</h3>
+                    
+                    <div class="payment-option">
+                        <input type="radio" id="card" name="payment_method" value="card">
+                        <label for="card">
+                             <div class="method-info">
+                                <i class="fa-solid fa-credit-card method-icon"></i>
+                                <div class="method-text">
+                                    <h4>Credit/Debit Card</h4>
+                                    </div>
+                            </div>
+                             <i class="fa-solid fa-chevron-right method-arrow"></i>
+                        </label>
+                    </div>
+
+                    <div class="payment-option">
+                        <input type="radio" id="paylater" name="payment_method" value="paylater">
+                        <label for="paylater">
+                             <div class="method-info">
+                                <i class="fa-solid fa-hand-holding-dollar method-icon"></i>
+                                <div class="method-text">
+                                    <h4>Bookify Paylater | 0% Interest</h4>
+                                    <p>Pay in 3 instalments of Rs. 366</p>
+                                </div>
+                            </div>
+                             <i class="fa-solid fa-chevron-right method-arrow"></i>
+                        </label>
+                    </div>
+
+                    <div class="payment-option">
+                        <input type="radio" id="cod" name="payment_method" value="cod">
+                        <label for="cod">
+                             <div class="method-info">
+                                <i class="fa-solid fa-box-open method-icon"></i>
+                                <div class="method-text">
+                                    <h4>Cash on Delivery</h4>
+                                </div>
+                            </div>
+                             <i class="fa-solid fa-chevron-right method-arrow"></i>
+                        </label>
+                    </div>
+
+                    <div class="payment-option">
+                        <input type="radio" id="instalment" name="payment_method" value="instalment">
+                        <label for="instalment">
+                             <div class="method-info">
+                                <i class="fa-solid fa-calendar-days method-icon"></i>
+                                <div class="method-text">
+                                    <h4>Instalment</h4>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right method-arrow"></i>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="security-badges">
+                    <img src=".//assets//images//logos//norton-by-symantec-logo-png_seeklogo-201265.png" alt="Norton Secured">
+                    <img src=".//assets//images//logos//pci .png" alt="PCI DSS">
+                    <img src=".//assets//images//logos//Verified by Visa.png" alt="Verified by Visa">
+                    <img src=".//assets//images//logos//visa card.png" alt="Mastercard SecureCode">
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="summary">
+                    <div class="summary-line">
+                        <span>Subtotal</span>
+                        <span>Rs. 1,099</span>
+                    </div>
+                    <div class="summary-line total">
+                        <span>Total Amount</span>
+                        <span>Rs. 1,099</span>
+                    </div>
+                    <div id="topup-message" class="summary-line topup">
+                        <span>Please top-up</span>
+                        <span>Rs. 1,099</span>
+                    </div>
+                </div>
+                <button id="final-pay-btn" class="pay-button">TOPUP AND PAY</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./assets/js/selectpayment.js"></script>
+
+</body>
+</html>

@@ -49,19 +49,132 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+//cart and login icons
 document.addEventListener("DOMContentLoaded", () => {
   const userIcon = document.getElementById("user-icon");
+  const cartIcon = document.getElementById("cart-icon");
   userIcon &&
     connectBackEnd({
       backendUrl: "../backend/checkUserLogin.php",
       callback: (data) => {
         if (data.isLoggedIn) {
-          if (data.category === "admin") userIcon.href = "adminDashboard.html";
-          else userIcon.href = "profile.html";
+          if (data.category === "admin") {
+            userIcon.href = "adminDashboard.html";
+            cartIcon.addEventListener("click", (e) => {
+              e.preventDefault();
+              addAlert("Need to log in as customer to view cart.");
+            });
+          } else {
+            userIcon.href = "profile.html";
+            cartIcon.addEventListener("click", (e) => {
+              e.preventDefault();
+              document
+                .querySelector(".cart-container")
+                .classList.toggle("active");
+              fetchCart();
+            });
+          }
         } else {
+          cartIcon.addEventListener("click", (e) => {
+            e.preventDefault();
+            addAlert("Need to log in as customer to view cart.");
+          });
           userIcon.href = "login.html";
         }
       },
       method: "GET",
     });
 });
+
+// cart
+const hideCart = (e) => {
+  e.preventDefault();
+  document.querySelector(".cart-container").classList.remove("active");
+};
+
+const addToCart = async (id) => {
+  await connectBackEnd({
+    backendUrl: `../backend/addToCart.php?id=${id}`,
+    method: "GET",
+    callback: (data) => {
+      if (data.success) addAlert(data.message, false);
+      if (data.error) addAlert(data.error);
+      if (data.redirect) redirect(data.redirect);
+    },
+  });
+  setTimeout(fetchCart(), 2000);
+};
+
+const fetchCart = () => {
+  const cartItems = document.querySelector(".cart-items");
+  const cartTotal = document.getElementById("cart-total");
+
+  connectBackEnd({
+    backendUrl: "../backend/fetchCartItems.php",
+    callback: (data) => {
+      if (data.success) {
+        if (data.data && data.data.length > 0) {
+          cartItems.innerHTML = showCartItems(data.data);
+        } else {
+          cartItems.innerHTML = `<tr><td colspan="4">Your cart is empty.</td></tr>`;
+          cartTotal.textContent = "0 LKR";
+        }
+      } else {
+        addAlert(data.error);
+      }
+    },
+  });
+};
+
+const showCartItems = (cartItems) => {
+  const cartTotal = document.getElementById("cart-total");
+
+  let html = "";
+  let total = 0;
+
+  cartItems.map(({ cart_id, title, stock, image, price, quantity }) => {
+    const numericPrice = parseFloat(price);
+    const numericQty = parseInt(quantity);
+    total += numericPrice * numericQty;
+    html += `
+      <tr>
+        <td>
+          <div class="product-info">
+            <img src="./uploads/${image}" alt="${title}" />
+            <div class="product-details">
+              <h4>${title}</h4>
+              <p>Stock = ${stock}</p>
+            </div>
+          </div>
+        </td>
+        <td>${price} LKR</td>
+        <td>
+          <div class="quantity-control">
+            <button onclick="changeCartItem(${cart_id}, 'red')">-</button>
+            <input type="number" value="${quantity}" min="1" readonly />
+            <button onclick="changeCartItem(${cart_id}, 'add')">+</button>
+          </div>
+        </td>
+        <td class="action-icons">
+          <button onclick="changeCartItem(${cart_id}, 'del')">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    `;
+  });
+  cartTotal.innerHTML = `${total} LKR`;
+  return html;
+};
+
+const changeCartItem = (cart_id, operation) => {
+  //operation can be add, red, or del.
+  connectBackEnd({
+    backendUrl: `../backend/changeCartQuantity.php?operation=${operation}&cart_id=${cart_id}`,
+    callback: (data) => {
+      if (data.success) fetchCart();
+      if (data.error) addAlert(data.error);
+    },
+    method: "GET",
+  });
+};

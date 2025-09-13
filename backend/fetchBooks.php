@@ -1,5 +1,10 @@
 <?php
 
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(403);
+    exit("Forbidden");
+}
+
 include "../app/config/db.php";
 
 header("Content-Type: application/json");
@@ -10,7 +15,7 @@ try {
 
     if (isset($_GET['param']) && $_GET['param'] === 'new-arrived') {
 
-        $stmt = $pdo->prepare("SELECT * FROM books ORDER BY updated_at DESC LIMIT 10");
+        $stmt = $pdo->prepare("SELECT * FROM books WHERE status = 1 ORDER BY updated_at DESC LIMIT 10");
         $stmt->execute();
         $results = $stmt->fetchAll();
 

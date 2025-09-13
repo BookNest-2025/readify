@@ -14,27 +14,6 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <style>
-      .loading,
-      .no-books,
-      .error-message {
-        text-align: center;
-        padding: 2rem;
-        grid-column: 1 / -1;
-      }
-
-      .loading {
-        color: #666;
-        font-style: italic;
-      }
-
-      .error-message {
-        color: #d9534f;
-        background-color: #f8d7da;
-        border: 1px solid #f5c6cb;
-        border-radius: 4px;
-      }
-    </style>
   </head>
   <body>
     <div class="alert"></div>
@@ -44,7 +23,7 @@
           <img src="assets/images/logos/logo_transparent.png" alt="Logo" />
         </div>
         <ul class="navbar-center">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Home</a></li>
           <li><a href="#">Books</a></li>
           <li><a href="#">Reviews</a></li>
           <li><a href="#">Admin</a></li>
@@ -52,8 +31,8 @@
         <div class="navbar-right">
           <div class="icon-row">
             <i class="fa fa-search" id="search-icon"></i>
-            <a href="#"><i class="fa fa-shopping-cart"></i></a>
             <a href="#" id="user-icon"><i class="fa fa-user"></i></a>
+            <a href="#" id="cart-icon"><i class="fa fa-shopping-cart"></i></a>
             <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
           </div>
         </div>
@@ -67,8 +46,36 @@
       <div id="toggle-handler-search"></div>
       <div id="toggle-handler-menu"></div>
       <div class="navbar-background"></div>
-    </header>
 
+      <div class="cart-container">
+        <h2>Shopping Cart</h2>
+        <p class="cart-subtitle">Items in your cart</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody class="cart-items"></tbody>
+          </table>
+        </div>
+
+        <div class="cart-summary">
+          <p>Subtotal: <strong id="cart-total">0</strong></p>
+          <button class="checkout-btn">Checkout</button>
+        </div>
+
+        <a class="continue-shopping" onclick="hideCart(event)">
+          <i class="fa fa-arrow-left"></i>
+          Continue Shopping
+        </a>
+      </div>
+    </header>
     <section class="container">
       <div class="slider-wrapper">
         <div class="slider" id="slider">

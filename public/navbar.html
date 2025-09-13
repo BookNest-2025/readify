@@ -12,6 +12,7 @@
   </head>
 
   <body>
+    <div class="alert"></div>
     <header>
       <nav class="navbar">
         <div class="navbar-left">
@@ -26,8 +27,8 @@
         <div class="navbar-right">
           <div class="icon-row">
             <i class="fa fa-search" id="search-icon"></i>
-            <a href="#"><i class="fa fa-shopping-cart"></i></a>
             <a href="#" id="user-icon"><i class="fa fa-user"></i></a>
+            <a href="#" id="cart-icon"><i class="fa fa-shopping-cart"></i></a>
             <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
           </div>
         </div>
@@ -41,7 +42,37 @@
       <div id="toggle-handler-search"></div>
       <div id="toggle-handler-menu"></div>
       <div class="navbar-background"></div>
+
+      <div class="cart-container">
+        <h2>Shopping Cart</h2>
+        <p class="cart-subtitle">Items in your cart</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody class="cart-items"></tbody>
+          </table>
+        </div>
+
+        <div class="cart-summary">
+          <p>Subtotal: <strong id="cart-total">0</strong></p>
+          <button class="checkout-btn">Checkout</button>
+        </div>
+
+        <a class="continue-shopping" onclick="hideCart(event)">
+          <i class="fa fa-arrow-left"></i>
+          Continue Shopping
+        </a>
+      </div>
     </header>
+    <script src="./assets/js/reusableFunctions.js"></script>
     <script src="./assets/js/navbar.js"></script>
   </body>
 </html>

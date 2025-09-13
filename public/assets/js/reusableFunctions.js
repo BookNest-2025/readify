@@ -17,18 +17,15 @@ const redirect = (location, time = 2000) => {
   }, time);
 };
 
-const connectBackEnd = ({
+const connectBackEnd = async ({
   backendUrl,
   callback = (data) => {},
   method = "POST",
   formId = null,
 }) => {
-  const sendRequest = (formData = null) => {
+  const sendRequest = async (formData = null) => {
     let url = backendUrl;
     let options = { method };
-    // options is a object use when fetching data.
-    // {method: "POST",
-    //  body : formdata}
 
     if (method.toUpperCase() === "POST" && formData) {
       options.body = formData;
@@ -40,10 +37,13 @@ const connectBackEnd = ({
       url += "?" + params.toString();
     }
 
-    fetch(url, options)
-      .then((res) => res.json())
-      .then((data) => callback(data))
-      .catch((err) => addAlert("Something went wrong. Please try again."));
+    try {
+      const res = await fetch(url, options);
+      const data = await res.json();
+      callback(data);
+    } catch (err) {
+      addAlert("Something went wrong. Please try again.");
+    }
   };
 
   if (formId) {
@@ -54,7 +54,7 @@ const connectBackEnd = ({
       sendRequest(formData);
     });
   } else {
-    sendRequest();
+    await sendRequest();
   }
 };
 
@@ -89,7 +89,6 @@ const checkAdmin = () => {
 const showBookCards = (books, containerId) => {
   const newArrivals = document.getElementById(containerId);
   return books.map((book) => {
-    console.log(book);
     const { book_id, image, title, authors, price } = book;
     newArrivals.innerHTML += `<div class="book-card">
               <a href="book.html?id=${book_id}">

@@ -1,0 +1,260 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+body.search-page .navbar {
+  display:flex;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.search-bar {
+  display: flex;
+}
+
+.search-bar input {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+}
+
+.search-bar button {
+  padding: 0.5rem 1rem;
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.main-layout {
+  display: flex;
+  gap: 30px;
+  padding: 2rem;
+}
+
+.filter-sidebar {
+  width: 320px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.category-filter ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.category-list {
+  list-style: none;
+  padding-top: 0.5rem;
+}
+
+.category-list li {
+  margin-bottom: 0.5rem;
+}
+
+.content {
+  flex: 1;
+}
+
+.top-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.time-filters .tab {
+  background: #eee;
+  border: none;
+  padding: 8px 16px;
+  margin-right: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.time-filters .tab.active {
+  background: #5959e8;
+  color: #ece1e1;
+}
+
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-controls select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.view-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  font-size: 18px;
+  color: #777;
+  transition: all 0.3s ease;
+}
+
+.view-toggle i.active {
+  color: #5e5bff;
+}
+
+.sort-label {
+  white-space: nowrap;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.tab {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.tab.active {
+  background-color: #5e5bff;
+  color: white;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  flex: 1;
+}
+
+
+.book-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.book-card img {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.book-card h4 {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.author {
+  color: #777;
+  font-size: 0.875rem;
+}
+
+.price {
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.rating {
+  margin: 0.5rem 0;
+  color: #f39c12;
+}
+
+.add-cart {
+  padding: 0.5rem;
+  width: 100%;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.navbar.hidden {
+  top: -100px;
+  transition: top 0.3s ease;
+}
+
+
+.navbar {
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: top 0.3s ease;
+}
+.filter-sidebar {
+  width: 250px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-right: 2px solid #ddd;
+  font-family: Arial, sans-serif;
+}
+
+.filter-sidebar h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.category-filter ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-filter li {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #444;
+}
+
+.category-filter input {
+  margin-right: 8px;
+}
+
+.year-filter {
+  margin-top: 20px;
+}
+
+.year-filter select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  font-size: 15px;
+}

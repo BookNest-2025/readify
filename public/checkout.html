@@ -1,85 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout</title>
-  <link rel="stylesheet" href="../public/assets/css/chechout.css">
-  <link rel="stylesheet" href="../public/assets/css/footer.css">
-  <link rel="stylesheet" href="../public/assets/css/root.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-</head>
-<body>
-
-  <div class="checkout-wrapper">
-
-    <!-- LEFT: Checkout form -->
-    <div class="checkout-left">
-      <h2>Checkout</h2>
-      <p>a checkout is a counter where you pay for things you are buying</p>
-
-      <!-- Contact info -->
-      <div class="section-title">1. Contact Information</div>
-      <div class="input-row">
-        <div class="input-group">
-          <label>First Name</label>
-          <input type="text" placeholder="first name">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | Readify</title>
+    <link rel="stylesheet" href="./assets/css/root.css" />
+    <link rel="stylesheet" href="./assets/css/navbar.css" />
+    <link rel="stylesheet" href="./assets/css/footer.css" />
+    <link rel="stylesheet" href="./assets/css/checkout.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  </head>
+  <body>
+    <div class="alert"></div>
+    <header>
+      <nav class="navbar">
+        <div class="navbar-left">
+          <img src="assets/images/logos/logo_transparent.png" alt="Logo" />
         </div>
-        <div class="input-group">
-          <label>Last Name</label>
-          <input type="text" placeholder="last name">
+        <ul class="navbar-center">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Books</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="#">Admin</a></li>
+        </ul>
+        <div class="navbar-right">
+          <div class="icon-row">
+            <i class="fa fa-search" id="search-icon"></i>
+            <a href="#" id="user-icon"><i class="fa fa-user"></i></a>
+            <a href="#" id="cart-icon"><i class="fa fa-shopping-cart"></i></a>
+            <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
+          </div>
         </div>
+      </nav>
+      <div class="search-panel" id="search-panel">
+        <input
+          type="text"
+          id="search-input-field"
+          placeholder="Search books..." />
       </div>
-      <div class="input-row">
-        <div class="input-group">
-          <label>Phone Number</label>
-          <input type="text" placeholder="+94 123 456 78">
+      <div id="toggle-handler-search"></div>
+      <div id="toggle-handler-menu"></div>
+      <div class="navbar-background"></div>
+
+      <div class="cart-container">
+        <h2>Shopping Cart</h2>
+        <p class="cart-subtitle">Items in your cart</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody class="cart-items"></tbody>
+          </table>
         </div>
-        <div class="input-group">
-          <label>Email</label>
-          <input type="email" placeholder="abcd@gmail.com">
+
+        <div class="cart-summary">
+          <p>Subtotal: <strong id="cart-total">0</strong></p>
+          <button class="checkout-btn">Checkout</button>
         </div>
+
+        <a class="continue-shopping" onclick="hideCart(event)">
+          <i class="fa fa-arrow-left"></i>
+          Continue Shopping
+        </a>
+      </div>
+    </header>
+
+    <h1>Checkout</h1>
+
+    <div class="container">
+      <!-- User Info -->
+      <div class="card">
+        <h2>Your Info</h2>
+        <div class="user-info"></div>
       </div>
 
-      <!-- Delivery -->
-      <div class="section-title">2. Delivery Method</div>
-      <div class="delivery-methods">
-        <div class="delivery-btn active"><i class="fa-solid fa-truck-fast"></i> Same-day</div>
-        <div class="delivery-btn"><i class="fa-solid fa-rocket"></i> Express</div>
-        <div class="delivery-btn"><i class="fa-solid fa-box"></i> Normal</div>
-      </div>
+      <!-- Order Summary -->
+      <div class="card">
+        <h2>Order Summary</h2>
+        <div class="order-items"></div>
 
-      <!-- Payment -->
-      <div class="section-title">3. Payment Method</div>
-      <div class="payment-methods">
-        <button class="pay-btn"><i class="fa-solid fa-credit-card"></i> Pay</button>
-        <button class="pay-btn"><i class="fa-brands fa-apple-pay"></i> Pay</button>
-        <button class="pay-btn"><i class="fa-brands fa-google-pay"></i> Pay</button>
+        <div class="summary">
+          <div><span>Subtotal</span><span class="order-total"></span></div>
+          <div><span>Shipping</span><span>0 LKR</span></div>
+          <div class="total">
+            <span>Total</span><span class="order-total">$35.99</span>
+          </div>
+        </div>
+
+        <a href="#" class="btn" id="place-order">Place Order</a>
       </div>
     </div>
 
-    <!-- RIGHT: Card + Summary -->
-    <div class="checkout-right">
-      <div class="credit-card">
-        <div>Exp 09 / 27</div>
-        <div class="card-number">**** 5478</div>
-        <div>Mr. Sanira Dineth</div>
-      </div>
+    <div id="paymentModal" class="modal-overlay">
+      <div class="payment-modal-content">
+        <div class="modal-header">
+          <h2>Select Payment Method</h2>
+          <span class="close-button">&times;</span>
+        </div>
 
-      <div class="summary">
-        <div><span>3 Items</span></div>
-        <div><span>Subtotal</span><span> 581.00</span></div>
-        <div><span>Discount</span><span>-  100</span></div>
-        <div><span>Delivery Service</span><span>+  30</span></div>
-        <div class="total"><span>Total</span><span>  499.00</span></div>
-      </div>
+        <div class="modal-body">
+          <div class="payment-section">
+            <h3 class="section-title">Recommended method(s)</h3>
+            <div class="payment-option recommended">
+              <input
+                type="radio"
+                id="points"
+                name="payment_method"
+                value="points" />
+              <label for="points">
+                <div class="method-info">
+                  <img
+                    src="https://img.icons8.com/color/48/000000/star--v1.png"
+                    alt="Points Icon"
+                    class="method-icon" />
+                  <div class="method-text">
+                    <h4>Points</h4>
+                    <p>Select to top-up & pay</p>
+                  </div>
+                </div>
+                <div class="method-details">
+                  <span class="amount">Rs. 0</span>
+                  <span class="radio-custom"></span>
+                </div>
+              </label>
+            </div>
+          </div>
 
-      <button class="pay-btn-main">Place Order </button>
+          <div class="payment-section">
+            <h3 class="section-title">Other Payment Methods</h3>
+
+            <div class="payment-option">
+              <input
+                type="radio"
+                id="card"
+                name="payment_method"
+                value="card" />
+              <label for="card">
+                <div class="method-info">
+                  <i class="fa-solid fa-credit-card method-icon"></i>
+                  <div class="method-text">
+                    <h4>Credit/Debit Card</h4>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-right method-arrow"></i>
+              </label>
+            </div>
+
+            <div class="payment-option">
+              <input
+                type="radio"
+                id="paylater"
+                name="payment_method"
+                value="paylater" />
+              <label for="paylater">
+                <div class="method-info">
+                  <i class="fa-solid fa-hand-holding-dollar method-icon"></i>
+                  <div class="method-text">
+                    <h4>Readify Paylater | 0% Interest</h4>
+                    <p>Pay in 3 instalments</p>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-right method-arrow"></i>
+              </label>
+            </div>
+
+            <div class="payment-option">
+              <input
+                type="radio"
+                id="cod"
+                name="payment_method"
+                value="cod"
+                checked />
+              <label for="cod">
+                <div class="method-info">
+                  <i class="fa-solid fa-box-open method-icon"></i>
+                  <div class="method-text">
+                    <h4>Cash on Delivery</h4>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-right method-arrow"></i>
+              </label>
+            </div>
+
+            <div class="payment-option">
+              <input
+                type="radio"
+                id="instalment"
+                name="payment_method"
+                value="instalment" />
+              <label for="instalment">
+                <div class="method-info">
+                  <i class="fa-solid fa-calendar-days method-icon"></i>
+                  <div class="method-text">
+                    <h4>Instalment</h4>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-right method-arrow"></i>
+              </label>
+            </div>
+          </div>
+
+          <div class="security-badges">
+            <img
+              src=".//assets//images//logos//norton-by-symantec-logo-png_seeklogo-201265.png"
+              alt="Norton Secured" />
+            <img src=".//assets//images//logos//pci .png" alt="PCI DSS" />
+            <img
+              src=".//assets//images//logos//Verified by Visa.png"
+              alt="Verified by Visa" />
+            <img
+              src=".//assets//images//logos//visa card.png"
+              alt="Mastercard SecureCode" />
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <div class="summary">
+            <div class="summary-line">
+              <span>Subtotal</span>
+              <span class="order-total"></span>
+            </div>
+            <div class="summary-line total">
+              <span>Total Amount</span>
+              <span class="order-total"></span>
+            </div>
+          </div>
+          <button id="final-pay-btn" class="pay-button">Place Order</button>
+        </div>
+      </div>
     </div>
-  </div>
 
-   <footer>
+    <footer>
       <div class="footer">
         <div class="footer-content">
           <div class="footer-section">
@@ -132,5 +298,8 @@
       </div>
     </footer>
 
-</body>
+    <script src="./assets/js/reusableFunctions.js"></script>
+    <script src="./assets/js/navbar.js"></script>
+    <script src="./assets/js/checkOut.js"></script>
+  </body>
 </html>

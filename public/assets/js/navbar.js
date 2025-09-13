@@ -87,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // cart
+
 const hideCart = (e) => {
   e.preventDefault();
   document.querySelector(".cart-container").classList.remove("active");
@@ -108,16 +109,22 @@ const addToCart = async (id) => {
 const fetchCart = () => {
   const cartItems = document.querySelector(".cart-items");
   const cartTotal = document.getElementById("cart-total");
-
+  const checkout = document.querySelector(".checkout-btn");
   connectBackEnd({
     backendUrl: "../backend/fetchCartItems.php",
     callback: (data) => {
       if (data.success) {
         if (data.data && data.data.length > 0) {
           cartItems.innerHTML = showCartItems(data.data);
+          checkout.addEventListener("click", () => {
+            window.location.href = "checkout.html";
+          });
         } else {
           cartItems.innerHTML = `<tr><td colspan="4">Your cart is empty.</td></tr>`;
           cartTotal.textContent = "0 LKR";
+          checkout.addEventListener("click", () => {
+            addAlert("Add items to cart for checkout.");
+          });
         }
       } else {
         addAlert(data.error);

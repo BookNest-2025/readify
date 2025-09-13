@@ -43,6 +43,7 @@ const connectBackEnd = async ({
       callback(data);
     } catch (err) {
       addAlert("Something went wrong. Please try again.");
+      console.log(err);
     }
   };
 

@@ -1,0 +1,248 @@
+/* General Body Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.order-page-content {
+    text-align: center;
+    padding: 50px;
+}
+
+.checkout-button {
+    background-color: #c62320; /* A book-store red */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.checkout-button:hover {
+    background-color: #e20909;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: flex-end; /* Position modal at the bottom for mobile */
+    z-index: 1000;
+}
+
+/* Modal Content */
+.payment-modal-content {
+    background-color: #f4f4f4;
+    width: 100%;
+    max-width: 480px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh; /* Max height */
+}
+
+/* Header */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.close-button {
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #888;
+}
+
+/* Body */
+.modal-body {
+    padding: 8px 16px;
+    overflow-y: auto;
+}
+
+.section-title {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin: 16px 4px 8px;
+}
+
+/* Hide actual radio button */
+.payment-option input[type="radio"] {
+    display: none;
+}
+
+.payment-option label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+
+/* Style for selected item */
+.payment-option input[type="radio"]:checked + label {
+    border-color: #0d6efd; /* Blue border when selected */
+}
+
+.method-info {
+    display: flex;
+    align-items: center;
+}
+
+.method-icon {
+    font-size: 24px;
+    color: #0d6efd;
+    width: 40px;
+    text-align: center;
+}
+img.method-icon {
+    width: 28px;
+    height: 28px;
+}
+
+.method-text {
+    margin-left: 12px;
+}
+
+.method-text h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.method-text p {
+    margin: 0;
+    font-size: 12px;
+    color: #777;
+}
+
+.method-details {
+    display: flex;
+    align-items: center;
+}
+
+.method-details .amount {
+    font-weight: bold;
+    margin-right: 16px;
+}
+
+.radio-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    position: relative;
+}
+
+.payment-option input[type="radio"]:checked + label .radio-custom {
+    border-color: #0d6efd;
+}
+
+.payment-option input[type="radio"]:checked + label .radio-custom::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: #0d6efd;
+    border-radius: 50%;
+}
+
+.method-arrow {
+    color: #aaa;
+}
+
+/* Security Badges */
+.security-badges {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+    filter: none;
+    opacity: 0.6;
+}
+.security-badges img {
+    height: 40px;
+}
+
+/* Footer */
+.modal-footer {
+    background-color: #fff;
+    padding: 16px 20px;
+    border-top: 1px solid #e0e0e0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.summary-line.total {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.summary-line.topup {
+    color: #f57224; /* Orange color from image */
+    font-weight: bold;
+}
+
+.pay-button {
+    width: 100%;
+    background-color: #f57224;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: background-color 0.3s;
+}
+
+.pay-button:hover {
+    background-color: #cd6021;
+}
+
+/* Media Query for larger screens (e.g., desktops) */
+@media (min-width: 600px) {
+    .modal-overlay {
+        align-items: center; /* Center vertically on larger screens */
+    }
+    .payment-modal-content {
+        border-radius: 16px; /* Round all corners */
+    }
+}

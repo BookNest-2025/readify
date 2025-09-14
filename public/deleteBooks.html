@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete Books - Readify Admin</title>
+    <link rel="stylesheet" href="./assets/css/deleteBooks.css" />
+    <link rel="stylesheet" href="./assets/css/root.css" />
+    <link rel="stylesheet" href="./assets/css/footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Delete/Deactivate Books</h1>
+      <p class="description">
+        Search for books and change their status (active/inactive). Deactivated
+        books won't be visible to customers.
+      </p>
+
+      <div class="search-section">
+        <h2>Search for a Book</h2>
+        <div class="search-form">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Enter book title..."
+          />
+          <button id="searchBtn">Search</button>
+        </div>
+        <div id="searchResults" class="search-results"></div>
+      </div>
+
+      <div class="book-details" id="bookDetails" style="display: none">
+        <h2>Book Details</h2>
+        <div class="details-container">
+          <div class="detail-item">
+            <label>Title:</label>
+            <span id="detailTitle"></span>
+          </div>
+          <div class="detail-item">
+            <label>Author(s):</label>
+            <span id="detailAuthor"></span>
+          </div>
+          <div class="detail-item">
+            <label>Price:</label>
+            <span id="detailPrice"></span>
+          </div>
+          <div class="detail-item">
+            <label>Stock:</label>
+            <span id="detailStock"></span>
+          </div>
+          <div class="detail-item">
+            <label>Sold:</label>
+            <span id="detailSold"></span>
+          </div>
+          <div class="detail-item">
+            <label>Category:</label>
+            <span id="detailCategory"></span>
+          </div>
+          <div class="detail-item">
+            <label>Description:</label>
+            <span id="detailDescription"></span>
+          </div>
+          <div class="detail-item">
+            <label>Current Status:</label>
+            <span id="detailStatus" class="status-badge"></span>
+          </div>
+        </div>
+
+        <div class="action-section">
+          <h3>Change Status</h3>
+          <div class="status-options">
+            <button id="activateBtn" class="status-btn activate">
+              Activate Book
+            </button>
+            <button id="deactivateBtn" class="status-btn deactivate">
+              Deactivate Book
+            </button>
+          </div>
+        </div>
+
+        <div id="message" class="message"></div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Readify</h3>
+            <br />
+            <p>Your Next Chapter, Anytime, Anywhere.</p>
+            <p>
+              Your trusted online bookstore, bringing stories, knowledge, and
+              imagination together. Discover, learn, and enjoy books anytime,
+              anywhere.
+            </p>
+            <br />
+            <div class="quick-social-media">
+              <ul>
+                <li><a href="#" class="fa fa-facebook"></a></li>
+                <li><a href="#" class="fa fa-twitter"></a></li>
+                <li><a href="#" class="fa fa-instagram"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Links</h3>
+            <div class="quick-media">
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Books</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">Admin</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Contact Us</h3>
+            <br />
+            <p>Telephone Number :</p>
+            <p>+94 77 659 9189</p>
+            <p>Address :</p>
+            <p>171, Dharmashoka Mawatha, Lewalla, Kandy</p>
+            <br />
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Readify. All rights reserved.</p>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="./assets/js/deleteBooks.js"></script>
+  </body>
+</html>

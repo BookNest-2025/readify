@@ -53,15 +53,38 @@ try {
     $stmtDeleteCart = $pdo->prepare("DELETE FROM cart WHERE cart_id = :cart_id");
 
     foreach ($cart_items as $cart) {
-        $priceStmt = $pdo->prepare("SELECT price FROM books WHERE book_id = :book_id");
-        $priceStmt->execute(["book_id" => $cart['book_id']]);
-        $priceRow = $priceStmt->fetch();
+        $book_id  = $cart['book_id'];
+        $quantity = $cart['quantity'];
+
+        $priceStmt = $pdo->prepare("SELECT price, stock, sold FROM books WHERE book_id = :book_id FOR UPDATE");
+        $priceStmt->execute(["book_id" => $book_id]);
+        $bookRow = $priceStmt->fetch(PDO::FETCH_ASSOC);
+
+        if (! $bookRow) {
+            throw new Exception("Book not found (ID: $book_id).");
+        }
+
+        if ($bookRow['stock'] < $quantity) {
+            throw new Exception("Not enough stock for book ID $book_id.");
+        }
+
+        $price = $bookRow['price'];
 
         $stmtItem->execute([
             "order_id" => $orderId,
-            "book_id"  => $cart["book_id"],
-            "quantity" => $cart["quantity"],
-            "price"    => $priceRow["price"],
+            "book_id"  => $book_id,
+            "quantity" => $quantity,
+            "price"    => $price,
+        ]);
+
+        $updateBook = $pdo->prepare(
+            "UPDATE books
+         SET stock = stock - :quantity, sold = sold + :quantity
+         WHERE book_id = :book_id"
+        );
+        $updateBook->execute([
+            "quantity" => $quantity,
+            "book_id"  => $book_id,
         ]);
 
         $stmtDeleteCart->execute(["cart_id" => $cart["cart_id"]]);

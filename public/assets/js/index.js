@@ -28,8 +28,22 @@ const fetchLeatestBooks = () => {
       if (data.success) {
         showBookCards(data.books, "new-arrivals");
       }
+      if (data.error) console.log(data.error);
+    },
+  });
+};
+
+const fetchPopulerBooks = () => {
+  connectBackEnd({
+    backendUrl: "../backend/fetchBooks.php?param=populer",
+    callback: (data) => {
+      if (data.success) {
+        showBookCards(data.books, "populer-books");
+      }
+      if (data.error) console.log(data.error);
     },
   });
 };
 
 fetchLeatestBooks();
+fetchPopulerBooks();

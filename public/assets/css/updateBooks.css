@@ -1,19 +1,8 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    background: #f5f5f5;
-}
-
 .container {
+    min-height: 100vh;
     max-width: 800px;
-    margin: 0 auto;
-    background: white;
+    margin: 20px auto;
+    background: #ffffff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -39,7 +28,7 @@ h2 {
 
 #searchBtn {
     padding: 10px 15px;
-    background: #007bff;
+    background: var(--color-secondary);
     color: white;
     border: none;
     border-radius: 0 4px 4px 0;
@@ -47,7 +36,7 @@ h2 {
 }
 
 #searchBtn:hover {
-    background: #0056b3;
+    background: var(--color-primary);
 }
 
 .search-results {
@@ -102,7 +91,7 @@ textarea {
 button {
     padding: 10px 15px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -122,7 +111,7 @@ button {
 }
 
 #cancelBtn:hover {
-    background: #c82333;
+    background: #930000;
 }
 
 .message {

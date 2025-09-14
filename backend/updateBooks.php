@@ -1,85 +1,95 @@
 <?php
 // backend/updateBooks.php
-header('Content-Type: application/json');
-
-// Simple database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "readify";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    echo json_encode(['success' => false, 'message' => 'Database connection failed']);
-    exit;
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(403);
+    exit("Forbidden");
 }
 
-// Get form data
-$bookId = $conn->real_escape_string($_POST['book_id']);
-$title = $conn->real_escape_string($_POST['title']);
-$authors = $conn->real_escape_string($_POST['author']);
-$price = $conn->real_escape_string($_POST['price']);
-$stock = $conn->real_escape_string($_POST['stock']);
-$sold = $conn->real_escape_string($_POST['sold']);
-$category = $conn->real_escape_string($_POST['category']);
-$description = $conn->real_escape_string($_POST['description']);
-$status = $conn->real_escape_string($_POST['status']);
+include "../app/config/db.php";
+session_start();
 
-// Validate required fields
-if (empty($bookId) || empty($title) || empty($authors)) {
-    echo json_encode(['success' => false, 'message' => 'Title and Author are required']);
-    exit;
-}
-
-// Start transaction
-$conn->begin_transaction();
+header("Content-Type: application/json");
+$response = ["success" => false, "message" => ""];
 
 try {
-    // Update book information
-    $sql = "UPDATE books SET 
-            title = '$title', 
-            price = '$price', 
-            stock = '$stock', 
-            sold = '$sold', 
-            description = '$description', 
-            category = '$category', 
-            status = '$status', 
-            updated_at = NOW() 
-            WHERE book_id = '$bookId'";
-
-    if (!$conn->query($sql)) {
-        throw new Exception("Error updating book: " . $conn->error);
+    if (!isset($_SESSION["email"]) || !isset($_SESSION["user_type"])) {
+        throw new Exception("Please login to update books.");
     }
 
-    // Delete existing authors
-    $sql = "DELETE FROM authors WHERE book_id = '$bookId'";
-    if (!$conn->query($sql)) {
-        throw new Exception("Error deleting authors: " . $conn->error);
+    if ($_SESSION["user_type"] !== "admin") {
+        throw new Exception("You should login as admin to update books.");
     }
 
-    // Insert new authors
-    $authorNames = array_map('trim', explode(',', $authors));
-    foreach ($authorNames as $authorName) {
-        if (!empty($authorName)) {
-            $authorName = $conn->real_escape_string($authorName);
-            $sql = "INSERT INTO authors (book_id, author_name) VALUES ('$bookId', '$authorName')";
-            if (!$conn->query($sql)) {
-                throw new Exception("Error inserting author: " . $conn->error);
-            }
+    $bookId = trim($_POST["book_id"]) ?? "";
+    $title = trim($_POST["title"]) ?? "";
+    $price = trim($_POST["price"]) ?? '0';
+    $stock = trim($_POST["stock"]) ?? '0';
+    $sold = trim($_POST["sold"]) ?? '0';
+    $description = trim($_POST["description"]) ?? "";
+    $category = trim($_POST["category"]) ?? "";
+    $authors = trim($_POST["author"]) ?? "";
+
+    if (!$bookId || !$title || !$description || !$category || !$authors) {
+        throw new Exception("Please fill in all required fields.");
+    }
+
+    if ($price < 0) {
+        throw new Exception("Price should be 0 or greater.");
+    }
+
+    if ($stock < 0) {
+        throw new Exception("Stock should be 0 or greater.");
+    }
+
+    if ($sold < 0) {
+        throw new Exception("Sold count should be 0 or greater.");
+    }
+
+    try {
+        $authorsArray = array_map('trim', explode(",", $authors));
+
+        if (empty($authorsArray[0])) {
+            throw new Exception("Please enter authors correctly<br>
+            For an example: author1, author2");
         }
+
+        $pdo->beginTransaction();
+
+        // Update book information
+        $stmt = $pdo->prepare("UPDATE books SET title = :title, price = :price, stock = :stock, 
+                              sold = :sold, description = :description, category = :category, 
+                              updated_at = NOW() 
+                              WHERE book_id = :book_id");
+
+        $stmt->execute([
+            "title" => $title,
+            "price" => $price,
+            "stock" => $stock,
+            "sold" => $sold,
+            "description" => $description,
+            "category" => $category,
+            "book_id" => $bookId
+        ]);
+
+        // Delete existing authors
+        $stmt = $pdo->prepare("DELETE FROM authors WHERE book_id = :book_id");
+        $stmt->execute(["book_id" => $bookId]);
+
+        // Insert new authors
+        $stmt = $pdo->prepare("INSERT INTO authors(book_id, author_name) VALUES (:book_id, :author)");
+        foreach ($authorsArray as $author) {
+            $stmt->execute(["book_id" => $bookId, "author" => trim($author)]);
+        }
+
+        $pdo->commit();
+        $response['success'] = true;
+        $response['message'] = 'Book Updated Successfully!';
+    } catch (PDOException $e) {
+        $pdo->rollBack();
+        throw new Exception("Error updating data: " . $e->getMessage());
     }
-
-    // Commit transaction
-    $conn->commit();
-
-    echo json_encode(['success' => true, 'message' => 'Book updated successfully']);
 } catch (Exception $e) {
-    // Rollback transaction on error
-    $conn->rollback();
-    echo json_encode(['success' => false, 'message' => $e->getMessage()]);
+    $response["message"] = $e->getMessage();
 }
 
-$conn->close();
+echo json_encode($response);

@@ -56,6 +56,11 @@
     transition: background 0.3s;
 }
 
+.edit-btn-div a {
+    color: #fff;
+    font-size: 15px;
+}
+
 .edit-btn:hover {
     background: var(--color-primary);
 }

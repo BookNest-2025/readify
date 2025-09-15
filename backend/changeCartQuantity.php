@@ -57,7 +57,7 @@ try {
         case "red":
             $quantity = $cart_item["quantity"];
             if ($quantity <= 1) {
-                throw new Exception("Cannot reduce . You alreadyhaveonly1item inthecart .");
+                throw new Exception("Cannot reduce.<br>You already have only 1 item in the cart.");
             }
             $quantity -= 1;
             $stmt = $pdo->prepare("UPDATE cart SET quantity = :quantity WHERE cart_id = :cart_id");

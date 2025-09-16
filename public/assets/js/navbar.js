@@ -133,6 +133,10 @@ const updateCartItems = (cartItems) => {
       // reuse existing row
       tr = existingRows[cart_id];
       delete existingRows[cart_id];
+<<<<<<< HEAD
+=======
+      tr.querySelector("input[type='number']").value = quantity;
+>>>>>>> 3f2cde940e46097c733a24caf6d1ac07a12d6fbb
     } else {
       // create new row
       tr = document.createElement("tr");
@@ -197,7 +201,10 @@ const changeCartItem = (cart_id, operation) => {
   connectBackEnd({
     backendUrl: `../backend/changeCartQuantity.php?operation=${operation}&cart_id=${cart_id}`,
     callback: (data) => {
-      if (data.success) fetchCart();
+      if (data.success) {
+        fetchCart();
+        data.message && addAlert(data.message, false);
+      }
       if (data.error) addAlert(data.error);
     },
     method: "GET",

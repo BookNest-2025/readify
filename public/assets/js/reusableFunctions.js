@@ -88,10 +88,11 @@ const checkAdmin = () => {
 };
 
 const showBookCards = (books, containerId) => {
-  const newArrivals = document.getElementById(containerId);
+  const bookConatiner = document.getElementById(containerId);
+  bookConatiner.innerHTML = "";
   return books.map((book) => {
     const { book_id, image, title, authors, price } = book;
-    newArrivals.innerHTML += `<div class="book-card">
+    bookConatiner.innerHTML += `<div class="book-card">
               <a href="book.html?id=${book_id}">
                 <img
                   src="./uploads/${image}"

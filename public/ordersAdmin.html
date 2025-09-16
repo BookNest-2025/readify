@@ -11,6 +11,8 @@
     <title>Document</title>
   </head>
   <body>
+    <div class="alert"></div>
+
     <div class="dashboard_admin_body">
       <div class="sidebar">
         <a class="toggler" onclick="hideSidebar()">
@@ -77,7 +79,7 @@
         </div>
 
         <div class="card orders">
-          <h4>To pack</h4>
+          <h4>To Ship</h4>
           <div class="card">
             <table border="0" width="100%">
               <thead>
@@ -88,7 +90,7 @@
                   <th>Action</th>
                 </tr>
               </thead>
-              <tbody id="to-pack">
+              <tbody id="to-ship">
                 <tr>
                   <td colspan="4">No data available</td>
                 </tr>
@@ -98,7 +100,7 @@
         </div>
 
         <div class="card orders">
-          <h4>To pack</h4>
+          <h4>Shipped</h4>
           <div class="card">
             <table border="0" width="100%">
               <thead>
@@ -109,7 +111,7 @@
                   <th>Action</th>
                 </tr>
               </thead>
-              <tbody id="to-pack">
+              <tbody id="shipped">
                 <tr>
                   <td colspan="4">No data available</td>
                 </tr>
@@ -119,7 +121,7 @@
         </div>
 
         <div class="card orders">
-          <h4>To pack</h4>
+          <h4>Cancelled</h4>
           <div class="card">
             <table border="0" width="100%">
               <thead>
@@ -130,7 +132,7 @@
                   <th>Action</th>
                 </tr>
               </thead>
-              <tbody id="to-pack">
+              <tbody id="cancelled">
                 <tr>
                   <td colspan="4">No data available</td>
                 </tr>
@@ -140,54 +142,39 @@
         </div>
       </div>
     </div>
+    <script src="./assets/js/reusableFunctions.js"></script>
     <script src="./assets/js/admin.js"></script>
     <script>
-      const orders = [
-        {
-          customer_name: "sanira",
-          total: 2500,
-          status: "ongoing",
-        },
-        {
-          customer_name: "sanira",
-          total: 2500,
-          status: "ongoing",
-        },
-        {
-          customer_name: "sanira",
-          total: 2500,
-          status: "ongoing",
-        },
-      ];
-
-      fetch("../backend/orders/get_orders.php?status=pending")
-        .then((res) => res.json())
-        .then((data) => {
-          let rows = "";
-          data.forEach((order) => {
-            rows += `
-            <tr>
-              <td>${order.customer_name}</td>
-              <td>$${order.total}LKR</td>
-              <td>${order.status}</td>
-              <td><button><a href="order_details.html?order_id=${order.order_id}">View</a></button></td>
-            </tr>
-          `;
-          });
-          document.getElementById("ordersTable").innerHTML = rows;
+      const getOrders = (status, elementId) => {
+        const element = document.getElementById(elementId);
+        connectBackEnd({
+          backendUrl: "../backend/get_orders.php?status=" + status,
+          callback: (data) => {
+            if (!data.success) {
+              element.innerHTML =
+                '<tr><td colspan="4">No data available</td></tr>';
+              return;
+            }
+            let rows = "";
+            data.data.forEach((order) => {
+              rows += `
+                <tr>
+                  <td>${order.customer_name}</td>
+                  <td>${order.total} LKR</td>
+                  <td>${order.status}</td>
+                  <td><button><a href="order_details.html?order_id=${order.order_id}">View</a></button></td>
+                </tr>
+              `;
+            });
+            element.innerHTML = rows;
+          },
         });
-      let rows = "";
-      orders.forEach((order) => {
-        rows += `
-            <tr>
-              <td>${order.customer_name}</td>
-              <td>$${order.total}LKR</td>
-              <td>${order.status}</td>
-              <td><button><a href="orderDetails.html?order_id=${order.order_id}">View</a></button></td>
-            </tr>
-          `;
-      });
-      document.getElementById("to-pack").innerHTML = rows;
+      };
+
+      getOrders("placed", "to-pack");
+      getOrders("packed", "to-ship");
+      getOrders("shipped", "shipped");
+      getOrders("cancelled", "cancelled");
     </script>
   </body>
 </html>

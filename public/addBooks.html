@@ -141,25 +141,6 @@
       const bookPoster = document.getElementById("bookPoster");
       const preview = document.getElementById("preview");
 
-      // form.addEventListener("submit", (e) => {
-      //   e.preventDefault();
-
-      //   const formData = new FormData(form);
-      //   fetch("../ajax/addBooks.php", {
-      //     method: "POST",
-      //     body: formData,
-      //   })
-      //     .then((res) => res.json())
-      //     .then((data) => {
-      //       if (data.success) addAlert(data.message, false);
-      //       if (data.error) addAlert(data.error);
-      //       if (data.redirect) redirect(data.redirect);
-      //     })
-      //     .catch((err) => {
-      //       addAlert("Something went wrong. Please try again.");
-      //     });
-      // });
-
       connectBackEnd({
         backendUrl: "../backend/addBooks.php",
         formId: "addBookForm",

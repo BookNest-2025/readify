@@ -1,61 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./assets/css/root.css">
-  <link rel="stylesheet" href="./assets/css/order_details.css">
-</head>
-<body>
-
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/root.css" />
+    <link rel="stylesheet" href="./assets/css/order_details.css" />
+  </head>
+  <body>
     <h1>Order Details</h1>
-  <div class="order-container">
+    <div class="order-container">
+      <div class="customer-box">
+        <h3>Customer Details</h3>
+        <p>Customer Name :</p>
+        <p>Address :</p>
+        <p>Phone :</p>
+        <p>Email :</p>
+      </div>
+      <div class="details-box">
+        <h3>Order</h3>
+        <p>Status :</p>
+        <p>Ordered At :</p>
+        <p>Ordered Type :</p>
+        <p>Quentity :</p>
+      </div>
+      <div class="items-box">
+        <h3>Order items</h3>
 
-    <div class="customer-box">
-       <h3>Customer Details</h3>
-       <p>Customer Name :</p>
-       <p>Address :</p>
-       <p>Phone :</p>
-       <p>Email :</p>
+        <div class="list">
+          <img
+            src="./assets/images/book_images/5_lov_languages.jpg"
+            alt="book" />
+          <div class="list-details">
+            <p>Name :</p>
+            <p>Quentity :</p>
+          </div>
+          <p class="price">Price :</p>
+        </div>
 
+        <div class="list">
+          <img
+            src="./assets/images/book_images/5_lov_languages.jpg"
+            alt="book" />
+          <div class="list-details">
+            <p>Name :</p>
+            <p>Quentity :</p>
+          </div>
+          <p class="price">Price :</p>
+        </div>
+      </div>
+      <button>Print Bill</button>
+      <button>Packed</button>
     </div>
-    <div class="details-box">
-      <h3>Order</h3>
-      <p>Status :</p>
-      <p>Ordered At :</p>
-      <p>Ordered Type :</p>
-      <p>Quentity :</p>
-
-    </div>
-    <div class="items-box">
-      <h3>Order items</h3> 
-
-      <div class="list">
-        <img src="./assets/images/book_images/5_lov_languages.jpg" alt="book"> 
-      <div class="list-details">
-        <p>Name : </p>
-        <p>Quentity : </p>
-      </div>
-       <p class="price">Price : </p>
-      </div>
-
-      <div class="list">
-        <img src="./assets/images/book_images/5_lov_languages.jpg" alt="book"> 
-      <div class="list-details">
-        <p>Name : </p>
-        <p>Quentity : </p>
-      </div>
-      <p class="price">Price : </p>
-      </div>
-    
-    </div>
-    <button>Print Bill</button>
-    <button>Packed</button>
-
-  </div>
-
-
-</body>
+  </body>
 </html>

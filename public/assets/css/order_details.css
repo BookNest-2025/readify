@@ -62,6 +62,10 @@ h1 {
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
+.price{
+  position: relative;
+  margin-left: 80%;
+}
 /* Buttons */
 .order-container button {
   padding: 10px 18px;

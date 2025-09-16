@@ -71,6 +71,7 @@ try {
             throw new Exception("Invalid operation.");
     }
 
+    $response["message"] = "updated successfully.";
     $response["success"] = true;
 
 } catch (PDOException $e) {

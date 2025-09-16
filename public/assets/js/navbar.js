@@ -133,7 +133,10 @@ const updateCartItems = (cartItems) => {
       // reuse existing row
       tr = existingRows[cart_id];
       delete existingRows[cart_id];
+<<<<<<< HEAD
+=======
       tr.querySelector("input[type='number']").value = quantity;
+>>>>>>> 3f2cde940e46097c733a24caf6d1ac07a12d6fbb
     } else {
       // create new row
       tr = document.createElement("tr");

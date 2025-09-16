@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Reviews - Readify</title>
+    <link rel="stylesheet" href="./assets/css/review.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Book Reviews</h1>
+        <p>
+          Share your thoughts and read what others have to say about our books
+        </p>
+      </header>
+
+      <div class="main-content">
+        <div class="book-selection">
+          <h2>Select a Book to Review</h2>
+          <div class="search-box">
+            <input
+              type="text"
+              id="bookSearch"
+              placeholder="Search for a book..."
+            />
+            <button id="searchBtn">Search</button>
+          </div>
+          <div id="bookResults" class="book-results"></div>
+        </div>
+
+        <div
+          class="selected-book"
+          id="selectedBookSection"
+          style="display: none"
+        >
+          <div class="book-header">
+            <h2 id="selectedBookTitle"></h2>
+            <p>by <span id="selectedBookAuthor"></span></p>
+            <div class="book-meta">
+              <span class="rating"
+                >Average Rating: <span id="averageRating">0</span>/5</span
+              >
+              <span class="review-count"
+                ><span id="reviewCount">0</span> Reviews</span
+              >
+            </div>
+          </div>
+
+          <div class="review-actions">
+            <button id="writeReviewBtn" class="btn-primary">
+              Write a Review
+            </button>
+            <button id="sortReviews" class="btn-secondary">
+              Sort by: Latest
+            </button>
+          </div>
+
+          <div
+            class="review-form-container"
+            id="reviewFormContainer"
+            style="display: none"
+          >
+            <h3>Write Your Review</h3>
+            <form id="reviewForm">
+              <div class="form-group">
+                <label for="reviewRating">Rating</label>
+                <div class="star-rating">
+                  <span class="star" data-value="1">☆</span>
+                  <span class="star" data-value="2">☆</span>
+                  <span class="star" data-value="3">☆</span>
+                  <span class="star" data-value="4">☆</span>
+                  <span class="star" data-value="5">☆</span>
+                </div>
+                <input type="hidden" id="reviewRating" name="rating" required />
+              </div>
+              <div class="form-group">
+                <label for="reviewTitle">Review Title</label>
+                <input
+                  type="text"
+                  id="reviewTitle"
+                  name="title"
+                  placeholder="Enter a title for your review"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="reviewContent">Your Review</label>
+                <textarea
+                  id="reviewContent"
+                  name="content"
+                  rows="5"
+                  placeholder="Share your thoughts about this book..."
+                  required
+                ></textarea>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn-primary">Submit Review</button>
+                <button type="button" id="cancelReview" class="btn-secondary">
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="login-prompt" id="loginPrompt" style="display: none">
+            <div class="prompt-content">
+              <h3>Sign In Required</h3>
+              <p>You need to be signed in to write a review.</p>
+              <div class="auth-buttons">
+                <button id="loginBtn" class="btn-primary">Sign In</button>
+                <button id="registerBtn" class="btn-secondary">Register</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="reviews-list">
+            <h3>Customer Reviews</h3>
+            <div id="reviewsContainer" class="reviews-container">
+              <!-- Reviews will be loaded here -->
+            </div>
+            <div id="noReviews" class="no-reviews">
+              <p>No reviews yet. Be the first to review this book!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./assets/js/review.js"></script>
+  </body>
+</html>

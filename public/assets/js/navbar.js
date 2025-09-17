@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ------------------------------
   if (userIcon) {
     connectBackEnd({
-      backendUrl: "../backend/checkUserLogin.php",
+      backendUrl: "../backend/auth_check_login.php",
       callback: (data) => {
         if (data.isLoggedIn) {
           if (data.category === "admin") {
@@ -111,7 +111,7 @@ const fetchCartCallback = (data) => {
 
 const fetchCart = () => {
   connectBackEnd({
-    backendUrl: "../backend/fetchCartItems.php",
+    backendUrl: "../backend/cart_items_get.php",
     callback: fetchCartCallback,
   });
 };
@@ -183,7 +183,7 @@ const updateCartItems = (cartItems) => {
 
 const addToCart = async (id) => {
   await connectBackEnd({
-    backendUrl: `../backend/addToCart.php?id=${id}`,
+    backendUrl: `../backend/cart_add.php?id=${id}`,
     method: "GET",
     callback: (data) => {
       if (data.success) addAlert(data.message, false);
@@ -196,7 +196,7 @@ const addToCart = async (id) => {
 
 const changeCartItem = (cart_id, operation) => {
   connectBackEnd({
-    backendUrl: `../backend/changeCartQuantity.php?operation=${operation}&cart_id=${cart_id}`,
+    backendUrl: `../backend/cart_update.php?operation=${operation}&cart_id=${cart_id}`,
     callback: (data) => {
       if (data.success) {
         fetchCart();

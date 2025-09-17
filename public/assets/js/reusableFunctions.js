@@ -62,7 +62,7 @@ const connectBackEnd = async ({
 const logout = (e) => {
   e.preventDefault();
   connectBackEnd({
-    backendUrl: "../backend/logout.php",
+    backendUrl: "../backend/auth_logout.php",
     method: "GET",
     callback: (data) => {
       if (data.success) addAlert(data.message, false);
@@ -74,7 +74,7 @@ const logout = (e) => {
 
 const checkAdmin = () => {
   connectBackEnd({
-    backendUrl: "../backend/checkUserLogin.php",
+    backendUrl: "../backend/auth_check_login.php",
     method: "GET",
     callback: (data) => {
       if (!data.isLoggedIn || data.category !== "admin") {

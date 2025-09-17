@@ -126,7 +126,8 @@
   margin-bottom: 0;
 }
 
-.card.details button {
+.card.details button,
+.status-cards a {
   background: var(--color-secondary);
   color: var(--color-text-secondary);
   transition: 0.3s;

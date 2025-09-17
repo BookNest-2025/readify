@@ -5,7 +5,7 @@ const id = urlParams.get("id");
 
 const fetchBook = () => {
   connectBackEnd({
-    backendUrl: `../backend/fetchBooks.php?id=${id}`,
+    backendUrl: `../backend/books_get.php?id=${id}`,
     callback: (data) => {
       if (data.success) {
         showBook(data.books);

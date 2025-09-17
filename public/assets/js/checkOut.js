@@ -3,7 +3,7 @@ const orderTotals = document.querySelectorAll(".order-total");
 
 const fetchUserData = () => {
   connectBackEnd({
-    backendUrl: "../backend/fetchUserData.php",
+    backendUrl: "../backend/user_get.php",
     callback: (data) => {
       if (data.success) {
         if (data.data) {
@@ -39,7 +39,7 @@ const fetchUserData = () => {
 
 const fetchOrders = () => {
   connectBackEnd({
-    backendUrl: "../backend/fetchCartItems.php",
+    backendUrl: "../backend/cart_items-get.php",
     callback: (data) => {
       if (data.success) {
         if (data.data && data.data.length > 0) {
@@ -89,7 +89,7 @@ fetchUserData();
 
 const placeOrder = () => {
   connectBackEnd({
-    backendUrl: "../backend/placeOrder.php",
+    backendUrl: "../backend/order_place.php",
     callback: (data) => {
       if (data.success) addAlert(data.message, false);
       if (data.error) addAlert(data.error);

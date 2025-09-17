@@ -4,6 +4,7 @@ h1 {
   margin-bottom: 20px;
   font-size: 2rem;
   color: #222;
+  margin-top: 50px;
 }
 
 /* Main container */
@@ -47,7 +48,6 @@ h1 {
 /* Items section */
 .items-box {
   grid-column: 1 / span 2;
-  
 }
 
 .list img {
@@ -57,12 +57,12 @@ h1 {
   margin-bottom: 10px;
   display: block;
 }
-.list{
-   display: grid;
+.list {
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.price{
+.price {
   position: relative;
   margin-left: 80%;
 }

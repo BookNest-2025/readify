@@ -23,7 +23,7 @@ setInterval(nextSlide, 9000);
 
 const fetchLeatestBooks = () => {
   connectBackEnd({
-    backendUrl: "../backend/fetchBooks.php?param=new-arrived",
+    backendUrl: "../backend/books_get.php?param=new-arrived",
     callback: (data) => {
       if (data.success) {
         showBookCards(data.books, "new-arrivals");
@@ -35,7 +35,7 @@ const fetchLeatestBooks = () => {
 
 const fetchPopulerBooks = () => {
   connectBackEnd({
-    backendUrl: "../backend/fetchBooks.php?param=populer",
+    backendUrl: "../backend/books_get.php?param=populer",
     callback: (data) => {
       if (data.success) {
         showBookCards(data.books, "populer-books");

@@ -17,10 +17,17 @@ try {
         throw new Exception("Please login to view orders.");
     }
 
-    if ($_SESSION["user_type"] !== "admin") {
-        $response["redirect"] = "login.html";
-        throw new Exception("You should login as admin to view orders.");
+    $order_id = $_GET["order_id"] ?? null;
+    $status   = $_GET['status'] ?? null;
+    if (! $order_id || ! $status) {
+        throw new Exception("Please provide order id & status to update status.");
     }
+
+    $stmtOrder = $pdo->prepare("UPDATE orders SET status = :status WHERE order_id = :order_id");
+    $stmtOrder->execute(["status" => $status, "order_id" => $order_id]);
+
+    $response["success"] = true;
+    $response["message"] = "Status chaged successfully.";
 
 } catch (Exception $e) {
     $response["error"] = $e->getMessage();

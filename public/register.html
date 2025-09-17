@@ -182,7 +182,7 @@
       const preview = document.getElementById("preview");
 
       connectBackEnd({
-        backendUrl: "../backend/register.php",
+        backendUrl: "../backend/auth_register.php",
         formId: "registerForm",
         callback: (data) => {
           if (data.success) addAlert(data.message, false);

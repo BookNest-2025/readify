@@ -102,7 +102,7 @@
     <script src="./assets/js/login&register.js"></script>
     <script>
       connectBackEnd({
-        backendUrl: "../backend/login.php",
+        backendUrl: "../backend/auth_login.php",
         formId: "loginForm",
         callback: (data) => {
           if (data.success) addAlert(data.message, false);

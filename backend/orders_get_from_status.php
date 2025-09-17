@@ -25,13 +25,22 @@ try {
 
     $status = $_GET["status"] ?? "";
 
-    $stmt = $pdo->prepare("SELECT * FROM orders WHERE status = :status");
-    $stmt->execute([":status" => $status]);
-    $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if (! $status) {
+        $stmt = $pdo->prepare("SELECT * FROM orders ORDER BY created_at DESC");
+        $stmt->execute();
+        $orders = $stmt->fetchAll();
+    } else {
+        $stmt = $pdo->prepare("SELECT * FROM orders WHERE status = :status");
+        $stmt->execute([":status" => $status]);
+        $orders = $stmt->fetchAll();
+    }
 
     if (empty($orders)) {
         $response["success"] = false;
-        $response["message"] = "No orders found for status '$status'.";
+        $response["message"] = $status
+            ? "No orders found for status $status."
+            : "No orders found.";
+
     } else {
         foreach ($orders as &$order) {
             $stmt2 = $pdo->prepare("SELECT name FROM customers WHERE customer_id = :id");

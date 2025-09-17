@@ -101,7 +101,7 @@ const fetchCartCallback = (data) => {
     if (data.data && data.data.length > 0) {
       updateCartItems(data.data);
     } else {
-      cartItemsContainer.innerHTML = `<tr><td colspan="4">Your cart is empty.</td></tr>`;
+      cartItemsContainer.innerHTML = `<tr><td style="text-align:center" colspan="4">Your cart is empty.</td></tr>`;
       cartTotal.textContent = "0 LKR";
     }
   } else {

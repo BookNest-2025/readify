@@ -35,11 +35,11 @@
           <i class="fa fa-trash"></i>
           <span class="names">Delete Books</span>
         </a>
-        <a href="#orders">
+        <a href="ordersAdmin.html">
           <i class="fa fa-sort-amount-desc"></i>
           <span class="names">Ongoing Orders</span>
         </a>
-        <a href="orderHistory.html">
+        <a href="#">
           <i class="fa fa fa-history"></i>
           <span class="names">Order history</span>
         </a>
@@ -54,11 +54,11 @@
       <div class="main">
         <div class="header">
           <h1>Welcome,<span>Admin</span>👋</h1>
-          <h3>Orders</h3>
+          <h3>Orders History</h3>
         </div>
 
         <div class="card orders">
-          <h4>To pack</h4>
+          <h4>Orders</h4>
           <div class="card">
             <table border="0" width="100%">
               <thead>
@@ -70,73 +70,7 @@
                   <th>Action</th>
                 </tr>
               </thead>
-              <tbody id="to-pack">
-                <tr>
-                  <td colspan="4">No data available</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="card orders">
-          <h4>To Ship</h4>
-          <div class="card">
-            <table border="0" width="100%">
-              <thead>
-                <tr>
-                  <th>Order id</th>
-                  <th>Customer</th>
-                  <th>Total</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody id="to-ship">
-                <tr>
-                  <td colspan="4">No data available</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="card orders">
-          <h4>Shipped</h4>
-          <div class="card">
-            <table border="0" width="100%">
-              <thead>
-                <tr>
-                  <th>Order id</th>
-                  <th>Customer</th>
-                  <th>Total</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody id="shipped">
-                <tr>
-                  <td colspan="4">No data available</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="card orders">
-          <h4>Cancelled</h4>
-          <div class="card">
-            <table border="0" width="100%">
-              <thead>
-                <tr>
-                  <th>Order id</th>
-                  <th>Customer</th>
-                  <th>Total</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody id="cancelled">
+              <tbody id="orders-history">
                 <tr>
                   <td colspan="4">No data available</td>
                 </tr>
@@ -148,6 +82,37 @@
     </div>
     <script src="./assets/js/reusableFunctions.js"></script>
     <script src="./assets/js/admin.js"></script>
-    <script src="./assets/js/ordersAdmin.js"></script>
+    <script>
+      const ordersHistoryTable = document.getElementById("orders-history");
+      const fetchOrders = () => {
+        connectBackEnd({
+          backendUrl: "../backend/orders_get_from_status.php",
+          callback: (data) => {
+            console.log(data);
+            if (data.success) {
+              ordersHistoryTable.innerHTML = "";
+              data.data.forEach((order) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                 <td>${order.order_id}</td>
+                    <td>${order.customer_name}</td>
+                    <td>$${order.total}</td>
+                    <td>${order.status}</td>
+                    <td><a href="order_details.html?order_id=${order.order_id}">View Details</a></td>
+                  `;
+                ordersHistoryTable.appendChild(row);
+              });
+            } else {
+              ordersHistoryTable.innerHTML = `
+                  <tr>
+                    <td colspan="5">${data.message || "No data available"}</td>
+                  </tr>
+                `;
+            }
+          },
+        });
+      };
+      fetchOrders();
+    </script>
   </body>
 </html>

@@ -180,10 +180,10 @@ const changeStatus = (status) => {
   console.log(nextStatus);
   console.log(order_id);
   connectBackEnd({
-    backendUrl: `../backend/updateOrderStatus.php?order_id=${order_id}&status=${nextStatus}`,
+    backendUrl: `../backend/order_update_status.php?order_id=${order_id}&status=${nextStatus}`,
     callback: (data) => {
       if (data.success) {
-        addAlert(data.message, "success");
+        addAlert(data.message, false);
         redirect("ordersAdmin.html");
       }
       if (data.error) {

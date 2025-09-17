@@ -39,7 +39,7 @@ const fetchUserData = () => {
 
 const fetchOrders = () => {
   connectBackEnd({
-    backendUrl: "../backend/cart_items-get.php",
+    backendUrl: "../backend/cart_items_get.php",
     callback: (data) => {
       if (data.success) {
         if (data.data && data.data.length > 0) {

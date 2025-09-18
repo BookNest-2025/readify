@@ -3,86 +3,94 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Edit Profile</title>
     <link rel="stylesheet" href="./assets/css/root.css" />
     <link rel="stylesheet" href="./assets/css/edit_Profile.css" />
     <link rel="stylesheet" href="./assets/css/footer.css" />
     <link rel="stylesheet" href="./assets/css/navbar.css" />
     <link rel="stylesheet" href="./assets/css/index.css" />
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   </head>
   <body>
-    <nav class="navbar">
-      <div class="navbar-left">
-        <img src="assets/images/logos/logo_transparent.png" alt="Logo" />
-      </div>
-      <ul class="navbar-center">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Books</a></li>
-        <li><a href="#">Reviews</a></li>
-        <li><a href="#">Admin</a></li>
-      </ul>
-      <div class="navbar-right">
-        <div class="icon-row">
-          <i class="fa fa-search" id="search-icon"></i>
-          <a href="#"><i class="fa fa-user"></i></a>
-          <a href="#"><i class="fa fa-shopping-cart"></i></a>
-          <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
+    <div class="alert"></div>
+    <header>
+      <nav class="navbar">
+        <div class="navbar-left">
+          <img src="assets/images/logos/logo_transparent.png" alt="Logo" />
         </div>
+        <ul class="navbar-center">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#books">Books</a></li>
+          <li><a href="review.html">Reviews</a></li>
+          <li><a href="#">Admin</a></li>
+        </ul>
+        <div class="navbar-right">
+          <div class="icon-row">
+            <i class="fa fa-search" id="search-icon"></i>
+            <a href="#"><i class="fa fa-user"></i></a>
+            <a href="#"><i class="fa fa-shopping-cart"></i></a>
+            <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
+          </div>
+        </div>
+      </nav>
+      <div class="search-panel" id="search-panel">
+        <input
+          type="text"
+          id="search-input-field"
+          placeholder="Search books..." />
       </div>
-    </nav>
-    <div class="search-panel" id="search-panel">
-      <input
-        type="text"
-        id="search-input-field"
-        placeholder="Search books..."
-      />
-    </div>
-    <div id="toggle-handler-search"></div>
-    <div id="toggle-handler-menu"></div>
-    <div class="navbar-background"></div>
+      <div id="toggle-handler-search"></div>
+      <div id="toggle-handler-menu"></div>
+      <div class="navbar-background"></div>
+    </header>
 
     <section class="edit-profile">
-      <!--  -->
-      <div class="profile-pic-upload">
-        <img
-          src="./assets/images/profile_images/WhatsApp Image 2025-08-26 at 15.10.52_6ffb8d12.png"
-          alt="User Profile"
-          id="preview"
-        />
-        <label for="profile-image" class="upload-btn">
-          <i class="fa fa-camera"></i> Change Photo
-        </label>
-        <input type="file" id="profile-image" accept="image/*" hidden />
-      </div>
-      <!--  -->
       <div class="profile_form">
         <h2>Edit Profile</h2>
-        <form class="edit-profile-form">
-          <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" value="Avishka Ishan" />
+        <form
+          class="edit-profile-form"
+          id="edit-profile-form"
+          enctype="multipart/form-data">
+          <div class="profile-pic-upload">
+            <img
+              src="./uploads/profile/profiledefault.png"
+              alt="User Profile"
+              id="preview" />
+            <label for="profile-image" class="upload-btn">
+              <i class="fa fa-camera"></i> Change Photo
+            </label>
+            <input
+              type="file"
+              id="profile-image"
+              name="profilePhoto"
+              accept="image/*"
+              hidden />
           </div>
 
+          <!-- Form fields -->
           <div class="form-group">
-            <label for="email">Email Address</label>
+            <label for="name">Full Name</label>
             <input
-              type="email"
-              id="email"
-              value="aimedagamagodage2003@gmail.com"
-            />
+              type="text"
+              id="name"
+              name="name"
+              placeholder="John Doe"
+              required />
           </div>
 
           <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="text" id="phone" value="+94 77 659 9189" />
+            <input
+              type="text"
+              id="phone"
+              name="telno"
+              placeholder="0XXXXXXXXX"
+              required />
           </div>
 
           <div class="form-group">
@@ -90,15 +98,9 @@
             <input
               type="text"
               id="address"
-              value="171, Dharmashoka Mawatha, Lewalla, Kandy"
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="bio">About Me</label>
-            <textarea id="bio" rows="4">
-Passionate about books and technology. Currently managing my online bookstore and pursuing Software Engineering at the University of Kelaniya.</textarea
-            >
+              name="address"
+              placeholder="123, ABC Road, City"
+              required />
           </div>
 
           <div class="form-actions">
@@ -161,7 +163,9 @@ Passionate about books and technology. Currently managing my online bookstore an
         </ul>
       </div>
     </footer>
+
+    <script src="./assets/js/reusableFunctions.js"></script>
     <script src="./assets/js/navbar.js"></script>
-    <script src="./assets/js/edit_Profile.js"></script>
+    <script src="./assets/js/editProfile.js"></script>
   </body>
 </html>

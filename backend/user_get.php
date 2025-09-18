@@ -9,7 +9,7 @@ $response = ["success" => false, "message" => "", "error" => "", "redirect" => "
 try {
     if (! isset($_SESSION["email"]) || ! isset($_SESSION["user_type"])) {
         $response["redirect"] = "login.html";
-        throw new Exception("Please login to view cart items.");
+        throw new Exception("Please login to view user data.");
     }
 
     try {

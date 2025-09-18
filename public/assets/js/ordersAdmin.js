@@ -15,7 +15,7 @@ const getOrders = (status, elementId) => {
                   <td>${order.customer_name}</td>
                   <td>${order.total} LKR</td>
                   <td>${order.status}</td>
-                  <td><button><a href="order_details.html?order_id=${order.order_id}">View</a></button></td>
+                  <td><button><a href="orderDetailsAdmin.html?order_id=${order.order_id}">View</a></button></td>
                 </tr>
               `;
       });

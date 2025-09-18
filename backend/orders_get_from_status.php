@@ -18,28 +18,32 @@ try {
         throw new Exception("Please login to view orders.");
     }
 
-    if ($_SESSION["user_type"] !== "admin") {
-        $response["redirect"] = "login.html";
-        throw new Exception("You should login as admin to view orders.");
-    }
-
     $status = $_GET["status"] ?? "";
+    $orders = null;
 
-    if (! $status) {
-        $stmt = $pdo->prepare("SELECT * FROM orders ORDER BY created_at DESC");
-        $stmt->execute();
+    if ($_SESSION['user_type'] === 'customers') {
+        $stmt = $pdo->prepare("SELECT * FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.email = :email");
+        $stmt->execute(["email" => $_SESSION['email']]);
         $orders = $stmt->fetchAll();
     } else {
-        $stmt = $pdo->prepare("SELECT * FROM orders WHERE status = :status");
-        $stmt->execute([":status" => $status]);
-        $orders = $stmt->fetchAll();
+        if (! $status) {
+            $stmt = $pdo->prepare("SELECT * FROM orders ORDER BY created_at DESC");
+            $stmt->execute();
+            $orders = $stmt->fetchAll();
+        } else {
+            $stmt = $pdo->prepare("SELECT * FROM orders WHERE status = :status");
+            $stmt->execute([":status" => $status]);
+            $orders = $stmt->fetchAll();
+        }
+
     }
 
     if (empty($orders)) {
         $response["success"] = false;
-        $response["message"] = $status
-            ? "No orders found for status $status."
-            : "No orders found.";
+        throw new Exception($status
+                ? "No orders found for status $status."
+                : "No orders found."
+        );
 
     } else {
         foreach ($orders as &$order) {

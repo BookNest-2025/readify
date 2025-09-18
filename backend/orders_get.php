@@ -19,6 +19,7 @@ try {
 
     $order_id = $_GET["order_id"] ?? null;
     if (! $order_id) {
+
         throw new Exception("Order ID not provided.");
     }
 
@@ -38,6 +39,7 @@ try {
         $stmtCustomer->execute(["email" => $_SESSION["email"]]);
         $customer = $stmtCustomer->fetch();
         if ($customer["customer_id"] !== $order["customer_id"]) {
+            $response["redirect"] = "profile.html";
             throw new Exception("You can not view others orders.");
         }
 

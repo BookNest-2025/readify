@@ -4,14 +4,19 @@ const summaryElem = document.querySelector(".summary");
 const sidebar = document.querySelector(".sidebar");
 const names = document.querySelectorAll(".sidebar .names");
 
-const hideOnLoad = () => {
+const toggleOnLoad = () => {
   if (window.innerWidth <= 768) {
     sidebar.classList.remove("active");
     summaryElem.classList.remove("active");
     names.forEach((name) => name.classList.remove("active"));
   }
+  if (window.innerWidth > 768) {
+    sidebar.classList.add("active");
+    summaryElem.classList.add("active");
+    names.forEach((name) => name.classList.add("active"));
+  }
 };
-hideOnLoad();
+toggleOnLoad();
 
 window.addEventListener("resize", () => {
   if (window.innerWidth > 768) {
@@ -21,7 +26,7 @@ window.addEventListener("resize", () => {
   }
   if (window.innerWidth <= 768) {
     sidebar.classList.remove("active");
-    summary.classList.remove("active");
+    summaryElem.classList.remove("active");
     names.forEach((name) => name.classList.remove("active"));
   }
 });

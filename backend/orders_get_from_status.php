@@ -31,7 +31,7 @@ try {
             $stmt->execute();
             $orders = $stmt->fetchAll();
         } else {
-            $stmt = $pdo->prepare("SELECT * FROM orders WHERE status = :status");
+            $stmt = $pdo->prepare("SELECT * FROM orders WHERE status = :status ORDER BY created_at DESC");
             $stmt->execute([":status" => $status]);
             $orders = $stmt->fetchAll();
         }

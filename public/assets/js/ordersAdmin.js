@@ -26,6 +26,6 @@ const getOrders = (status, elementId) => {
 
 getOrders("pending", "to-pack");
 getOrders("packed", "to-ship");
-getOrders("shipped", "shipped");
-getOrders("shipped", "shipped");
+getOrders("shipped", "to-deliver");
+getOrders("delivered", "completed");
 getOrders("cancelled", "cancelled");

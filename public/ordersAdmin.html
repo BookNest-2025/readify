@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/root.css" />
-    <link rel="stylesheet" href="./assets/css/admin.css" />
+    <link rel="stylesheet" href="./assets/css/ordersAdmin.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -13,50 +13,49 @@
   <body>
     <div class="alert"></div>
 
-    <div class="dashboard_admin_body">
-      <div class="sidebar">
-        <a class="toggler" onclick="hideSidebar()">
-          <i class="fa fa-bars"></i>
-        </a>
-        <img src="./assets/images/logo.png" alt="" />
-        <a href="adminDashboard.html">
-          <i class="fa fa-dashboard"></i>
-          <span class="names">Dashboard</span>
-        </a>
-        <a href="addBooks.html">
-          <i class="fa fa-plus"></i>
-          <span class="names">Add Books</span>
-        </a>
-        <a href="updateBooks.html">
-          <i class="fa fa-pencil-square"></i>
-          <span class="names">Update books</span>
-        </a>
-        <a href="deleteBooks.html">
-          <i class="fa fa-trash"></i>
-          <span class="names">Delete Books</span>
-        </a>
-        <a href="#orders">
-          <i class="fa fa-sort-amount-desc"></i>
-          <span class="names">Ongoing Orders</span>
-        </a>
-        <a href="orderHistoryAdmin.html">
-          <i class="fa fa fa-history"></i>
-          <span class="names">Order history</span>
-        </a>
+    <div class="sidebar">
+      <a class="toggler" onclick="toggleSideBar()">
+        <i class="fa fa-bars"></i>
+      </a>
+      <img src="./assets/images/logo.png" alt="" />
+      <a href="adminDashboard.html">
+        <i class="fa fa-dashboard"></i>
+        <span class="names">Dashboard</span>
+      </a>
+      <a href="addBooks.html">
+        <i class="fa fa-plus"></i>
+        <span class="names">Add Books</span>
+      </a>
+      <a href="updateBooks.html">
+        <i class="fa fa-pencil-square"></i>
+        <span class="names">Update books</span>
+      </a>
+      <a href="deleteBooks.html">
+        <i class="fa fa-trash"></i>
+        <span class="names">Delete Books</span>
+      </a>
+      <a href="#orders">
+        <i class="fa fa-sort-amount-desc"></i>
+        <span class="names">Ongoing Orders</span>
+      </a>
+      <a href="orderHistoryAdmin.html">
+        <i class="fa fa fa-history"></i>
+        <span class="names">Order history</span>
+      </a>
 
-        <a href="" onclick="logout(event)">
-          <i class="fa fa-sign-out"></i>
-          <span class="names">Logout</span>
-        </a>
-      </div>
+      <a href="" onclick="logout(event)">
+        <i class="fa fa-sign-out"></i>
+        <span class="names">Logout</span>
+      </a>
+    </div>
 
-      <!-- Main Content -->
+    <!-- Main Content -->
+    <section class="summary">
       <div class="main">
-        <div class="header">
-          <h1>Welcome,<span>Admin</span>👋</h1>
-          <h3>Orders</h3>
-        </div>
-
+        <header>
+          <h1>Readify Admin Dashboard</h1>
+        </header>
+        <h3>Orders</h3>
         <div class="card orders">
           <h4>To pack</h4>
           <div class="card">
@@ -78,7 +77,6 @@
             </table>
           </div>
         </div>
-
         <div class="card orders">
           <h4>To Ship</h4>
           <div class="card">
@@ -100,9 +98,8 @@
             </table>
           </div>
         </div>
-
         <div class="card orders">
-          <h4>Shipped</h4>
+          <h4>To Deliver</h4>
           <div class="card">
             <table border="0" width="100%">
               <thead>
@@ -114,7 +111,7 @@
                   <th>Action</th>
                 </tr>
               </thead>
-              <tbody id="shipped">
+              <tbody id="to-deliver">
                 <tr>
                   <td colspan="4">No data available</td>
                 </tr>
@@ -122,7 +119,27 @@
             </table>
           </div>
         </div>
-
+        <div class="card orders">
+          <h4>Completed</h4>
+          <div class="card">
+            <table border="0" width="100%">
+              <thead>
+                <tr>
+                  <th>Order id</th>
+                  <th>Customer</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="completed">
+                <tr>
+                  <td colspan="4">No data available</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
         <div class="card orders">
           <h4>Cancelled</h4>
           <div class="card">
@@ -145,7 +162,8 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
+
     <script src="./assets/js/reusableFunctions.js"></script>
     <script src="./assets/js/admin.js"></script>
     <script src="./assets/js/ordersAdmin.js"></script>

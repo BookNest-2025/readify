@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/root.css" />
-    <link rel="stylesheet" href="./assets/css/admin.css" />
+    <link rel="stylesheet" href="./assets/css/ordersAdmin.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -12,10 +12,9 @@
   </head>
   <body>
     <div class="alert"></div>
-
     <div class="dashboard_admin_body">
       <div class="sidebar">
-        <a class="toggler" onclick="hideSidebar()">
+        <a class="toggler" onclick="toggleSideBar()">
           <i class="fa fa-bars"></i>
         </a>
         <img src="./assets/images/logo.png" alt="" />
@@ -51,68 +50,37 @@
       </div>
 
       <!-- Main Content -->
-      <div class="main">
-        <div class="header">
-          <h1>Welcome,<span>Admin</span>👋</h1>
-          <h3>Orders History</h3>
-        </div>
-
-        <div class="card orders">
-          <h4>Orders</h4>
-          <div class="card">
-            <table border="0" width="100%">
-              <thead>
-                <tr>
-                  <th>Order id</th>
-                  <th>Customer</th>
-                  <th>Total</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody id="orders-history">
-                <tr>
-                  <td colspan="4">No data available</td>
-                </tr>
-              </tbody>
-            </table>
+      <section class="summary">
+        <div class="main">
+          <header>
+            <h1>Readify Admin Dashboard</h1>
+          </header>
+          <div class="card orders">
+            <h4>Orders</h4>
+            <div class="card">
+              <table border="0" width="100%">
+                <thead>
+                  <tr>
+                    <th>Order id</th>
+                    <th>Customer</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="orders-history">
+                  <tr>
+                    <td colspan="4">No data available</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
     <script src="./assets/js/reusableFunctions.js"></script>
     <script src="./assets/js/admin.js"></script>
-    <script>
-      const ordersHistoryTable = document.getElementById("orders-history");
-      const fetchOrders = () => {
-        connectBackEnd({
-          backendUrl: "../backend/orders_get_from_status.php",
-          callback: (data) => {
-            console.log(data);
-            if (data.success) {
-              ordersHistoryTable.innerHTML = "";
-              data.data.forEach((order) => {
-                const row = document.createElement("tr");
-                row.innerHTML = `
-                 <td>${order.order_id}</td>
-                    <td>${order.customer_name}</td>
-                    <td>${order.total} LKR</td>
-                    <td>${order.status}</td>
-                    <td><a href="orderDetailsAdmin.html?order_id=${order.order_id}">View Details</a></td>
-                  `;
-                ordersHistoryTable.appendChild(row);
-              });
-            } else {
-              ordersHistoryTable.innerHTML = `
-                  <tr>
-                    <td colspan="5">${data.message || "No data available"}</td>
-                  </tr>
-                `;
-            }
-          },
-        });
-      };
-      fetchOrders();
-    </script>
+    <script src="./assets/js/orderHistoryAdmin.js"></script>
   </body>
 </html>

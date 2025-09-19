@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reviews - Readify</title>
+    <link rel="stylesheet" href="./assets/css/root.css" />
+    <link rel="stylesheet" href="./assets/css/review.css" />
+    <link rel="stylesheet" href="./assets/css/footer.css" />
+    <link rel="stylesheet" href="./assets/css/navbar.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  </head>
+  <body>
+    <div class="alert"></div>
+    <header>
+      <nav class="navbar">
+        <div class="navbar-left">
+          <img src="assets/images/logos/logo_transparent.png" alt="Logo" />
+        </div>
+        <ul class="navbar-center">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Books</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="#">Admin</a></li>
+        </ul>
+        <div class="navbar-right">
+          <div class="icon-row">
+            <i class="fa fa-search" id="search-icon"></i>
+            <a href="#" id="user-icon"><i class="fa fa-user"></i></a>
+            <a href="#" id="cart-icon"><i class="fa fa-shopping-cart"></i></a>
+            <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
+          </div>
+        </div>
+      </nav>
+      <div class="search-panel" id="search-panel">
+        <input
+          type="text"
+          id="search-input-field"
+          placeholder="Search books..." />
+      </div>
+      <div id="toggle-handler-search"></div>
+      <div id="toggle-handler-menu"></div>
+      <div class="navbar-background"></div>
+
+      <div class="cart-container">
+        <h2>Shopping Cart</h2>
+        <p class="cart-subtitle">Items in your cart</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody class="cart-items"></tbody>
+          </table>
+        </div>
+
+        <div class="cart-summary">
+          <p>Subtotal: <strong id="cart-total">0</strong></p>
+          <button class="checkout-btn">Checkout</button>
+        </div>
+
+        <a class="continue-shopping" onclick="hideCart(event)">
+          <i class="fa fa-arrow-left"></i>
+          Continue Shopping
+        </a>
+      </div>
+    </header>
+
+    <div class="container">
+      <header>
+        <h1>Readify Platform Reviews</h1>
+        <p>See what others think about our platform</p>
+      </header>
+
+      <div class="reviews-list">
+        <h2>User Reviews</h2>
+        <div id="reviewsContainer"></div>
+        <div id="noReviews" class="no-reviews">
+          <p>No reviews yet. Be the first to review our platform!</p>
+        </div>
+      </div>
+
+      <div class="review-form">
+        <h2>Write a Review</h2>
+        <form id="reviewForm">
+          <div class="form-group">
+            <label for="reviewRating">Rating</label>
+            <div class="star-rating">
+              <span class="star" data-value="1">☆</span>
+              <span class="star" data-value="2">☆</span>
+              <span class="star" data-value="3">☆</span>
+              <span class="star" data-value="4">☆</span>
+              <span class="star" data-value="5">☆</span>
+            </div>
+            <input type="hidden" id="reviewRating" name="rating" required />
+          </div>
+          <div class="form-group">
+            <label for="reviewContent">Your Review</label>
+            <textarea
+              id="reviewContent"
+              name="review"
+              placeholder="Share your experience with Readify..."
+              required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="submitBtn">
+            Submit Review
+          </button>
+        </form>
+        <div id="loginPrompt" class="login-prompt">
+          <p>You need to <a href="login.html">sign in</a> to write a review.</p>
+        </div>
+        <div id="message" class="message"></div>
+      </div>
+    </div>
+    <script src="./assets/js/reusableFunctions.js"></script>
+    <script src="./assets/js/navbar.js"></script>
+    <script src="./assets/js/platformReviews.js"></script>
+  </body>
+</html>

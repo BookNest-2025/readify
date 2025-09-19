@@ -1,5 +1,4 @@
 <?php
-// backend/submitPlatformReview.php
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(403);
     exit("Forbidden");
@@ -12,15 +11,18 @@ header("Content-Type: application/json");
 $response = ["success" => false, "message" => ""];
 
 try {
-    if (!isset($_SESSION["customer_id"])) {
+    if (! isset($_SESSION["email"])) {
         throw new Exception("Please login to submit a review.");
     }
 
     $rating = trim($_POST["rating"]) ?? "";
     $review = trim($_POST["review"]) ?? "";
-    $customerId = trim($_POST["customer_id"]) ?? "";
 
-    if (!$rating || !$review || !$customerId) {
+    $stmtCustomer = $pdo->prepare("SELECT * FROM customers WHERE email = :email");
+    $stmtCustomer->execute(["email" => $_SESSION['email']]);
+    $customer_id = $stmtCustomer->fetch()['customer_id'];
+
+    if (! $rating || ! $review) {
         throw new Exception("Please fill in all required fields.");
     }
 
@@ -28,30 +30,28 @@ try {
         throw new Exception("Rating must be between 1 and 5.");
     }
 
-    // Check if customer has already reviewed the platform
-    $checkSql = "SELECT * FROM reviews WHERE customer_id = :customer_id";
+    $checkSql  = "SELECT * FROM reviews WHERE customer_id = :customer_id";
     $checkStmt = $pdo->prepare($checkSql);
-    $checkStmt->execute(['customer_id' => $customerId]);
+    $checkStmt->execute(['customer_id' => $customer_id]);
 
     if ($checkStmt->rowCount() > 0) {
         throw new Exception("You have already reviewed our platform.");
     }
 
-    // Insert the platform review
-    $sql = "INSERT INTO reviews (customer_id, rating, review, date) 
-            VALUES (:customer_id, :rating, :review, NOW())";
+    $sql = "INSERT INTO reviews (customer_id, rating, review)
+            VALUES (:customer_id, :rating, :review)";
 
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
-        "customer_id" => $customerId,
-        "rating" => $rating,
-        "review" => $review
+        "customer_id" => $customer_id,
+        "rating"      => $rating,
+        "review"      => $review,
     ]);
 
     $response['success'] = true;
     $response['message'] = 'Thank you for reviewing our platform!';
 } catch (Exception $e) {
-    $response["message"] = $e->getMessage();
+    $response["error"] = $e->getMessage();
 }
 
 echo json_encode($response);

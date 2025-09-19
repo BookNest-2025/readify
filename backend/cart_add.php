@@ -29,6 +29,13 @@ try {
 
         $customer_id = $customer['customer_id'];
 
+        $stmtBook = $pdo->prepare("SELECT * FROM books WHERE book_id = :book_id");
+        $stmtBook->execute(["book_id" => $book_id]);
+        $book = $stmtBook->fetch();
+        if ($book['status']) {
+            throw new Exception("Can not add deleted books.");
+        }
+
         $stmtCart = $pdo->prepare("SELECT * FROM cart WHERE customer_id = :customer_id AND book_id = :book_id");
         $stmtCart->execute(["customer_id" => $customer_id, "book_id" => $book_id]);
         $cart = $stmtCart->fetch();

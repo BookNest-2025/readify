@@ -96,9 +96,9 @@
                 row.innerHTML = `
                  <td>${order.order_id}</td>
                     <td>${order.customer_name}</td>
-                    <td>$${order.total}</td>
+                    <td>${order.total} LKR</td>
                     <td>${order.status}</td>
-                    <td><a href="order_details.html?order_id=${order.order_id}">View Details</a></td>
+                    <td><a href="orderDetailsAdmin.html?order_id=${order.order_id}">View Details</a></td>
                   `;
                 ordersHistoryTable.appendChild(row);
               });

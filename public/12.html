@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookstore Admin Dashboard</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: sans-serif;
+        background: #f5f6f8;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 1rem;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+      header h1 {
+        font-size: 1.8rem;
+        color: #222;
+      }
+      .growth {
+        font-weight: bold;
+        font-size: 1rem;
+        color: #10b981;
+      }
+
+      .kpi {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      .kpi .card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 1rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        text-align: center;
+      }
+      .kpi .card h3 {
+        margin: 0 0 0.5rem;
+        font-size: 0.9rem;
+        color: #666;
+      }
+      .kpi .card p {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      /* Orders */
+      .orders {
+        margin-bottom: 2rem;
+      }
+      .orders h3 {
+        margin-bottom: 0.5rem;
+        color: #333;
+      }
+      .orders-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+      }
+      .orders-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 1rem;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+      .orders-card h4 {
+        margin: 0 0 0.5rem;
+        font-size: 0.9rem;
+        color: #444;
+      }
+      .orders-card p {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0.5rem 0;
+      }
+      .orders-card button {
+        background: #06b6d4;
+        color: #fff;
+        border: none;
+        padding: 0.4rem 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      .orders-card button:hover {
+        background: #0891b2;
+      }
+
+      /* Charts */
+      .charts {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+      }
+      .chart {
+        background: #fff;
+        border-radius: 12px;
+        padding: 1rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+      .chart h3 {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        color: #333;
+      }
+
+      .bar-chart {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        height: 220px;
+      }
+      .bar {
+        width: 32px;
+        background: linear-gradient(to top, #4f46e5, #a5b4fc);
+        border-radius: 6px 6px 0 0;
+        position: relative;
+        cursor: pointer;
+        transition: 0.5s;
+      }
+      .bar span {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.75rem;
+        opacity: 0;
+        transition: 0.3s;
+      }
+      .bar:hover span {
+        opacity: 1;
+      }
+
+      .bar-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+        color: #555;
+      }
+
+      .pie {
+        position: relative;
+        width: 220px;
+        height: 220px;
+        margin: 0 auto;
+        border-radius: 50%;
+        background: conic-gradient(
+          #4f46e5 0 144deg,
+          #6366f1 0 252deg,
+          #818cf8 0 324deg,
+          #a5b4fc 0
+        );
+      }
+      .pie-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        color: #555;
+        text-align: center;
+      }
+      .pie-legend {
+        margin-top: 0.5rem;
+        font-size: 0.85rem;
+      }
+      .pie-legend span {
+        display: block;
+        margin-bottom: 0.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Bookstore Admin Dashboard</h1>
+        <div class="growth" id="weeklyGrowth">Weekly Growth: +0%</div>
+      </header>
+
+      <div class="kpi">
+        <div class="card">
+          <h3>Total Sales</h3>
+          <p id="sales">$0</p>
+        </div>
+        <div class="card">
+          <h3>Total Orders</h3>
+          <p id="orders">0</p>
+        </div>
+        <div class="card">
+          <h3>New Customers</h3>
+          <p id="customers">0</p>
+        </div>
+        <div class="card">
+          <h3>Books in Inventory</h3>
+          <p id="books">0</p>
+        </div>
+        <div class="card">
+          <h3>Out of Stock</h3>
+          <p id="outStock">0</p>
+        </div>
+      </div>
+
+      <!-- Ongoing Orders -->
+      <div class="orders">
+        <h3>Ongoing Orders</h3>
+        <div class="orders-cards" id="orderCards"></div>
+      </div>
+
+      <!-- Charts -->
+      <div class="charts">
+        <div class="chart">
+          <h3>Sales - Last 7 Days</h3>
+          <div class="bar-chart" id="barChart"></div>
+          <div class="bar-labels" id="barLabels"></div>
+        </div>
+        <div class="chart">
+          <h3>Sales by Genre</h3>
+          <div class="pie">
+            <div class="pie-center">Genres</div>
+          </div>
+          <div class="pie-legend" id="pieLegend"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      /* ---------- demo data ---------- */
+      const sales = [120, 180, 160, 210, 300, 250, 280];
+      const lastWeek = [100, 150, 130, 170, 260, 200, 240];
+      function getLast7DayLabels() {
+        const labels = [];
+        const today = new Date();
+        for (let i = 6; i >= 0; i--) {
+          const d = new Date(today);
+          d.setDate(today.getDate() - i);
+          labels.push(
+            d.toLocaleDateString("en-US", { weekday: "short" }) // "Sun", "Mon", etc.
+          );
+        }
+        return labels;
+      }
+
+      const days = getLast7DayLabels();
+
+      const genres = [
+        { name: "Fiction", percent: 40, color: "#4f46e5" },
+        { name: "Non-fiction", percent: 30, color: "#6366f1" },
+        { name: "Sci-Fi", percent: 20, color: "#818cf8" },
+        { name: "Other", percent: 10, color: "#a5b4fc" },
+      ];
+      const orderStats = [
+        { label: "To Pack", count: 5 },
+        { label: "To Ship", count: 3 },
+        { label: "Shipped", count: 12 },
+        { label: "Cancelled", count: 1 },
+      ];
+
+      /* ---------- KPIs ---------- */
+      document.getElementById("sales").textContent =
+        "$" + sales.reduce((a, b) => a + b, 0);
+      document.getElementById("orders").textContent = orderStats.reduce(
+        (a, b) => a + b.count,
+        0
+      );
+      document.getElementById("customers").textContent = "25";
+      document.getElementById("books").textContent = "120";
+      document.getElementById("outStock").textContent = "8";
+      const growth = (
+        ((sales.reduce((a, b) => a + b, 0) -
+          lastWeek.reduce((a, b) => a + b, 0)) /
+          lastWeek.reduce((a, b) => a + b, 0)) *
+        100
+      ).toFixed(1);
+      document.getElementById("weeklyGrowth").textContent = `Weekly Growth: ${
+        growth > 0 ? "+" : ""
+      }${growth}%`;
+      document.getElementById("weeklyGrowth").style.color =
+        growth >= 0 ? "#10b981" : "#ef4444";
+
+      /* ---------- Ongoing Orders ---------- */
+      const oc = document.getElementById("orderCards");
+      orderStats.forEach((o) => {
+        const div = document.createElement("div");
+        div.className = "orders-card";
+        div.innerHTML = `<h4>${o.label}</h4><p>${o.count}</p><button>View</button>`;
+        oc.appendChild(div);
+      });
+
+      /* ---------- Bar chart ---------- */
+      const max = Math.max(...sales);
+      const barChart = document.getElementById("barChart");
+      sales.forEach((val, i) => {
+        const bar = document.createElement("div");
+        bar.className = "bar";
+        bar.style.height = "0";
+        bar.innerHTML = `<span>$${val}</span>`;
+        barChart.appendChild(bar);
+        setTimeout(() => (bar.style.height = (val / max) * 100 + "%"), i * 80);
+      });
+      const barLabels = document.getElementById("barLabels");
+      days.forEach((d) => {
+        const span = document.createElement("span");
+        span.textContent = d;
+        barLabels.appendChild(span);
+      });
+
+      /* ---------- Pie legend ---------- */
+      const legend = document.getElementById("pieLegend");
+      genres.forEach((g) => {
+        const s = document.createElement("span");
+        s.textContent = `${g.name} - ${g.percent}%`;
+        s.style.color = g.color;
+        legend.appendChild(s);
+      });
+    </script>
+  </body>
+</html>

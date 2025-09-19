@@ -12,79 +12,95 @@
   </head>
   <body>
     <div class="alert"></div>
-    <div class="dashboard_admin_body">
-      <div class="sidebar">
-        <a class="toggler" onclick="hideSidebar()">
-          <i class="fa fa-bars"></i>
-        </a>
-        <img src="./assets/images/logo.png" alt="" />
-        <a href="#">
-          <i class="fa fa-dashboard"></i>
-          <span class="names">Dashboard</span>
-        </a>
-        <a href="addBooks.html">
-          <i class="fa fa-plus"></i>
-          <span class="names">Add Books</span>
-        </a>
-        <a href="updateBooks.html">
-          <i class="fa fa-pencil-square"></i>
-          <span class="names">Update books</span>
-        </a>
-        <a href="deleteBooks.html">
-          <i class="fa fa-trash"></i>
-          <span class="names">Delete Books</span>
-        </a>
-        <a href="ordersAdmin.html">
-          <i class="fa fa-sort-amount-desc"></i>
-          <span class="names">Ongoing Orders</span>
-        </a>
-        <a href="orderHistoryAdmin.html">
-          <i class="fa fa fa-history"></i>
-          <span class="names">Order history</span>
-        </a>
+    <div class="sidebar active">
+      <a class="toggler" onclick="toggleSideBar()">
+        <i class="fa fa-bars"></i>
+      </a>
+      <img src="./assets/images/logo.png" alt="" />
+      <a href="#">
+        <i class="fa fa-dashboard"></i>
+        <span class="names active">Dashboard</span>
+      </a>
+      <a href="addBooks.html">
+        <i class="fa fa-plus"></i>
+        <span class="names active">Add Books</span>
+      </a>
+      <a href="updateBooks.html">
+        <i class="fa fa-pencil-square"></i>
+        <span class="names active">Update books</span>
+      </a>
+      <a href="deleteBooks.html">
+        <i class="fa fa-trash"></i>
+        <span class="names active">Delete Books</span>
+      </a>
+      <a href="ordersAdmin.html">
+        <i class="fa fa-sort-amount-desc"></i>
+        <span class="names active">Ongoing Orders</span>
+      </a>
+      <a href="orderHistoryAdmin.html">
+        <i class="fa fa fa-history"></i>
+        <span class="names active">Order history</span>
+      </a>
 
-        <a href="#" onclick="logout(event)">
-          <i class="fa fa-sign-out"></i>
-          <span class="names">Logout</span>
-        </a>
-      </div>
+      <a href="#" onclick="logout(event)">
+        <i class="fa fa-sign-out"></i>
+        <span class="names active">Logout</span>
+      </a>
+    </div>
 
-      <!-- Main Content -->
-      <div class="main">
-        <div class="header">
-          <h1>Welcome,<span>Admin</span>👋</h1>
+    <section class="summary active">
+      <div class="container">
+        <header>
+          <h1>Bookstore Admin Dashboard</h1>
+          <div class="growth" id="weeklyGrowth">Weekly Growth: +0%</div>
+        </header>
+        <div class="kpi">
+          <div class="card">
+            <h3>Total Sales</h3>
+            <p id="sales">$0</p>
+          </div>
+          <div class="card">
+            <h3>Total Orders</h3>
+            <p id="orders">0</p>
+          </div>
+          <div class="card">
+            <h3>New Customers</h3>
+            <p id="customers">0</p>
+          </div>
+          <div class="card">
+            <h3>Books in Inventory</h3>
+            <p id="books">0</p>
+          </div>
+          <div class="card">
+            <h3>Out of Stock</h3>
+            <p id="outStock">0</p>
+          </div>
         </div>
-        <div class="card">acsssssssssssss</div>
-
-        <div class="card">
+        <!-- Ongoing Orders -->
+        <div class="orders">
           <h3>Ongoing Orders</h3>
-          <div class="status-cards">
-            <div class="card details">
-              <h4 class="status">To Pack</h4>
-              <h3 class="count to-pack">0</h3>
-              <a href="./ordersAdmin.html">View</a>
+          <div class="orders-cards" id="orderCards"></div>
+        </div>
+        <!-- Charts -->
+        <div class="charts">
+          <div class="chart">
+            <h3>Sales - Last 7 Days</h3>
+            <div class="bar-chart" id="barChart"></div>
+            <div class="bar-labels" id="barLabels"></div>
+          </div>
+          <div class="chart">
+            <h3>Sales by Genre</h3>
+            <div class="pie">
+              <div class="pie-center">Genres</div>
             </div>
-            <div class="card details">
-              <h4 class="status">To Ship</h4>
-              <h3 class="count to-ship">0</h3>
-              <a href="./ordersAdmin.html">View</a>
-            </div>
-            <div class="card details">
-              <h4 class="status shipped">Shipped</h4>
-              <h3 class="count shipped">0</h3>
-              <a href="./ordersAdmin.html">View</a>
-            </div>
-            <div class="card details">
-              <h4 class="status">Cancelled</h4>
-              <h3 class="count cancelled">0</h3>
-              <a href="./ordersAdmin.html">View</a>
-            </div>
+            <div class="pie-legend" id="pieLegend"></div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
     <script src="./assets/js/reusableFunctions.js"></script>
     <script src="./assets/js/admin.js"></script>
+    <script src="./assets/js/adminSummary.js"></script>
     <script></script>
   </body>
 </html>

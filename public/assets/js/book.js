@@ -53,9 +53,10 @@ const showBook = ({
             <div class="book-title">
               <h1>${title}</h1>
               <h3>by ${authors.join(" & ")}</h3>
+              <h4>Category: ${category}</h4>
             </div>
             <div class="price-section">
-              <span class="current-price">$12.29</span>
+              <span class="current-price">${price} LKR</span>
               <span class="original-price">${price} LKR</span>
               <span class="discount">50% OFF</span>
               <span class="sold">${sold} sold</span>

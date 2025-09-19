@@ -1,7 +1,24 @@
 const container = document.querySelector(".book-container");
 const urlParams = new URLSearchParams(window.location.search);
+const submitButton = document.getElementById("submit-button");
 
 const id = urlParams.get("id");
+
+const checkLogIn = () => {
+  connectBackEnd({
+    backendUrl: "../backend/auth_check_login.php",
+    callback: (data) => {
+      if (data.isLoggedIn) {
+        document.getElementById("loginPrompt").style.display = "none";
+        submitButton.disabled = false;
+      } else {
+        submitButton.disabled = true;
+      }
+    },
+  });
+};
+
+checkLogIn();
 
 const fetchBook = () => {
   connectBackEnd({
@@ -60,3 +77,61 @@ const showBook = ({
     `);
 
 fetchBook();
+
+const fetchReviews = () => {
+  connectBackEnd({
+    backendUrl: `../backend/reviews_book_get.php?order_by=rating&book_id=${id}`,
+    callback: (data) => {
+      if (data.success) {
+        showReviews(data.data, "book-reviews");
+      }
+    },
+  });
+};
+
+const showReviews = (reviews, container) => {
+  if (reviews.length === 0) {
+    return;
+  }
+  let html = "";
+
+  reviews.forEach((review) => {
+    let stars = "";
+    for (let i = 0; i < review.rating; i++) {
+      stars += '<i class="fas fa-star"></i>';
+    }
+    html += `
+        <div class="review">
+            <div class="rating">
+              ${stars}
+            </div>
+            <p>"${review.review}" - ${review.name}</p>
+          </div>
+    `;
+  });
+
+  document.getElementById(container).innerHTML = html;
+};
+
+fetchReviews();
+
+const writeBookReview = () => {
+  const inputBookId = document.getElementById("input-book-id");
+  inputBookId.value = id;
+  connectBackEnd({
+    backendUrl: "../backend/reviews_book_submit.php",
+    formId: "book-review-form",
+    callback: (data) => {
+      if (data.success) {
+        addAlert("Review submitted successfully!", false);
+        document.getElementById("book-review-form").reset();
+        fetchReviews();
+      }
+      if (data.error) {
+        addAlert(data.error);
+      }
+    },
+  });
+};
+
+writeBookReview();

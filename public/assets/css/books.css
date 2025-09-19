@@ -242,6 +242,20 @@
   background: var(--color-primary);
 }
 
+.login-prompt {
+  text-align: center;
+  padding: 15px;
+  background: #fff3cd;
+  border-radius: 4px;
+  margin-top: 15px;
+  color: #856404;
+}
+
+.login-prompt a {
+  color: #007bff;
+  text-decoration: none;
+}
+
 @media (max-width: 1024px) {
   .main {
     gap: 30px;
@@ -299,10 +313,8 @@
 
   .book-leave {
     order: -1;
-
   }
 }
-
 
 @media (max-width: 768px) {
   .main {

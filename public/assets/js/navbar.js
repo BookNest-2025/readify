@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
           } else {
             userIcon.href = "profile.html";
             fetchCart();
-            cartIcon.addEventListener("click", (e) => {
+            cartIcon?.addEventListener("click", (e) => {
               e.preventDefault();
               const cartContainer = document.querySelector(".cart-container");
               cartContainer.classList.toggle("active");
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         } else {
           userIcon.href = "login.html";
-          cartIcon.addEventListener("click", (e) => {
+          cartIcon?.addEventListener("click", (e) => {
             e.preventDefault();
             addAlert("Need to log in as customer to view cart.");
           });

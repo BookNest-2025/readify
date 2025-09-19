@@ -10,15 +10,14 @@
     <link rel="stylesheet" href="./assets/css/footer.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   </head>
 
   <body>
+    <div class="alert"></div>
     <header>
       <nav class="navbar">
         <div class="navbar-left">
@@ -26,15 +25,15 @@
         </div>
         <ul class="navbar-center">
           <li><a href="index.html">Home</a></li>
-          <li><a href="#">Books</a></li>
-          <li><a href="#">Reviews</a></li>
+          <li><a href="#books">Books</a></li>
+          <li><a href="platformReviews.html">Reviews</a></li>
           <li><a href="#">Admin</a></li>
         </ul>
         <div class="navbar-right">
           <div class="icon-row">
             <i class="fa fa-search" id="search-icon"></i>
-            <a href="#"><i class="fa fa-shopping-cart"></i></a>
             <a href="#" id="user-icon"><i class="fa fa-user"></i></a>
+            <a href="#" id="cart-icon"><i class="fa fa-shopping-cart"></i></a>
             <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
           </div>
         </div>
@@ -43,53 +42,79 @@
         <input
           type="text"
           id="search-input-field"
-          placeholder="Search books..."
-        />
+          placeholder="Search books..." />
       </div>
       <div id="toggle-handler-search"></div>
       <div id="toggle-handler-menu"></div>
       <div class="navbar-background"></div>
+
+      <div class="cart-container">
+        <h2>Shopping Cart</h2>
+        <p class="cart-subtitle">Items in your cart</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody class="cart-items"></tbody>
+          </table>
+        </div>
+
+        <div class="cart-summary">
+          <p>Subtotal: <strong id="cart-total">0</strong></p>
+          <button class="checkout-btn">Checkout</button>
+        </div>
+
+        <a class="continue-shopping" onclick="hideCart(event)">
+          <i class="fa fa-arrow-left"></i>
+          Continue Shopping
+        </a>
+      </div>
     </header>
     <!-- ------------------------------------------------------------------------------ -->
     <div class="book-container"></div>
     <div class="book-box">
       <div class="book-review">
         <h2>Reviews</h2>
-        <div class="review">
-          <div class="rating">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
+        <div id="book-reviews">
+          <div class="review">
+            <p>No reviews yet. Be the first to review this book.</p>
           </div>
-          <p>"Amazing book! Helped improve my relationship a lot." - Jane</p>
-        </div>
-        <div class="review">
-          <div class="rating">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-          </div>
-          <p>"Simple yet powerful concepts explained very clearly." - Mark</p>
         </div>
       </div>
       <div class="book-leave">
         <h2>Leave a review</h2>
-        <form>
-          <input type="text" placeholder="Your name" />
-          <select>
-            <option>5 - Excellent</option>
-            <option>4 - Very Good</option>
-            <option>3 - Good</option>
-            <option>2 - Fair</option>
-            <option>1 - Poor</option>
+        <form id="book-review-form">
+          <input type="text" name="book_id" id="input-book-id" hidden />
+          <label for="rating">Rating</label>
+          <select id="rating" name="rating" required>
+            <option value="" disabled selected>Select a rating</option>
+            <option value="5">5 - Excellent</option>
+            <option value="4">4 - Very Good</option>
+            <option value="3">3 - Good</option>
+            <option value="2">2 - Fair</option>
+            <option value="1">1 - Poor</option>
           </select>
-          <textarea placeholder="Write your review"></textarea>
-          <button type="submit" class="btn">Submit</button>
+
+          <label for="review">Your Review</label>
+          <textarea
+            id="review"
+            name="review"
+            placeholder="Write your review..."
+            rows="5"
+            required></textarea>
+
+          <button type="submit" class="btn" id="submit-button">Submit</button>
         </form>
+        <div id="loginPrompt" class="login-prompt">
+          <p>You need to <a href="login.html">sign in</a> to write a review.</p>
+        </div>
       </div>
     </div>
 

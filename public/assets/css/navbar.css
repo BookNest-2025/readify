@@ -219,7 +219,8 @@
 .cart-container {
   position: fixed;
   max-width: 1100px;
-  margin: 140px auto 40px auto; /* margin for navbar */
+  margin: 140px auto 40px auto;
+  /* margin for navbar */
   background: #fff;
   border-radius: 12px;
   padding: 30px;

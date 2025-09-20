@@ -31,9 +31,9 @@ try {
         throw new Exception("Rating must be between 1 and 5.");
     }
 
-    $checkSql  = "SELECT * FROM book_reviews WHERE customer_id = :customer_id";
+    $checkSql  = "SELECT * FROM book_reviews WHERE customer_id = :customer_id AND book_id = :book_id";
     $checkStmt = $pdo->prepare($checkSql);
-    $checkStmt->execute(['customer_id' => $customer_id]);
+    $checkStmt->execute(['customer_id' => $customer_id, 'book_id' => $book_id]);
 
     if ($checkStmt->rowCount() > 0) {
         throw new Exception("You have already reviewed on that book.");

@@ -2,10 +2,10 @@
 header('Content-Type: application/json');
 header('Cache-Control: no-store');
 
-// if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-//     http_response_code(403);
-//     exit("Forbidden");
-// }
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(403);
+    exit("Forbidden");
+}
 session_start();
 require_once '../app/config/db.php';
 

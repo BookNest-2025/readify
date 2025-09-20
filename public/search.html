@@ -74,20 +74,15 @@
         </a>
       </div>
     </header>
+       
+    <!-- SEARCH RESULTS SECTION --><br>
+<section class="book-search-page container">
+  <br>
+  <h2 style="margin: 40px 0 20px">Search Results...</h2>
 
-    <!-- SEARCH RESULTS SECTION --><br />
-    <section class="book-search-page container">
-      <br />
-      <h2 style="margin: 40px 0 20px">Search Results...</h2>
-
-      <!-- TOP CONTROLS (Filters + Sort + View Toggle) -->
+  <div class="main-layout">
+    <aside class="filter-sidebar">
       <div class="top-controls">
-        <div class="time-filters">
-          <button class="tab active">Today</button>
-          <button class="tab">This Week</button>
-          <button class="tab">This Month</button>
-        </div>
-
         <div class="sort-controls">
           <label for="sort-select">Sort by:</label>
           <select id="sort-select">
@@ -95,60 +90,38 @@
             <option value="popular">Most Popular</option>
             <option value="price-low">Price: Low to High</option>
           </select>
-
-          <button class="view-toggle active" id="grid-view">
-            <i class="fas fa-th"></i>
-          </button>
-          <button class="view-toggle" id="list-view">
-            <i class="fas fa-bars"></i>
-          </button>
         </div>
       </div>
 
-      <!-- MAIN LAYOUT: SIDEBAR + BOOK GRID -->
-      <div class="main-layout">
-        <!-- SIDEBAR -->
-        <aside class="filter-sidebar">
-          <!-- Category Filter -->
-          <div class="category-filter">
-            <h3>Filter by Category</h3>
-            <ul>
-              <li><input type="checkbox" /> Action</li>
-              <li><input type="checkbox" /> Adventure</li>
-              <li><input type="checkbox" /> Sci-fi</li>
-              <li><input type="checkbox" /> Mystery</li>
-              <li><input type="checkbox" /> Fantasy</li>
-              <li><input type="checkbox" /> Romance</li>
-              <li><input type="checkbox" /> Horror</li>
-            </ul>
-          </div>
-        </aside>
+      <div class="category-filter">
+        <h3>Filter by Category</h3>
+        <ul>
+          <li><input type="checkbox" /> Fiction</li>
+          <li><input type="checkbox" /> Education</li>
+          <li><input type="checkbox" /> Science</li>
+          <li><input type="checkbox" /> History</li>
+        </ul>
+      </div>
+    </aside>
 
-        <!-- BOOK GRID -->
-        <div class="book-grid">
-          <!-- Example Book Cards (Duplicate as needed) -->
-          <div class="book-card">
-            <img
-              src="./assets/images/book_images/5_lov_languages.jpg"
-              alt="Book 1" />
-            <h4>The 5 Love Languages</h4>
-            <p class="author">Gary Chapman</p>
-            <p class="price">$16.70</p>
-            <button class="btn">Add to Cart</button>
-          </div>
-
-          <div class="book-card">
-            <img
-              src="./assets/images/book_images/trevornoah_born_a_crime.jpg"
-              alt="Book 2" />
-            <h4>trevornoah_born a crime</h4>
-            <p class="author">Hary Chulkman</p>
-            <p class="price">$10.70</p>
-            <button class="btn">Add to Cart</button>
-          </div>
+    <div class="book-grid">
+      <!-- Replace placeholders with real data -->
+      <div class="book-card">
+        <a href="book.html?id=1">
+          <img src="./assets/images/book_images/ancillary_justice.jpg" alt="Book 1" />
+          <h4><span>Book Title</span></h4>
+          <p><span class="author">Author Name</span></p>
+          <p><span class="price">1500 LKR</span></p>
+        </a>
+        <div class="buttons">
+          <button class="btn" onclick="addToCart(1)">Add to Cart</button>
         </div>
       </div>
-    </section>
+    </div>
+  </div> <!-- ✅ main-layout closed -->
+</section>
+
+  
 
     <!-- FOOTER -->
     <footer>
@@ -182,7 +155,9 @@
                 <li><a href="#">Admin</a></li>
               </ul>
             </div>
+            
           </div>
+         
           <div class="footer-section">
             <h3>Contact Us</h3>
             <br />
@@ -207,5 +182,10 @@
     <!-- SCRIPTS -->
     <script src="./assets/js/reusableFunctions.js"></script>
     <script src="./assets/js/navbar.js"></script>
+    
+  </body>
+</html>s.js"></script>
+    <script src="./assets/js/navbar.js"></script>
+    
   </body>
 </html>

@@ -47,11 +47,11 @@ try {
     $response["success"] = true;
     if ($user['category'] === 'customers') {
         $response["redirect"] = "index.html";
-        $response["message"]  = "Login successfully!.<br>Directing to the Homepage...";
+        $response["message"]  = "Welcome back " . $user['name'] . "<br>Directing to the Homepage...";
 
     } else {
         $response["redirect"] = "adminDashboard.html";
-        $response["message"]  = "Login successfully!.<br>Directing to the Dashboard...";
+        $response["message"]  = "Welcome back Admin.<br>Directing to the Dashboard...";
 
     }
     $_SESSION['user_type'] = $user['category'];

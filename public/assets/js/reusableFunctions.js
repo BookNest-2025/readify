@@ -61,14 +61,17 @@ const connectBackEnd = async ({
 
 const logout = (e) => {
   e.preventDefault();
-  connectBackEnd({
-    backendUrl: "../backend/auth_logout.php",
-    method: "GET",
-    callback: (data) => {
-      if (data.success) addAlert(data.message, false);
-      if (data.error) addAlert(data.error);
-      if (data.redirect) redirect(data.redirect);
-    },
+
+  showConfirm("Are you sure you want to log out?", () => {
+    connectBackEnd({
+      backendUrl: "../backend/auth_logout.php",
+      method: "GET",
+      callback: (data) => {
+        if (data.success) addAlert(data.message, false);
+        if (data.error) addAlert(data.error);
+        if (data.redirect) redirect(data.redirect);
+      },
+    });
   });
 };
 
@@ -120,3 +123,31 @@ const showBookCards = (books, containerId) => {
     bookConatiner.appendChild(card);
   });
 };
+
+function showConfirm(message, onConfirm) {
+  const overlay = document.getElementById("custom-confirm");
+  const msg = overlay.querySelector(".confirm-message");
+  const btnYes = overlay.querySelector(".btn-confirm");
+  const btnNo = overlay.querySelector(".btn-cancel");
+
+  msg.textContent = message;
+  overlay.classList.remove("hidden");
+
+  btnYes.onclick = null;
+  btnNo.onclick = null;
+
+  btnYes.onclick = () => {
+    overlay.classList.add("hidden");
+    if (typeof onConfirm === "function") onConfirm();
+  };
+
+  btnNo.onclick = () => {
+    overlay.classList.add("hidden");
+  };
+
+  overlay.onclick = (e) => {
+    if (e.target === overlay) {
+      overlay.classList.add("hidden");
+    }
+  };
+}

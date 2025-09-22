@@ -1,14 +1,7 @@
-// ------------------------------
-// Cart & Navbar JS (Safe Version)
-// ------------------------------
-
-// Image cache for cart items
-const imageCache = {};
+// ---------- Image cache ----------
+const imageCache = {}; // {filename: blobUrl}
 let currentCartData = [];
 
-// ------------------------------
-// DOM Elements
-// ------------------------------
 const cartItemsContainer = document.querySelector(".cart-items");
 const cartTotal = document.getElementById("cart-total");
 const checkoutBtn = document.querySelector(".checkout-btn");
@@ -16,9 +9,14 @@ const userIcon = document.getElementById("user-icon");
 const cartIcon = document.getElementById("cart-icon");
 const continueShoppingBtn = document.querySelector(".continue-shopping-btn");
 
-// ------------------------------
-// Navbar & Search
-// ------------------------------
+async function getCachedImage(imgName) {
+  if (!imageCache[imgName]) {
+    const blob = await fetch(`./uploads/${imgName}`).then((r) => r.blob());
+    imageCache[imgName] = URL.createObjectURL(blob);
+  }
+  return imageCache[imgName];
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   try {
     const searchIcon = document.getElementById("search-icon");
@@ -84,9 +82,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 fetchCart();
                 cartIcon?.addEventListener("click", (e) => {
                   e.preventDefault();
-                  const cartContainer =
-                    document.querySelector(".cart-container");
-                  cartContainer?.classList.toggle("active");
+                  document
+                    .querySelector(".cart-container")
+                    ?.classList.toggle("active");
                 });
               }
             } else {
@@ -108,19 +106,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ------------------------------
-// Cart Functions
-// ------------------------------
-const fetchCartCallback = (data) => {
+const fetchCartCallback = async (data) => {
   try {
     if (!cartItemsContainer || !cartTotal) return;
 
     if (data.success) {
       if (data.data && data.data.length > 0) {
-        updateCartItems(data.data);
+        await updateCartItems(data.data);
       } else {
-        cartItemsContainer.innerHTML = `<tr><td style="text-align:center" colspan="4">Your cart is empty.</td></tr>`;
+        cartItemsContainer.innerHTML = `<p style="text-align:center; color:red;">Your cart is empty.</p>`;
         cartTotal.textContent = "0 LKR";
+        currentCartData = [];
       }
     } else {
       addAlert(data.error);
@@ -130,90 +126,62 @@ const fetchCartCallback = (data) => {
   }
 };
 
-const fetchCart = () => {
+async function fetchCart() {
   try {
-    connectBackEnd({
+    await connectBackEnd({
       backendUrl: "../backend/cart_items_get.php",
       callback: fetchCartCallback,
     });
   } catch (err) {
     console.error("fetchCart error:", err);
   }
-};
+}
 
-const updateCartItems = (cartItems) => {
-  try {
-    if (!cartItemsContainer || !cartTotal) return;
+async function updateCartItems(cartItems) {
+  if (!cartItemsContainer || !cartTotal) return;
 
-    currentCartData = cartItems;
-    let total = 0;
-    const existingRows = {};
+  currentCartData = cartItems;
+  let total = 0;
+  cartItemsContainer.innerHTML = ""; // clear previous
 
-    cartItemsContainer.querySelectorAll("tr").forEach((tr) => {
-      existingRows[tr.dataset.cartId] = tr;
-    });
+  for (const { cart_id, title, stock, image, price, quantity } of cartItems) {
+    total += parseFloat(price) * parseInt(quantity);
+    const totalPrice = (parseFloat(price) * parseInt(quantity)).toFixed(2);
 
-    cartItems.forEach(({ cart_id, title, stock, image, price, quantity }) => {
-      total += parseFloat(price) * parseInt(quantity);
-      let tr;
+    const card = document.createElement("div");
+    card.className = "cart-item-card";
+    card.dataset.cartId = cart_id;
 
-      if (existingRows[cart_id]) {
-        tr = existingRows[cart_id];
-        delete existingRows[cart_id];
-        const qtyInput = tr.querySelector("input[type='number']");
-        if (qtyInput) qtyInput.value = quantity;
-      } else {
-        tr = document.createElement("tr");
-        tr.dataset.cartId = cart_id;
-        tr.innerHTML = `
-          <td>
-            <div class="product-info">
-              <img class="product-img" alt="${title}" loading="lazy"/>
-              <div class="product-details">
-                <h4>${title}</h4>
-                <p>Stock = ${stock}</p>
-              </div>
-            </div>
-          </td>
-          <td>${price} LKR</td>
-          <td>
-            <div class="quantity-control">
-              <button onclick="changeCartItem(${cart_id}, 'red')">-</button>
-              <input type="number" value="${quantity}" min="1" readonly />
-              <button onclick="changeCartItem(${cart_id}, 'add')">+</button>
-            </div>
-          </td>
-          <td class="action-icons">
-            <button onclick="changeCartItem(${cart_id}, 'del')">
-              <i class="fa fa-trash"></i>
-            </button>
-          </td>
-        `;
-        cartItemsContainer.appendChild(tr);
-      }
+    const imgSrc = await getCachedImage(image);
 
-      // Image cache
-      const imgEl = tr.querySelector(".product-img");
-      if (imgEl) {
-        if (!imageCache[image]) {
-          const img = new Image();
-          img.src = `./uploads/${image}`;
-          imageCache[image] = img.src;
-        }
-        imgEl.src = imageCache[image];
-      }
-    });
+    card.innerHTML = `
+      <img src="${imgSrc}" alt="${title}" loading="lazy"/>
+      <div class="item-info">
+        <h4>${title}</h4>
+        <p>Stock: ${stock}</p>
 
-    // Remove old rows
-    Object.values(existingRows).forEach((tr) => tr.remove());
+        <div class="price-row">
+          <span>Unit: ${price} LKR</span>
+          <span>Total: ${totalPrice} LKR</span>
+        </div>
 
-    cartTotal.textContent = `${total} LKR`;
-  } catch (err) {
-    console.error("updateCartItems error:", err);
+        <div class="quantity-control">
+          <button onclick="changeCartItem(${cart_id}, 'red')">-</button>
+          <input type="number" value="${quantity}" min="1" readonly />
+          <button onclick="changeCartItem(${cart_id}, 'add')">+</button>
+        </div>
+      </div>
+      <button class="remove-btn" onclick="changeCartItem(${cart_id}, 'del')">
+        <i class="fa fa-trash"></i>
+      </button>
+    `;
+    cartItemsContainer.appendChild(card);
   }
-};
 
-const addToCart = async (id) => {
+  cartTotal.textContent = `${total.toFixed(2)} LKR`;
+}
+
+async function addToCart(id) {
   try {
     await connectBackEnd({
       backendUrl: `../backend/cart_add.php?id=${id}`,
@@ -228,31 +196,71 @@ const addToCart = async (id) => {
   } catch (err) {
     console.error("addToCart error:", err);
   }
-};
+}
 
-const changeCartItem = (cart_id, operation) => {
+function changeCartItem(cart_id, operation) {
   try {
-    connectBackEnd({
-      backendUrl: `../backend/cart_update.php?operation=${operation}&cart_id=${cart_id}`,
-      callback: (data) => {
-        if (data.success) {
-          fetchCart();
-          data.message && addAlert(data.message, false);
-        }
-        if (data.error) addAlert(data.error);
-      },
-      method: "GET",
-    });
+    const card = document.querySelector(
+      `.cart-item-card[data-cart-id="${cart_id}"]`
+    );
+
+    if (operation === "del" && card) {
+      card.classList.add("removing");
+      card.addEventListener(
+        "animationend",
+        () => {
+          proceedChange();
+        },
+        { once: true }
+      );
+    } else {
+      proceedChange();
+    }
+
+    function proceedChange() {
+      connectBackEnd({
+        backendUrl: `../backend/cart_update.php?operation=${operation}&cart_id=${cart_id}`,
+        callback: (data) => {
+          if (data.success) {
+            fetchCart();
+            data.message && addAlert(data.message, false);
+          }
+          if (data.error) addAlert(data.error);
+        },
+        method: "GET",
+      });
+    }
   } catch (err) {
     console.error("changeCartItem error:", err);
   }
-};
+}
 
-// ------------------------------
-// Checkout & Cart Visibility
-// ------------------------------
-checkoutBtn?.addEventListener("click", () => {
-  if (currentCartData.length > 0) {
+// Hide cart if clicked outside
+document.addEventListener("click", (event) => {
+  const cartContainer = document.querySelector(".cart-container");
+  const mainCartIcon = document.getElementById("cart-icon");
+  const addToCartIcons = document.querySelectorAll(".cart-icon");
+
+  if (!cartContainer || !mainCartIcon) return;
+
+  const clickedAddToCart = Array.from(addToCartIcons).some((icon) =>
+    icon.contains(event.target)
+  );
+
+  if (
+    cartContainer.classList.contains("active") &&
+    !cartContainer.contains(event.target) &&
+    !mainCartIcon.contains(event.target) &&
+    !clickedAddToCart
+  ) {
+    cartContainer.classList.remove("active");
+  }
+});
+
+checkoutBtn?.addEventListener("click", async () => {
+  await fetchCart();
+
+  if (currentCartData && currentCartData.length > 0) {
     window.location.href = "checkout.html";
   } else {
     addAlert("Add items to cart for checkout.");
@@ -262,7 +270,6 @@ checkoutBtn?.addEventListener("click", () => {
 
 continueShoppingBtn?.addEventListener("click", () => hideCart());
 
-const hideCart = () => {
-  const cartContainer = document.querySelector(".cart-container");
-  cartContainer?.classList.remove("active");
-};
+function hideCart() {
+  document.querySelector(".cart-container")?.classList.remove("active");
+}

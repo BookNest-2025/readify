@@ -32,7 +32,7 @@ try {
         $stmtBook = $pdo->prepare("SELECT * FROM books WHERE book_id = :book_id");
         $stmtBook->execute(["book_id" => $book_id]);
         $book = $stmtBook->fetch();
-        if ($book['status']) {
+        if (! $book['status']) {
             throw new Exception("Can not add deleted books.");
         }
 

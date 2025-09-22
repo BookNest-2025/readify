@@ -5,15 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Readify</title>
     <link
-      rel="shortcut icon"
-      href="./assets/images/logo.png"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="./assets/css/root.css" />
-    <link rel="stylesheet" href="./assets/css/index.css" />
-    <link rel="stylesheet" href="./assets/css/footer.css" />
-    <link rel="stylesheet" href="./assets/css/navbar.css" />
-    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
@@ -21,6 +12,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="stylesheet" href="./assets/css/footer.css" />
+    <link rel="stylesheet" href="./assets/css/navbar.css" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <link rel="stylesheet" href="./assets/css/root.css" />
   </head>
   <body>
     <div class="alert"></div>
@@ -31,8 +26,8 @@
         </div>
         <ul class="navbar-center">
           <li><a href="index.html">Home</a></li>
-          <li><a href="#books">Books</a></li>
-          <li><a href="platformReviews.html">Reviews</a></li>
+          <li><a href="#">Books</a></li>
+          <li><a href="#">Reviews</a></li>
           <li><a href="#">Admin</a></li>
         </ul>
         <div class="navbar-right">
@@ -84,55 +79,76 @@
         </a>
       </div>
     </header>
-    <section class="container">
-      <div class="slider-wrapper">
-        <div class="slider" id="slider">
-          <div class="slide">
-            <img src="./assets/images/carousel/1.png" alt="Slide 1" />
-            <div class="caption">
-              <h2>Welcome to Readify</h2>
-              <p>
-                Welcome to Readify, your ultimate destination for books and
-                stories. Explore timeless classics and trending titles while
-                enjoying a seamless and immersive reading experience designed
-                just for you.
-              </p>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Discover Your Next Favorite Book</h1>
+        <p>
+          Readify is your premier destination for books of all genres. From
+          timeless classics to contemporary bestsellers, we connect readers with
+          stories that inspire, educate, and entertain.
+        </p>
+        <a href="#books" class="cta-button">Explore Books</a>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2>About Readify</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            Readify was founded with a simple mission: to make quality
+            literature accessible to everyone. We believe in the transformative
+            power of books and their ability to open new worlds, perspectives,
+            and possibilities.
+          </p>
+          <p>
+            Our curated collection features thousands of titles across all
+            genres, carefully selected by our team of bibliophiles. Whether
+            you're seeking knowledge, escape, or inspiration, you'll find it
+            here at Readify.
+          </p>
+          <p>
+            We're more than just a bookstore – we're a community of readers
+            passionate about discovering and sharing great literature. Join us
+            in celebrating the written word and the joy of reading.
+          </p>
+        </div>
+        <div class="about-features">
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <div class="feature-text">
+              <h3>Extensive Collection</h3>
+              <p>From classics to contemporary works across all genres</p>
             </div>
           </div>
-          <div class="slide">
-            <img src="./assets/images/carousel/2.png" alt="Slide 2" />
-            <div class="caption">
-              <h2>New Arrivals</h2>
-              <p>
-                Check out the newest arrivals at Readify. From thrilling
-                adventures to inspiring non-fiction, each book is carefully
-                curated to bring fresh ideas and unforgettable experiences to
-                every reader.
-              </p>
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fas fa-tags"></i>
+            </div>
+            <div class="feature-text">
+              <h3>Competitive Pricing</h3>
+              <p>Quality books at affordable prices for every reader</p>
             </div>
           </div>
-          <div class="slide">
-            <img src="./assets/images/carousel/3.png" alt="Slide 3" />
-            <div class="caption">
-              <h2>Exclusive Offers</h2>
-              <p>
-                Unlock exclusive offers at Readify. Grab bestsellers, special
-                bundles, and limited-time deals to expand your bookshelf while
-                enjoying incredible savings and handpicked selections made just
-                for you.
-              </p>
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fas fa-shipping-fast"></i>
+            </div>
+            <div class="feature-text">
+              <h3>Fast Delivery</h3>
+              <p>Quick and reliable shipping to get your books to you faster</p>
             </div>
           </div>
-          <div class="slide">
-            <img src="./assets/images/carousel/1.png" alt="Slide 1 Clone" />
-            <div class="caption">
-              <h2>Welcome to Readify</h2>
-              <p>
-                Welcome to Readify, your ultimate destination for books and
-                stories. Explore timeless classics and trending titles while
-                enjoying a seamless and immersive reading experience designed
-                just for you.
-              </p>
+          <div class="feature">
+            <div class="feature-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <div class="feature-text">
+              <h3>Expert Support</h3>
+              <p>Knowledgeable staff ready to help you find your next read</p>
             </div>
           </div>
         </div>
@@ -142,17 +158,486 @@
     <section class="new_arrivals" id="books">
       <div class="new_arrivals_top">
         <h2>New Arrivals</h2>
-        <button class="btn_new_arrivals">More</button>
       </div>
 
-      <div class="book-container" id="new-arrivals">
-        Loading...
-        <!-- Books will be dynamically inserted here -->
+      <div class="book-container">
+        <div class="book-card">
+          <a href="#">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info">
+              <h4><span>To Kill a Mockingbird</span></h4>
+              <div class="details">
+                <p><span class="author">Harper Lee</span></p>
+                <p><span class="price">2,200 LKR</span></p>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=600&fit=crop"
+              alt="To Kill a Mockingbird"
+            />
+          </a>
+        </div>
+
+        <div class="book-card">
+          <a href="#">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info">
+              <h4><span>The Great Gatsby</span></h4>
+              <div class="details">
+                <p><span class="author">F. Scott Fitzgerald</span></p>
+                <p><span class="price">1,900 LKR</span></p>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=600&fit=crop"
+              alt="The Great Gatsby"
+            />
+          </a>
+        </div>
+
+        <div class="book-card">
+          <a href="#">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info">
+              <h4><span>1984</span></h4>
+              <div class="details">
+                <p><span class="author">George Orwell</span></p>
+                <p><span class="price">2,500 LKR</span></p>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400&h=600&fit=crop"
+              alt="1984"
+            />
+          </a>
+        </div>
+
+        <div class="book-card">
+          <a href="#">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info">
+              <h4><span>Pride and Prejudice</span></h4>
+              <div class="details">
+                <p><span class="author">Jane Austen</span></p>
+                <p><span class="price">2,100 LKR</span></p>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=400&h=600&fit=crop"
+              alt="Pride and Prejudice"
+            />
+          </a>
+        </div>
+
+        <div class="book-card">
+          <a href="#">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info">
+              <h4><span>The Hobbit</span></h4>
+              <div class="details">
+                <p><span class="author">J.R.R. Tolkien</span></p>
+                <p><span class="price">2,400 LKR</span></p>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1629992101753-56d196c8aabb?w=400&h=600&fit=crop"
+              alt="The Hobbit"
+            />
+          </a>
+        </div>
+
+        <div class="book-card">
+          <a href="#">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info">
+              <h4><span>Harry Potter and the Philosopher's Stone</span></h4>
+              <div class="details">
+                <p><span class="author">J.K. Rowling</span></p>
+                <p><span class="price">2,600 LKR</span></p>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=400&h=600&fit=crop"
+              alt="Harry Potter"
+            />
+          </a>
+        </div>
+
+        <div class="book-card">
+          <a href="#">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info">
+              <h4><span>The Catcher in the Rye</span></h4>
+              <div class="details">
+                <p><span class="author">J.D. Salinger</span></p>
+                <p><span class="price">2,000 LKR</span></p>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1530825894095-9c184b068fcb?w=400&h=600&fit=crop"
+              alt="The Catcher in the Rye"
+            />
+          </a>
+        </div>
+
+        <div class="book-card">
+          <a href="#">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info">
+              <h4><span>To the Lighthouse</span></h4>
+              <div class="details">
+                <p><span class="author">Virginia Woolf</span></p>
+                <p><span class="price">2,300 LKR</span></p>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=600&fit=crop"
+              alt="To the Lighthouse"
+            />
+          </a>
+        </div>
+
+        <div class="book-card">
+          <a href="#">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info">
+              <h4><span>Brave New World</span></h4>
+              <div class="details">
+                <p><span class="author">Aldous Huxley</span></p>
+                <p><span class="price">2,200 LKR</span></p>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=400&h=600&fit=crop"
+              alt="Brave New World"
+            />
+          </a>
+        </div>
+
+        <div class="book-card">
+          <a href="#">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info">
+              <h4><span>The Lord of the Rings</span></h4>
+              <div class="details">
+                <p><span class="author">J.R.R. Tolkien</span></p>
+                <p><span class="price">3,500 LKR</span></p>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=600&fit=crop"
+              alt="The Lord of the Rings"
+            />
+          </a>
+        </div>
       </div>
     </section>
 
-    <script src="./assets/js/reusableFunctions.js"></script>
-    <script src="./assets/js/navbar.js"></script>
+    <section class="featured_books" id="books">
+      <div class="featured_books_top">
+        <h2>Featured Books</h2>
+      </div>
+
+      <div class="book-container">
+        <div class="book-card">
+          <a href="#">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info">
+              <h4><span>To Kill a Mockingbird</span></h4>
+              <div class="details">
+                <p><span class="author">Harper Lee</span></p>
+                <p><span class="price">2,200 LKR</span></p>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=600&fit=crop"
+              alt="To Kill a Mockingbird"
+            />
+          </a>
+        </div>
+
+        <div class="book-card">
+          <a href="#">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info">
+              <h4><span>The Great Gatsby</span></h4>
+              <div class="details">
+                <p><span class="author">F. Scott Fitzgerald</span></p>
+                <p><span class="price">1,900 LKR</span></p>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=600&fit=crop"
+              alt="The Great Gatsby"
+            />
+          </a>
+        </div>
+
+        <div class="book-card">
+          <a href="#">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info">
+              <h4><span>1984</span></h4>
+              <div class="details">
+                <p><span class="author">George Orwell</span></p>
+                <p><span class="price">2,500 LKR</span></p>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400&h=600&fit=crop"
+              alt="1984"
+            />
+          </a>
+        </div>
+
+        <div class="book-card">
+          <a href="#">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info">
+              <h4><span>Pride and Prejudice</span></h4>
+              <div class="details">
+                <p><span class="author">Jane Austen</span></p>
+                <p><span class="price">2,100 LKR</span></p>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=400&h=600&fit=crop"
+              alt="Pride and Prejudice"
+            />
+          </a>
+        </div>
+
+        <div class="book-card">
+          <a href="#">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info">
+              <h4><span>The Hobbit</span></h4>
+              <div class="details">
+                <p><span class="author">J.R.R. Tolkien</span></p>
+                <p><span class="price">2,400 LKR</span></p>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1629992101753-56d196c8aabb?w=400&h=600&fit=crop"
+              alt="The Hobbit"
+            />
+          </a>
+        </div>
+
+        <div class="book-card">
+          <a href="#">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info">
+              <h4><span>Harry Potter and the Philosopher's Stone</span></h4>
+              <div class="details">
+                <p><span class="author">J.K. Rowling</span></p>
+                <p><span class="price">2,600 LKR</span></p>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=400&h=600&fit=crop"
+              alt="Harry Potter"
+            />
+          </a>
+        </div>
+
+        <div class="book-card">
+          <a href="#">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info">
+              <h4><span>The Catcher in the Rye</span></h4>
+              <div class="details">
+                <p><span class="author">J.D. Salinger</span></p>
+                <p><span class="price">2,000 LKR</span></p>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1530825894095-9c184b068fcb?w=400&h=600&fit=crop"
+              alt="The Catcher in the Rye"
+            />
+          </a>
+        </div>
+
+        <div class="book-card">
+          <a href="#">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info">
+              <h4><span>To the Lighthouse</span></h4>
+              <div class="details">
+                <p><span class="author">Virginia Woolf</span></p>
+                <p><span class="price">2,300 LKR</span></p>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=600&fit=crop"
+              alt="To the Lighthouse"
+            />
+          </a>
+        </div>
+
+        <div class="book-card">
+          <a href="#">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info">
+              <h4><span>Brave New World</span></h4>
+              <div class="details">
+                <p><span class="author">Aldous Huxley</span></p>
+                <p><span class="price">2,200 LKR</span></p>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=400&h=600&fit=crop"
+              alt="Brave New World"
+            />
+          </a>
+        </div>
+
+        <div class="book-card">
+          <a href="#">
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="info">
+              <h4><span>The Lord of the Rings</span></h4>
+              <div class="details">
+                <p><span class="author">J.R.R. Tolkien</span></p>
+                <p><span class="price">3,500 LKR</span></p>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=600&fit=crop"
+              alt="The Lord of the Rings"
+            />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="review" id="review">
+      <h2>Customer's Review</h2>
+      <div class="review-slider">
+        <p>No reviews yet. Be the first to review our platform!</p>
+      </div>
+      <a href="platformReviews.html"><button>Add Your Own review</button></a>
+    </section>
+
+    <footer>
+      <div class="footer">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Readify</h3>
+            <p>Your Next Chapter, Anytime, Anywhere.</p>
+            <p>
+              Your trusted online bookstore, bringing stories, knowledge, and
+              imagination together. Discover, learn, and enjoy books anytime,
+              anywhere.
+            </p>
+            <div class="quick-social-media">
+              <ul>
+                <li><a href="#" class="fa fa-facebook"></a></li>
+                <li><a href="#" class="fa fa-twitter"></a></li>
+                <li><a href="#" class="fa fa-instagram"></a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <div class="quick-media">
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Books</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">Admin</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>Help and Security</h3>
+            <div class="quick-media">
+              <ul>
+                <li><a href="#">Availability</a></li>
+                <li><a href="#">Status</a></li>
+                <li><a href="#">Support Center</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>Terms and Policies</h3>
+            <div class="quick-media">
+              <ul>
+                <li><a href="#">Privacy Choices</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Responsible Disclosure Policy</a></li>
+                <li><a href="#">Terms of Service: Commercial</a></li>
+                <li><a href="#">Terms of Service: Consumer</a></li>
+                <li><a href="#">Usage Policy</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>Contact Us</h3>
+            <div class="contact-item">
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">+1 123 456 7890</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-label">Address</div>
+              <div class="contact-value">
+                No. 123 Central street<br />New York, USA
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Readify. All rights reserved.</p>
+      </div>
+    </footer>
+
     <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/navbar.js"></script>
   </body>
 </html>

@@ -12,10 +12,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="./assets/css/footer.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/root.css" />
     <link rel="stylesheet" href="./assets/css/navbar.css" />
     <link rel="stylesheet" href="./assets/css/index.css" />
-    <link rel="stylesheet" href="./assets/css/root.css" />
+    <link rel="stylesheet" href="./assets/css/footer.css" />
   </head>
   <body>
     <div class="alert"></div>
@@ -26,8 +27,8 @@
         </div>
         <ul class="navbar-center">
           <li><a href="index.html">Home</a></li>
-          <li><a href="#">Books</a></li>
-          <li><a href="#">Reviews</a></li>
+          <li><a href="#new-arrivals">Books</a></li>
+          <li><a href="#review">Reviews</a></li>
           <li><a href="#">Admin</a></li>
         </ul>
         <div class="navbar-right">
@@ -88,11 +89,11 @@
           timeless classics to contemporary bestsellers, we connect readers with
           stories that inspire, educate, and entertain.
         </p>
-        <a href="#books" class="cta-button">Explore Books</a>
+        <a href="#new-arrivals" class="cta-button">Explore Books</a>
       </div>
     </section>
 
-    <section class="about-section">
+    <section data-aos="fade-up" class="about-section">
       <h2>About Readify</h2>
       <div class="about-content">
         <div class="about-text">
@@ -155,7 +156,7 @@
       </div>
     </section>
 
-    <section class="new_arrivals" id="books">
+    <section data-aos="fade-up" class="new_arrivals" id="new-arrivals">
       <div class="new_arrivals_top">
         <h2>New Arrivals</h2>
       </div>
@@ -176,6 +177,7 @@
             <img
               src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=600&fit=crop"
               alt="To Kill a Mockingbird"
+              loading="lazy"
             />
           </a>
         </div>
@@ -195,6 +197,7 @@
             <img
               src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=600&fit=crop"
               alt="The Great Gatsby"
+              loading="lazy"
             />
           </a>
         </div>
@@ -214,6 +217,7 @@
             <img
               src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400&h=600&fit=crop"
               alt="1984"
+              loading="lazy"
             />
           </a>
         </div>
@@ -233,6 +237,7 @@
             <img
               src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=400&h=600&fit=crop"
               alt="Pride and Prejudice"
+              loading="lazy"
             />
           </a>
         </div>
@@ -252,6 +257,7 @@
             <img
               src="https://images.unsplash.com/photo-1629992101753-56d196c8aabb?w=400&h=600&fit=crop"
               alt="The Hobbit"
+              loading="lazy"
             />
           </a>
         </div>
@@ -271,6 +277,7 @@
             <img
               src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=400&h=600&fit=crop"
               alt="Harry Potter"
+              loading="lazy"
             />
           </a>
         </div>
@@ -290,6 +297,7 @@
             <img
               src="https://images.unsplash.com/photo-1530825894095-9c184b068fcb?w=400&h=600&fit=crop"
               alt="The Catcher in the Rye"
+              loading="lazy"
             />
           </a>
         </div>
@@ -309,6 +317,7 @@
             <img
               src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=600&fit=crop"
               alt="To the Lighthouse"
+              loading="lazy"
             />
           </a>
         </div>
@@ -328,6 +337,7 @@
             <img
               src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=400&h=600&fit=crop"
               alt="Brave New World"
+              loading="lazy"
             />
           </a>
         </div>
@@ -347,13 +357,14 @@
             <img
               src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=600&fit=crop"
               alt="The Lord of the Rings"
+              loading="lazy"
             />
           </a>
         </div>
       </div>
     </section>
 
-    <section class="featured_books" id="books">
+    <section data-aos="fade-up" class="featured_books" id="featured-books">
       <div class="featured_books_top">
         <h2>Featured Books</h2>
       </div>
@@ -374,6 +385,7 @@
             <img
               src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=600&fit=crop"
               alt="To Kill a Mockingbird"
+              loading="lazy"
             />
           </a>
         </div>
@@ -393,6 +405,7 @@
             <img
               src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=600&fit=crop"
               alt="The Great Gatsby"
+              loading="lazy"
             />
           </a>
         </div>
@@ -412,6 +425,7 @@
             <img
               src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400&h=600&fit=crop"
               alt="1984"
+              loading="lazy"
             />
           </a>
         </div>
@@ -431,6 +445,7 @@
             <img
               src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=400&h=600&fit=crop"
               alt="Pride and Prejudice"
+              loading="lazy"
             />
           </a>
         </div>
@@ -450,6 +465,7 @@
             <img
               src="https://images.unsplash.com/photo-1629992101753-56d196c8aabb?w=400&h=600&fit=crop"
               alt="The Hobbit"
+              loading="lazy"
             />
           </a>
         </div>
@@ -469,6 +485,7 @@
             <img
               src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=400&h=600&fit=crop"
               alt="Harry Potter"
+              loading="lazy"
             />
           </a>
         </div>
@@ -488,6 +505,7 @@
             <img
               src="https://images.unsplash.com/photo-1530825894095-9c184b068fcb?w=400&h=600&fit=crop"
               alt="The Catcher in the Rye"
+              loading="lazy"
             />
           </a>
         </div>
@@ -507,6 +525,7 @@
             <img
               src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=600&fit=crop"
               alt="To the Lighthouse"
+              loading="lazy"
             />
           </a>
         </div>
@@ -526,6 +545,7 @@
             <img
               src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=400&h=600&fit=crop"
               alt="Brave New World"
+              loading="lazy"
             />
           </a>
         </div>
@@ -545,13 +565,14 @@
             <img
               src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=600&fit=crop"
               alt="The Lord of the Rings"
+              loading="lazy"
             />
           </a>
         </div>
       </div>
     </section>
 
-    <section class="review" id="review">
+    <section data-aos="fade-up" class="review" id="review">
       <h2>Customer's Review</h2>
       <div class="review-slider">
         <p>No reviews yet. Be the first to review our platform!</p>
@@ -583,9 +604,9 @@
             <h3>Quick Links</h3>
             <div class="quick-media">
               <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Books</a></li>
-                <li><a href="#">Reviews</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#new-arrivals">Books</a></li>
+                <li><a href="#review">Reviews</a></li>
                 <li><a href="#">Admin</a></li>
               </ul>
             </div>
@@ -639,5 +660,22 @@
 
     <script src="./assets/js/index.js"></script>
     <script src="./assets/js/navbar.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100,
+        easing: "ease-in-out",
+      });
+
+      function hideCart(event) {
+        event.preventDefault();
+        const cart = document.querySelector(".cart-container");
+        if (cart) {
+          cart.style.display = "none";
+        }
+      }
+    </script>
   </body>
 </html>

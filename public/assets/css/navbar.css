@@ -12,11 +12,11 @@
   z-index: 1000;
   backdrop-filter: blur(3px);
   text-shadow: 0 0 3px var(--color-text-primary);
+  background-color: var(--color-primary);
 }
 
 .navbar-background {
   position: fixed;
-  background-color: var(--color-primary);
   width: 100vw;
   height: 95px;
   top: 0;

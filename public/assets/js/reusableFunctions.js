@@ -88,33 +88,35 @@ const checkAdmin = () => {
 };
 
 const showBookCards = (books, containerId) => {
+  if (!books || books.length === 0) {
+    return;
+  }
   const bookConatiner = document.getElementById(containerId);
-  bookConatiner.innerHTML = "";
-  return books.map((book) => {
-    const { book_id, image, title, authors, price } = book;
-    bookConatiner.innerHTML += `<div class="book-card">
-        <a href="book.html?id=${book_id}">
-          <div class="info">
-            <h4>
-              <span>${title}</span>
-            </h4>
-            <div class="details">
-              <p>
-                <span class="author" id="author"> ${authors.join(", ")} </span>
-              </p>
-              <p>
-                <span class="price">${price} LKR</span>
-              </p>
-            </div>
+  books.forEach((book) => {
+    const card = document.createElement("div");
+    card.className = "book-card";
+    const imgPath = `./uploads/${book.image}`;
+    card.innerHTML = `
+    <div class="cart-icon" onclick="addToCart(${Number(book.book_id)})">
+      <i class="fas fa-shopping-cart"></i>
+    </div>
+      <a href="book.html?id=${encodeURIComponent(book.book_id)}">
+        <div class="info">
+          <h4><span>${book.title}</span></h4>
+          <div class="details">
+            <p><span class="author">${book.authors || ""}</span></p>
+            <p><span class="price">${Number(book.price).toFixed(
+              0
+            )} LKR</span></p>
           </div>
-          <a href="book.html?id=${book_id}">
-                <img
-                  src="./uploads/${image}"
-                  alt="book${book_id}"
-                />
-        </a>
-      </div>`;
-
-
+        </div>
+        <img
+          src="${imgPath}"
+          alt="${book.title}"
+          loading="lazy"
+          onerror="this.onerror=null;this.src='./assets/images/book_images/placeholder.jpg'"/>
+      </a>
+    `;
+    bookConatiner.appendChild(card);
   });
 };

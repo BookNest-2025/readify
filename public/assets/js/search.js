@@ -32,9 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     books.forEach((b) => {
-      const imgPath = b.image
-        ? `./uploads/${b.image}`
-        : "./assets/images/book_images/placeholder.jpg";
+      const imgPath = `./uploads/${b.image}`;
       const card = document.createElement("div");
       card.className = "book-card";
       card.innerHTML = `

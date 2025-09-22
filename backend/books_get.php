@@ -17,10 +17,10 @@ try {
         $param = $_GET['param'];
         $stmt  = null;
         if ($param === "new-arrived") {
-            $stmt = $pdo->prepare("SELECT * FROM books WHERE status = 1 ORDER BY updated_at DESC LIMIT 10");
+            $stmt = $pdo->prepare("SELECT * FROM books WHERE status = 1 ORDER BY updated_at DESC LIMIT 12");
         }
         if ($param === "populer") {
-            $stmt = $pdo->prepare("SELECT * FROM books WHERE status = 1 ORDER BY sold DESC LIMIT 10");
+            $stmt = $pdo->prepare("SELECT * FROM books WHERE status = 1 ORDER BY sold DESC LIMIT 12");
         }
         if (! $stmt) {
             throw new Exception("Please enter which book type neded with params.");

@@ -1,106 +1,157 @@
-/* Page title */
 h1 {
   text-align: center;
-  margin-bottom: 20px;
+  margin: 140px 0 40px; /* leave space for navbar */
   font-size: 2rem;
   color: #222;
-  margin-top: 50px;
+  font-weight: 700;
 }
 
-/* Main container */
+/* ====== ORDER CONTAINER ====== */
 .order-container {
-  background: var(--color-background);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+  grid-template-columns: 280px 1fr;
+  gap: 30px;
+  padding: 0 20px;
 }
 
-/* Boxes */
-.customer-box,
 .details-box,
 .items-box {
-  background: var(--color-text-secondary);
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 24px;
 }
 
-.customer-box h3,
 .details-box h3,
 .items-box h3 {
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-  color: #444;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--color-secondary);
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
 }
 
-.customer-box p,
-.details-box p,
-.items-box p {
-  margin-bottom: 8px;
-  font-size: 0.95rem;
+.details-box p {
+  margin: 12px 0;
+  font-size: 15px;
+  color: rgb(85, 85, 85);
 }
 
-/* Items section */
-.items-box {
-  grid-column: 1 / span 2;
+/* ====== ORDER ITEMS ====== */
+.list {
+  display: flex;
+  align-items: center;
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease;
+}
+
+.list:hover {
+  transform: translateY(-3px);
 }
 
 .list img {
   width: 80px;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  display: block;
-}
-.list {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 20px;
+  flex-shrink: 0;
 }
 
-.price {
-  position: relative;
-  margin-left: 80%;
+.list-details {
+  flex: 1;
 }
-/* Buttons */
-.order-container button {
+
+.list-details p {
+  margin: 4px 0;
+  font-size: 15px;
+  color: rgb(85, 85, 85);
+}
+
+.list-details .price {
+  font-size: 14px;
+  color: #e63946;
+  font-weight: 600;
+}
+
+/* ====== BUTTONS ====== */
+.review-btn,
+.cancel-order-btn {
+  display: inline-block;
   padding: 10px 18px;
+  margin-top: 12px;
+  background: var(--color-secondary);
+  color: #fff;
+  font-weight: 600;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 0.95rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.order-container button:first-of-type {
-  background: var(--color-secondary);
-  color: #fff;
+.review-btn:hover,
+.cancel-order-btn:hover {
+  background: var(--color-primary);
+  transform: translateY(-2px);
 }
 
-.order-container button:first-of-type:hover {
-  background: #005fcc;
+.cancel-order-btn {
+  background: linear-gradient(135deg, #e63946, #ff5e6c);
 }
 
-.order-container button:last-of-type {
-  background: #28a745;
-  color: #fff;
+.cancel-order-btn:hover {
+  background: linear-gradient(135deg, #c92b3a, #e63946);
 }
 
-.order-container button:last-of-type:hover {
-  background: #1f7f34;
+.review-btn.platform {
+  width: 100%;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* Platform review wrapper */
+.platform-review {
+  width: 100%;
+}
+.buttons {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 900px) {
   .order-container {
     grid-template-columns: 1fr;
   }
+
+  .list {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .price {
+    margin-left: 0;
+    margin-top: 6px;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.6rem;
+    margin: 120px 0 30px;
+  }
+
+  .details-box,
   .items-box {
-    grid-column: 1;
+    padding: 20px;
   }
 }

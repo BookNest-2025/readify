@@ -93,26 +93,28 @@ const showBookCards = (books, containerId) => {
   return books.map((book) => {
     const { book_id, image, title, authors, price } = book;
     bookConatiner.innerHTML += `<div class="book-card">
-              <a href="book.html?id=${book_id}">
+        <a href="book.html?id=${book_id}">
+          <div class="info">
+            <h4>
+              <span>${title}</span>
+            </h4>
+            <div class="details">
+              <p>
+                <span class="author" id="author"> ${authors.join(", ")} </span>
+              </p>
+              <p>
+                <span class="price">${price} LKR</span>
+              </p>
+            </div>
+          </div>
+          <a href="book.html?id=${book_id}">
                 <img
                   src="./uploads/${image}"
                   alt="book${book_id}"
                 />
-                <h4>
-                  <span>${title}</span>
-                </h4>
-                <p>
-                  <span class="author" id="author">
-                    ${authors.join(", ")}
-                  </span>
-                </p>
-                <p>
-                  <span class="price">${price} LKR</span>
-                </p>
-              </a>
-              <div class="buttons">
-                <button class="btn" onclick="addToCart(${book_id})">Add to Cart</button>
-              </div>
-            </div>`;
+        </a>
+      </div>`;
+
+
   });
 };

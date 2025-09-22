@@ -74,54 +74,67 @@
         </a>
       </div>
     </header>
-       
-    <!-- SEARCH RESULTS SECTION --><br>
-<section class="book-search-page container">
-  <br>
-  <h2 style="margin: 40px 0 20px">Search Results...</h2>
 
-  <div class="main-layout">
-    <aside class="filter-sidebar">
-      <div class="top-controls">
-        <div class="sort-controls">
-          <label for="sort-select">Sort by:</label>
-          <select id="sort-select">
-            <option value="newest">Newest</option>
-            <option value="popular">Most Popular</option>
-            <option value="price-low">Price: Low to High</option>
-          </select>
+    <!-- SEARCH RESULTS SECTION --><br />
+    <!-- SEARCH RESULTS SECTION -->
+    <section class="book-search-page container">
+      <h2 style="margin: 40px 0 20px">Search Results...</h2>
+      <!-- 🔎 Search by Book Name & Author -->
+      <div class="search-fields">
+        <input
+          type="text"
+          id="search-bookname"
+          placeholder="Search by Book Title..." />
+        <input
+          type="text"
+          id="search-author"
+          placeholder="Search by Author Name..." />
+        <button id="search-btn" class="btn">Search</button>
+      </div>
+      <div class="main-layout">
+        <aside class="filter-sidebar">
+          <div class="top-controls">
+            <div class="sort-controls">
+              <label for="sort-select">Sort by:</label>
+              <select id="sort-select">
+                <option value="newest">Newest</option>
+                <option value="popular">Most Popular</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+              </select>
+            </div>
+          </div>
+          <div class="category-filter">
+            <h3>Filter by Category</h3>
+            <ul>
+              <li><input type="checkbox" value="Fiction" /> Fiction</li>
+              <li><input type="checkbox" value="Education" /> Education</li>
+              <li><input type="checkbox" value="Science" /> Science</li>
+              <li><input type="checkbox" value="History" /> History</li>
+            </ul>
+          </div>
+        </aside>
+        <div class="books">
+          <div class="book-grid">
+            <!-- Book cards will go here -->
+            <div class="book-card">
+              <a href="book.html?id=1">
+                <img
+                  src="./assets/images/book_images/ancillary_justice.jpg"
+                  alt="Book 1" />
+                <h4><span>Book Title</span></h4>
+                <p><span class="author">Author Name</span></p>
+                <p><span class="price">1500 LKR</span></p>
+              </a>
+              <div class="buttons">
+                <button class="btn" onclick="addToCart(1)">Add to Cart</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="category-filter">
-        <h3>Filter by Category</h3>
-        <ul>
-          <li><input type="checkbox" /> Fiction</li>
-          <li><input type="checkbox" /> Education</li>
-          <li><input type="checkbox" /> Science</li>
-          <li><input type="checkbox" /> History</li>
-        </ul>
-      </div>
-    </aside>
-
-    <div class="book-grid">
-      <!-- Replace placeholders with real data -->
-      <div class="book-card">
-        <a href="book.html?id=1">
-          <img src="./assets/images/book_images/ancillary_justice.jpg" alt="Book 1" />
-          <h4><span>Book Title</span></h4>
-          <p><span class="author">Author Name</span></p>
-          <p><span class="price">1500 LKR</span></p>
-        </a>
-        <div class="buttons">
-          <button class="btn" onclick="addToCart(1)">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-  </div> <!-- ✅ main-layout closed -->
-</section>
-
-  
+      <!-- ✅ main-layout closed -->
+    </section>
 
     <!-- FOOTER -->
     <footer>
@@ -155,9 +168,8 @@
                 <li><a href="#">Admin</a></li>
               </ul>
             </div>
-            
           </div>
-         
+
           <div class="footer-section">
             <h3>Contact Us</h3>
             <br />
@@ -182,10 +194,6 @@
     <!-- SCRIPTS -->
     <script src="./assets/js/reusableFunctions.js"></script>
     <script src="./assets/js/navbar.js"></script>
-    
-  </body>
-</html>s.js"></script>
-    <script src="./assets/js/navbar.js"></script>
-    
+    <script src="./assets/js/search.js"></script>
   </body>
 </html>

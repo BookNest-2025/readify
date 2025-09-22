@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const bookInput = document.getElementById("search-bookname");
   const authorInput = document.getElementById("search-author");
-  const resultsContainer = document.querySelector(".book-grid");
+  const resultsContainer = document.querySelector(".book-container");
   const sortSelect = document.getElementById("sort-select");
   const categoryCheckboxes = document.querySelectorAll(
     ".category-filter input[type='checkbox']"
@@ -31,34 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
       resultsContainer.innerHTML = `<p style="text-align:center;color:#6b6b6b">No books found.</p>`;
       return;
     }
-    books.forEach((b) => {
-      const imgPath = `./uploads/${b.image}`;
-      const card = document.createElement("div");
-      card.className = "book-card";
-      card.innerHTML = `
-        <a href="book.html?id=${encodeURIComponent(
-          b.book_id
-        )}" style="text-decoration:none;color:inherit;">
-          <img src="${imgPath}" alt="${
-        b.title
-      }" onerror="this.onerror=null;this.src='./assets/images/book_images/placeholder.jpg'"/>
-          <div style="padding:12px;">
-            <h4>${b.title}</h4>
-            <p class="author">${b.authors || ""}</p>
-            <p class="price">${Number(b.price).toFixed(0)} LKR</p>
-            <p style="font-size:13px;color:#666;margin-top:8px;line-height:1.2;max-height:3.6em;overflow:hidden">${
-              b.description || ""
-            }</p>
-          </div>
-        </a>
-        <div class="buttons">
-          <button class="btn" onclick="addToCart(${Number(
-            b.book_id
-          )})">Add to Cart</button>
-        </div>
-      `;
-      resultsContainer.appendChild(card);
-    });
+    showBookCards(books, "results-container");
   }
 
   function searchBooks(initialParams = null) {

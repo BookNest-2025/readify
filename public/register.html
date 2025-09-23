@@ -6,17 +6,25 @@
     <title>Readify</title>
     <link
       href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css"
-      rel="stylesheet" />
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="./assets/css/root.css" />
     <link rel="stylesheet" href="./assets/css/navbar.css" />
     <link rel="stylesheet" href="./assets/css/loginAndRegister.css" />
+    <link rel="stylesheet" href="./assets/css/footer.css" />
     <link
       rel="shortcut icon"
       href="./assets/images/logo.png"
-      type="image/x-icon" />
+      type="image/x-icon"
+    />
   </head>
   <body>
     <div class="alert"></div>
@@ -24,7 +32,7 @@
     <header>
       <nav class="navbar">
         <div class="navbar-left">
-          <img src="./assets/images/logos/logo_transparent.png" alt="Logo" />
+          <img src="assets/images/logos/logo_transparent.png" alt="Logo" />
         </div>
         <ul class="navbar-center">
           <li><a href="index.html">Home</a></li>
@@ -34,23 +42,33 @@
         <div class="navbar-right">
           <div class="icon-row">
             <i class="fa fa-search" id="search-icon"></i>
-            <a href="#"><i class="fa fa-shopping-cart"></i></a>
-            <a href="#" onclick="logout(event)"
-              ><i class="fa fa-sign-out"></i>
-            </a>
+            <a href="#" id="user-icon"><i class="fa fa-user"></i></a>
+            <a href="#" id="cart-icon"><i class="fa fa-shopping-cart"></i></a>
             <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
           </div>
         </div>
       </nav>
-      <div class="search-panel" id="search-panel">
-        <input
-          type="text"
-          id="search-input-field"
-          placeholder="Search books..." />
-      </div>
-      <div id="toggle-handler-search"></div>
       <div id="toggle-handler-menu"></div>
       <div class="navbar-background"></div>
+
+      <div class="cart-container">
+        <h2>Shopping Cart</h2>
+        <p class="cart-subtitle">Items in your cart</p>
+
+        <div class="cart-items-wrapper">
+          <div class="cart-items"></div>
+        </div>
+
+        <div class="cart-summary">
+          <p>Subtotal: <strong id="cart-total">0 LKR</strong></p>
+          <button class="checkout-btn">Checkout</button>
+        </div>
+
+        <button class="continue-shopping" onclick="hideCart(event)">
+          <i class="fa fa-arrow-left"></i>
+          Continue Shopping
+        </button>
+      </div>
     </header>
 
     <div class="page page-register">
@@ -66,14 +84,16 @@
                     <img
                       id="preview"
                       src="./assets/images/profile_images/profiledefault.png"
-                      alt="" />
+                      alt=""
+                    />
                   </div>
                   <label for="profilePhoto"><i class="bxr bxs-edit"></i></label>
                   <input
                     type="file"
                     name="profilePhoto"
                     id="profilePhoto"
-                    hidden />
+                    hidden
+                  />
                 </div>
               </div>
               <div class="input-box">
@@ -81,7 +101,8 @@
                   type="text"
                   name="fname"
                   required
-                  placeholder="First Name" />
+                  placeholder="First Name"
+                />
                 <button tabindex="-1" type="button">
                   <i class="bxr bxs-user"></i>
                 </button>
@@ -92,7 +113,8 @@
                   type="text"
                   name="lname"
                   required
-                  placeholder="Last Name" />
+                  placeholder="Last Name"
+                />
                 <button tabindex="-1" type="button">
                   <i class="bxr bxs-user"></i>
                 </button>
@@ -105,7 +127,8 @@
                   type="text"
                   name="email"
                   required
-                  placeholder="Enter a Valid Email" />
+                  placeholder="Enter a Valid Email"
+                />
                 <button tabindex="-1" type="button">
                   <i class="bx bxs-envelope"></i>
                 </button>
@@ -116,7 +139,8 @@
                   type="text"
                   name="tellno"
                   required
-                  placeholder="07XXXXXXXX" />
+                  placeholder="07XXXXXXXX"
+                />
                 <button tabindex="-1" type="button">
                   <i class="bxr bxs-phone"></i>
                 </button>
@@ -127,7 +151,8 @@
                   type="text"
                   name="address"
                   required
-                  placeholder="Enter Full Address" />
+                  placeholder="Enter Full Address"
+                />
                 <button tabindex="-1" type="button">
                   <i class="bxr bxs-location-alt"></i>
                 </button>
@@ -139,12 +164,14 @@
                   type="password"
                   name="password"
                   required
-                  placeholder="Enter a Strong Password" />
+                  placeholder="Enter a Strong Password"
+                />
                 <button
                   tabindex="-1"
                   id="passBtn"
                   type="button"
-                  onclick="toggleView()">
+                  onclick="toggleView()"
+                >
                   <i class="bx bxs-eye-slash"></i>
                 </button>
                 <span class="input-type"><p>Password</p></span>
@@ -155,12 +182,14 @@
                   type="password"
                   name="passwordC"
                   required
-                  placeholder="Confirm Password" />
+                  placeholder="Confirm Password"
+                />
                 <button
                   tabindex="-1"
                   id="passBtnC"
                   type="button"
-                  onclick="toggleViewC()">
+                  onclick="toggleViewC()"
+                >
                   <i class="bx bxs-eye-slash"></i>
                 </button>
                 <span class="input-type"><p>Confirm Password</p></span>
@@ -202,10 +231,9 @@
             <h3>Quick Links</h3>
             <div class="quick-media">
               <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Books</a></li>
-                <li><a href="#">Reviews</a></li>
-                <li><a href="#">Admin</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#books">Books</a></li>
+                <li><a href="platformReviews.html">Reviews</a></li>
               </ul>
             </div>
           </div>

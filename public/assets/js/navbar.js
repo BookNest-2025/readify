@@ -59,41 +59,57 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // --- User & Cart logic ---
-  if (userIcon) {
+  if (userIcon || cartIcon) {
     connectBackEnd({
       backendUrl: "../backend/auth_check_login.php",
+      method: "GET",
       callback: (data) => {
         try {
-          if (data.isLoggedIn) {
-            if (data.category === "admin") {
-              userIcon.href = "adminDashboard.html";
-              cartIcon?.addEventListener("click", (e) => {
-                e.preventDefault();
-                addAlert("Need to log in as customer to view cart.");
-              });
-            } else {
-              userIcon.href = "profile.html";
-              fetchCart();
-              cartIcon?.addEventListener("click", (e) => {
-                e.preventDefault();
-                document
-                  .querySelector(".cart-container")
-                  ?.classList.toggle("active");
-              });
-            }
-          } else {
-            userIcon.href = "login.html";
-            cartIcon?.addEventListener("click", (e) => {
-              e.preventDefault();
-              addAlert("Need to log in as customer to view cart.");
-            });
-          }
+          handleUserIcon(data);
+          handleCartIcon(data);
         } catch (err) {
           console.error("User & Cart logic error:", err);
         }
       },
-      method: "GET",
     });
+  }
+
+  function handleUserIcon(data) {
+    if (!userIcon) return;
+
+    if (data.isLoggedIn) {
+      if (data.category === "admin") {
+        userIcon.href = "adminDashboard.html";
+      } else {
+        userIcon.href = "profile.html";
+      }
+    } else {
+      userIcon.href = "login.html";
+    }
+  }
+
+  function handleCartIcon(data) {
+    if (!cartIcon) return;
+
+    if (data.isLoggedIn) {
+      if (data.category === "admin") {
+        cartIcon.addEventListener("click", (e) => {
+          e.preventDefault();
+          addAlert("Need to log in as customer to view cart.");
+        });
+      } else {
+        fetchCart();
+        cartIcon.addEventListener("click", (e) => {
+          e.preventDefault();
+          document.querySelector(".cart-container")?.classList.toggle("active");
+        });
+      }
+    } else {
+      cartIcon.addEventListener("click", (e) => {
+        e.preventDefault();
+        addAlert("Need to log in as customer to view cart.");
+      });
+    }
   }
 });
 

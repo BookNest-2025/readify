@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Readify</title>
     <link rel="stylesheet" href="./assets/css/root.css" />
     <link rel="stylesheet" href="./assets/css/profile.css" />
     <link rel="stylesheet" href="./assets/css/footer.css" />
@@ -14,13 +14,17 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo.png"
+      type="image/x-icon" />
   </head>
   <body>
     <div class="alert"></div>
     <header>
       <nav class="navbar">
         <div class="navbar-left">
-          <img src="./assets/images/logos/logo_transparent.png" alt="Logo" />
+          <img src="assets/images/logos/logo_transparent.png" alt="Logo" />
         </div>
         <ul class="navbar-center">
           <li><a href="index.html">Home</a></li>
@@ -30,7 +34,7 @@
         <div class="navbar-right">
           <div class="icon-row">
             <i class="fa fa-search" id="search-icon"></i>
-            <a href="#"><i class="fa fa-shopping-cart"></i></a>
+            <a href="#" id="cart-icon"><i class="fa fa-shopping-cart"></i></a>
             <a href="#" onclick="logout(event)"
               ><i class="fa fa-sign-out"></i>
             </a>
@@ -38,15 +42,27 @@
           </div>
         </div>
       </nav>
-      <div class="search-panel" id="search-panel">
-        <input
-          type="text"
-          id="search-input-field"
-          placeholder="Search books..." />
-      </div>
-      <div id="toggle-handler-search"></div>
       <div id="toggle-handler-menu"></div>
       <div class="navbar-background"></div>
+
+      <div class="cart-container">
+        <h2>Shopping Cart</h2>
+        <p class="cart-subtitle">Items in your cart</p>
+
+        <div class="cart-items-wrapper">
+          <div class="cart-items"></div>
+        </div>
+
+        <div class="cart-summary">
+          <p>Subtotal: <strong id="cart-total">0 LKR</strong></p>
+          <button class="checkout-btn">Checkout</button>
+        </div>
+
+        <button class="continue-shopping" onclick="hideCart(event)">
+          <i class="fa fa-arrow-left"></i>
+          Continue Shopping
+        </button>
+      </div>
     </header>
 
     <section class="profile-section">

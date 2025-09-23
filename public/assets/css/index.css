@@ -337,37 +337,84 @@
 }
 
 .review {
-  padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 4vw, 2rem);
   text-align: center;
-  transition: all 0.4s ease;
+  padding: 4rem 2rem;
+  background: #f9f9f9;
 }
 
 .review h2 {
-  font-size: clamp(1.8rem, 4vw, 2rem);
-  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
   color: var(--color-secondary);
-  padding-bottom: 40px;
-  transition: all 0.3s ease;
 }
 
 .review-slider {
-  padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 4vw, 2rem);
-  margin-bottom: 2.5rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 
-.review-slider:hover {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+/* Fixed-size review card */
+.review-slider .box {
+  background: #fff;
+  width: 500px;
+  /* fixed width */
+  height: auto;
+  /* auto height so text fits */
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+.review-slider .box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.review-slider .box img {
+  width: 200px;
+  /* fixed size */
+  height: 200px;
+  /* fixed size */
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid #eee;
+}
+
+.review-slider .box p {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  margin: 0.5rem 0 1rem;
+}
+
+.review-slider .box h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: #222;
+}
+
+.review-slider .box .stars {
+  color: #f5a623;
+  font-size: 1.1rem;
+}
+
+/* Fixed-size button */
 .review button {
   background: var(--color-secondary);
   color: white;
-  font-size: clamp(0.9rem, 2vw, 1.001rem);
+  font-size: 1rem;
   font-weight: 500;
   border: none;
-  padding: clamp(0.8rem, 2vw, 1rem) clamp(2rem, 4vw, 2.5rem);
+  padding: 0.8rem 2rem;
   cursor: pointer;
   transition: all 0.3s;
 }
@@ -377,6 +424,8 @@
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
+
+
 
 /* Simplified responsive design with smooth transitions */
 @media (max-width: 1200px) {

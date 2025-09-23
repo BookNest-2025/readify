@@ -102,7 +102,7 @@ try {
     $statusStmt = $pdo->query("
         SELECT status, COUNT(*) AS c
         FROM orders
-        WHERE status IN ('placed','packed','shipped','delivered','cancelled')
+        WHERE status IN ('pending','packed','shipped','delivered','cancelled')
         GROUP BY status
     ");
     $statusCounts = [
@@ -115,7 +115,7 @@ try {
 
     foreach ($statusStmt as $row) {
         switch ($row['status']) {
-            case 'placed':
+            case 'pending':
                 $statusCounts[0]['count'] = (int) $row['c'];
                 break;
             case 'packed':

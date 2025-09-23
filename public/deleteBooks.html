@@ -3,92 +3,139 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Delete Books - Readify Admin</title>
+    <title>Readify Admin</title>
     <link rel="stylesheet" href="./assets/css/deleteBooks.css" />
     <link rel="stylesheet" href="./assets/css/root.css" />
     <link rel="stylesheet" href="./assets/css/footer.css" />
+    <link rel="stylesheet" href="./assets/css/admin.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo.png"
+      type="image/x-icon" />
   </head>
   <body>
-    <div class="container">
-      <h1>Delete/Deactivate Books</h1>
-      <p class="description">
-        Search for books and change their status (active/inactive). Deactivated
-        books won't be visible to customers.
-      </p>
+    <div class="alert"></div>
+    <div class="sidebar">
+      <a class="toggler" onclick="toggleSideBar()">
+        <i class="fa fa-bars"></i>
+      </a>
+      <img src="./assets/images/logo.png" alt="" />
+      <a href="adminDashboard.html">
+        <i class="fa fa-dashboard"></i>
+        <span class="names">Dashboard</span>
+      </a>
+      <a href="addBooks.html">
+        <i class="fa fa-plus"></i>
+        <span class="names">Add Books</span>
+      </a>
+      <a href="updateBooks.html">
+        <i class="fa fa-pencil-square"></i>
+        <span class="names">Update books</span>
+      </a>
+      <a href="#">
+        <i class="fa fa-trash"></i>
+        <span class="names">Delete Books</span>
+      </a>
+      <a href="ordersAdmin.html">
+        <i class="fa fa-sort-amount-desc"></i>
+        <span class="names">Ongoing Orders</span>
+      </a>
+      <a href="orderHistoryAdmin.html">
+        <i class="fa fa fa-history"></i>
+        <span class="names">Order history</span>
+      </a>
 
-      <div class="search-section">
-        <h2>Search for a Book</h2>
-        <div class="search-form">
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Enter book title..."
-          />
-          <button id="searchBtn">Search</button>
+      <a href="#" onclick="logout(event)">
+        <i class="fa fa-sign-out"></i>
+        <span class="names">Logout</span>
+      </a>
+    </div>
+
+    <section class="summary">
+      <div class="container">
+        <h1>Delete/Deactivate Books</h1>
+        <p class="description">
+          Search for books and change their status (active/inactive).
+          Deactivated books won't be visible to customers.
+        </p>
+        <div class="search-section">
+          <h2>Search for a Book</h2>
+          <div class="search-form">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Enter book title..." />
+            <button id="searchBtn">Search</button>
+          </div>
+          <div id="searchResults" class="search-results"></div>
         </div>
-        <div id="searchResults" class="search-results"></div>
+        <div class="book-details" id="bookDetails" style="display: none">
+          <h2>Book Details</h2>
+          <div class="details-container">
+            <div class="detail-item">
+              <label>Title:</label>
+              <span id="detailTitle"></span>
+            </div>
+            <div class="detail-item">
+              <label>Author(s):</label>
+              <span id="detailAuthor"></span>
+            </div>
+            <div class="detail-item">
+              <label>Price:</label>
+              <span id="detailPrice"></span>
+            </div>
+            <div class="detail-item">
+              <label>Stock:</label>
+              <span id="detailStock"></span>
+            </div>
+            <div class="detail-item">
+              <label>Sold:</label>
+              <span id="detailSold"></span>
+            </div>
+            <div class="detail-item">
+              <label>Category:</label>
+              <span id="detailCategory"></span>
+            </div>
+            <div class="detail-item">
+              <label>Description:</label>
+              <span id="detailDescription"></span>
+            </div>
+            <div class="detail-item">
+              <label>Current Status:</label>
+              <span id="detailStatus" class="status-badge"></span>
+            </div>
+          </div>
+          <div class="action-section">
+            <h3>Change Status</h3>
+            <div class="status-options">
+              <button id="activateBtn" class="status-btn activate">
+                Activate Book
+              </button>
+              <button id="deactivateBtn" class="status-btn deactivate">
+                Deactivate Book
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div class="book-details" id="bookDetails" style="display: none">
-        <h2>Book Details</h2>
-        <div class="details-container">
-          <div class="detail-item">
-            <label>Title:</label>
-            <span id="detailTitle"></span>
-          </div>
-          <div class="detail-item">
-            <label>Author(s):</label>
-            <span id="detailAuthor"></span>
-          </div>
-          <div class="detail-item">
-            <label>Price:</label>
-            <span id="detailPrice"></span>
-          </div>
-          <div class="detail-item">
-            <label>Stock:</label>
-            <span id="detailStock"></span>
-          </div>
-          <div class="detail-item">
-            <label>Sold:</label>
-            <span id="detailSold"></span>
-          </div>
-          <div class="detail-item">
-            <label>Category:</label>
-            <span id="detailCategory"></span>
-          </div>
-          <div class="detail-item">
-            <label>Description:</label>
-            <span id="detailDescription"></span>
-          </div>
-          <div class="detail-item">
-            <label>Current Status:</label>
-            <span id="detailStatus" class="status-badge"></span>
-          </div>
+    </section>
+    <div id="custom-confirm" class="confirm-overlay hidden">
+      <div class="confirm-box">
+        <p class="confirm-message"></p>
+        <div class="confirm-buttons">
+          <button class="btn-confirm">Yes</button>
+          <button class="btn-cancel">No</button>
         </div>
-
-        <div class="action-section">
-          <h3>Change Status</h3>
-          <div class="status-options">
-            <button id="activateBtn" class="status-btn activate">
-              Activate Book
-            </button>
-            <button id="deactivateBtn" class="status-btn deactivate">
-              Deactivate Book
-            </button>
-          </div>
-        </div>
-
-        <div id="message" class="message"></div>
       </div>
     </div>
+    <script src="./assets/js/reusableFunctions.js"></script>
+    <script src="./assets/js/admin.js"></script>
     <script src="./assets/js/deleteBooks.js"></script>
   </body>
 </html>

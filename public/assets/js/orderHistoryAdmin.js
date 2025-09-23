@@ -12,7 +12,7 @@ const fetchOrders = () => {
                     <td>${order.customer_name}</td>
                     <td>${order.total} LKR</td>
                     <td>${order.status}</td>
-                    <td><a href="orderDetailsAdmin.html?order_id=${order.order_id}">View Details</a></td>
+                    <td><button><a href="orderDetailsAdmin.html?order_id=${order.order_id}">View Details</a></button></td>
                   `;
           ordersHistoryTable.appendChild(row);
         });

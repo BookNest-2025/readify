@@ -3,15 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Readify Admin</title>
     <link rel="stylesheet" href="./assets/css/root.css" />
     <link rel="stylesheet" href="./assets/css/order_details_admin.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo.png"
+      type="image/x-icon" />
+    <link rel="stylesheet" href="./assets/css/admin.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   </head>
   <body>
     <div class="alert"></div>
-    <h1>Order Details</h1>
-    <div id="orderDetails"></div>
+
+    <div class="sidebar">
+      <a class="toggler" onclick="toggleSideBar()">
+        <i class="fa fa-bars"></i>
+      </a>
+      <img src="./assets/images/logo.png" alt="" />
+      <a href="adminDashboard.html">
+        <i class="fa fa-dashboard"></i>
+        <span class="names">Dashboard</span>
+      </a>
+      <a href="addBooks.html">
+        <i class="fa fa-plus"></i>
+        <span class="names">Add Books</span>
+      </a>
+      <a href="updateBooks.html">
+        <i class="fa fa-pencil-square"></i>
+        <span class="names">Update books</span>
+      </a>
+      <a href="deleteBooks.html">
+        <i class="fa fa-trash"></i>
+        <span class="names">Delete Books</span>
+      </a>
+      <a href="ordersAdmin.html">
+        <i class="fa fa-sort-amount-desc"></i>
+        <span class="names">Ongoing Orders</span>
+      </a>
+      <a href="orderHistoryAdmin.html">
+        <i class="fa fa fa-history"></i>
+        <span class="names">Order history</span>
+      </a>
+
+      <a href="" onclick="logout(event)">
+        <i class="fa fa-sign-out"></i>
+        <span class="names">Logout</span>
+      </a>
+    </div>
+
+    <section class="summary">
+      <h1>Order Details</h1>
+      <div id="orderDetails"></div>
+      <div id="custom-confirm" class="confirm-overlay hidden">
+        <div class="confirm-box">
+          <p class="confirm-message"></p>
+          <div class="confirm-buttons">
+            <button class="btn-confirm">Yes</button>
+            <button class="btn-cancel">No</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <script src="./assets/js/reusableFunctions.js"></script>
+    <script src="./assets/js/admin.js"></script>
     <script src="./assets/js/orderDetailsAdmin.js"></script>
   </body>
 </html>

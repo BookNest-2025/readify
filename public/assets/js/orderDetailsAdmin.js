@@ -16,17 +16,17 @@ const fetchOrderDetails = () => {
           totalQuantity += order_item.quantity;
           orderItemsHTML += `
                         <div class="list">
-                          <img
-                            src="./uploads/${order_item.image}"
-                            alt="book" />
+                          <img src="./uploads/${order_item.image}" alt="book" />
                           <div class="list-details">
-                            <p>Name : ${order_item.title}</p>
-                            <p>Quentity : ${order_item.quantity}</p>
+                            <p>Name: ${order_item.title}</p>
+                            <p>Quantity: ${order_item.quantity}</p>
+                            <p class="price">Unit Price: ${
+                              order_item.price
+                            } LKR</p>
+                            <p class="price">Total Price: ${Number(
+                              order_item.quantity * order_item.price
+                            ).toFixed(2)} LKR</p>
                           </div>
-                          <p class="price">Unit Price : ${order_item.price}</p>
-                          <p class="price">Total Price : ${
-                            order_item.quantity * order_item.price
-                          }</p>
                         </div>
                       `;
         });

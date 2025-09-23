@@ -3,151 +3,135 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Update Books - Readify Admin</title>
+    <title>Readify Admin</title>
     <link rel="stylesheet" href="./assets/css/updateBooks.css" />
     <link rel="stylesheet" href="./assets/css/root.css" />
     <link rel="stylesheet" href="./assets/css/footer.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo.png"
+      type="image/x-icon" />
+    <link rel="stylesheet" href="./assets/css/admin.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>Update Book Information</h1>
+    <div class="alert"></div>
 
-      <div class="search-section">
-        <h2>Search for a Book</h2>
-        <div class="search-form">
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Enter book title..."
-          />
-          <button id="searchBtn">Search</button>
-        </div>
-        <div id="searchResults" class="search-results"></div>
-      </div>
+    <div class="sidebar">
+      <a class="toggler" onclick="toggleSideBar()">
+        <i class="fa fa-bars"></i>
+      </a>
+      <img src="./assets/images/logo.png" alt="" />
+      <a href="adminDashboard.html">
+        <i class="fa fa-dashboard"></i>
+        <span class="names">Dashboard</span>
+      </a>
+      <a href="addBooks.html">
+        <i class="fa fa-plus"></i>
+        <span class="names">Add Books</span>
+      </a>
+      <a href="#">
+        <i class="fa fa-pencil-square"></i>
+        <span class="names">Update books</span>
+      </a>
+      <a href="deleteBooks.html">
+        <i class="fa fa-trash"></i>
+        <span class="names">Delete Books</span>
+      </a>
+      <a href="ordersAdmin.html">
+        <i class="fa fa-sort-amount-desc"></i>
+        <span class="names">Ongoing Orders</span>
+      </a>
+      <a href="orderHistoryAdmin.html">
+        <i class="fa fa fa-history"></i>
+        <span class="names">Order history</span>
+      </a>
 
-      <div class="edit-section" id="editSection" style="display: none">
-        <h2>Edit Book Information</h2>
-        <form id="editBookForm">
-          <input type="hidden" id="bookId" name="book_id" />
-
-          <div class="form-group">
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title" required />
-          </div>
-
-          <div class="form-group">
-            <label for="author">Author(s):</label>
-            <input type="text" id="author" name="author" required />
-            <small>Separate multiple authors with commas</small>
-          </div>
-
-          <div class="form-group">
-            <label for="price">Price (Rs.):</label>
-            <input
-              type="number"
-              id="price"
-              name="price"
-              step="0.01"
-              min="0"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="stock">Stock:</label>
-            <input type="number" id="stock" name="stock" min="0" required />
-          </div>
-
-          <div class="form-group">
-            <label for="sold">Sold:</label>
-            <input type="number" id="sold" name="sold" min="0" required />
-          </div>
-
-          <div class="form-group">
-            <label for="category">Category:</label>
-            <select id="category" name="category" required>
-              <option value="">Select Category</option>
-              <option value="Fiction">Fiction</option>
-              <option value="Education">Education</option>
-              <option value="Science">Science</option>
-              <option value="History">History</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="description">Description:</label>
-            <textarea id="description" name="description" required></textarea>
-          </div>
-
-          <div class="form-actions">
-            <button type="submit" id="updateBtn">Update Book</button>
-            <button type="button" id="cancelBtn">Cancel</button>
-          </div>
-        </form>
-        <div id="message" class="message"></div>
-      </div>
+      <a href="" onclick="logout(event)">
+        <i class="fa fa-sign-out"></i>
+        <span class="names">Logout</span>
+      </a>
     </div>
 
-    <footer>
-      <div class="footer">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>BookNest</h3>
-            <br />
-            <p>Where Stories Find A Home</p>
-            <p>
-              Dive into a world of imagination with BookNest <br />
-              your cozy corner for books you love, from timeless classics to
-              trending titles. Curated with care for every kind of reader.
-            </p>
-            <br />
-            <div class="quick-social-media">
-              <ul>
-                <li><a href="#" class="fa fa-facebook"></a></li>
-                <li><a href="#" class="fa fa-twitter"></a></li>
-                <li><a href="#" class="fa fa-instagram"></a></li>
-              </ul>
+    <section class="summary">
+      <div class="container">
+        <h1>Update Book Information</h1>
+        <div class="search-section">
+          <h2>Search for a Book</h2>
+          <div class="search-form">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Enter book title..." />
+            <button id="searchBtn">Search</button>
+          </div>
+          <div id="searchResults" class="search-results"></div>
+        </div>
+        <div class="edit-section" id="editSection" style="display: none">
+          <h2>Edit Book Information</h2>
+          <form id="editBookForm">
+            <input type="hidden" id="bookId" name="book_id" />
+            <div class="form-group">
+              <label for="title">Title:</label>
+              <input type="text" id="title" name="title" required />
             </div>
-          </div>
-          <div class="footer-section">
-            <h3>Links</h3>
-            <div class="quick-media">
-              <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Books</a></li>
-                <li><a href="#">Reviews</a></li>
-                <li><a href="#">Admin</a></li>
-              </ul>
+            <div class="form-group">
+              <label for="author">Author(s):</label>
+              <input type="text" id="author" name="author" required />
+              <small>Separate multiple authors with commas</small>
             </div>
-          </div>
-          <div class="footer-section">
-            <h3>Contact Us</h3>
-            <br />
-            <p>Telephone Number :</p>
-            <p>+94 77 659 9189</p>
-            <p>Address :</p>
-            <p>171, Dharmashoka Mawatha, Lewalla, Kandy</p>
-            <br />
-          </div>
+            <div class="form-group">
+              <label for="price">Price (Rs.):</label>
+              <input
+                type="number"
+                id="price"
+                name="price"
+                step="0.01"
+                min="0"
+                required />
+            </div>
+            <div class="form-group">
+              <label for="stock">Stock:</label>
+              <input type="number" id="stock" name="stock" min="0" required />
+            </div>
+            <div class="form-group">
+              <label for="category">Category:</label>
+              <select id="category" name="category" required>
+                <option value="">Select Category</option>
+                <option value="Fiction">Fiction</option>
+                <option value="Education">Education</option>
+                <option value="Science">Science</option>
+                <option value="History">History</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="description">Description:</label>
+              <textarea id="description" name="description" required></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="submit" id="updateBtn">Update Book</button>
+              <button type="button" id="cancelBtn">Cancel</button>
+            </div>
+          </form>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 BookNest. All rights reserved.</p>
-        <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Cookie Policy</a></li>
-        </ul>
+    </section>
+    <div id="custom-confirm" class="confirm-overlay hidden">
+      <div class="confirm-box">
+        <p class="confirm-message"></p>
+        <div class="confirm-buttons">
+          <button class="btn-confirm">Yes</button>
+          <button class="btn-cancel">No</button>
+        </div>
       </div>
-    </footer>
+    </div>
+    <script src="./assets/js/reusableFunctions.js"></script>
+    <script src="./assets/js/admin.js"></script>
     <script src="./assets/js/updateBooks.js"></script>
   </body>
 </html>

@@ -14,7 +14,6 @@ connectBackEnd({
 
 const showData = (summary) => {
   if (!summary) return;
-  console.log(summary);
 
   const kpi = summary.kpi;
 

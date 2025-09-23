@@ -12,7 +12,7 @@ header("Content-Type: application/json");
 $response = ["success" => false, "message" => ""];
 
 try {
-    if (!isset($_SESSION["email"]) || !isset($_SESSION["user_type"])) {
+    if (! isset($_SESSION["email"]) || ! isset($_SESSION["user_type"])) {
         throw new Exception("Please login to update book status.");
     }
 
@@ -23,20 +23,21 @@ try {
     $bookId = trim($_POST["book_id"]) ?? "";
     $status = trim($_POST["status"]) ?? "0";
 
-    if (!$bookId) {
+    if (! $bookId) {
         throw new Exception("Book ID is required.");
     }
 
     // Update book status
     $stmt = $pdo->prepare("UPDATE books SET status = :status, updated_at = NOW() WHERE book_id = :book_id");
     $stmt->execute([
-        "status" => $status,
-        "book_id" => $bookId
+        "status"  => $status,
+        "book_id" => $bookId,
     ]);
 
     if ($stmt->rowCount() > 0) {
-        $response['success'] = true;
-        $response['message'] = $status == 1 ? 'Book activated successfully!' : 'Book deactivated successfully!';
+        $response['success']  = true;
+        $response['message']  = $status == 1 ? 'Book activated successfully!' : 'Book deactivated successfully!';
+        $response['redirect'] = 'adminDashboard.html';
     } else {
         throw new Exception("No changes made. Book may not exist.");
     }

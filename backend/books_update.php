@@ -12,7 +12,7 @@ header("Content-Type: application/json");
 $response = ["success" => false, "message" => ""];
 
 try {
-    if (!isset($_SESSION["email"]) || !isset($_SESSION["user_type"])) {
+    if (! isset($_SESSION["email"]) || ! isset($_SESSION["user_type"])) {
         throw new Exception("Please login to update books.");
     }
 
@@ -20,16 +20,15 @@ try {
         throw new Exception("You should login as admin to update books.");
     }
 
-    $bookId = trim($_POST["book_id"]) ?? "";
-    $title = trim($_POST["title"]) ?? "";
-    $price = trim($_POST["price"]) ?? '0';
-    $stock = trim($_POST["stock"]) ?? '0';
-    $sold = trim($_POST["sold"]) ?? '0';
+    $bookId      = trim($_POST["book_id"]) ?? "";
+    $title       = trim($_POST["title"]) ?? "";
+    $price       = trim($_POST["price"]) ?? '0';
+    $stock       = trim($_POST["stock"]) ?? '0';
     $description = trim($_POST["description"]) ?? "";
-    $category = trim($_POST["category"]) ?? "";
-    $authors = trim($_POST["author"]) ?? "";
+    $category    = trim($_POST["category"]) ?? "";
+    $authors     = trim($_POST["author"]) ?? "";
 
-    if (!$bookId || !$title || !$description || !$category || !$authors) {
+    if (! $bookId || ! $title || ! $description || ! $category || ! $authors) {
         throw new Exception("Please fill in all required fields.");
     }
 
@@ -39,10 +38,6 @@ try {
 
     if ($stock < 0) {
         throw new Exception("Stock should be 0 or greater.");
-    }
-
-    if ($sold < 0) {
-        throw new Exception("Sold count should be 0 or greater.");
     }
 
     try {
@@ -56,19 +51,17 @@ try {
         $pdo->beginTransaction();
 
         // Update book information
-        $stmt = $pdo->prepare("UPDATE books SET title = :title, price = :price, stock = :stock, 
-                              sold = :sold, description = :description, category = :category, 
-                              updated_at = NOW() 
+        $stmt = $pdo->prepare("UPDATE books SET title = :title, price = :price, stock = :stock, description = :description, category = :category,
+                              updated_at = NOW()
                               WHERE book_id = :book_id");
 
         $stmt->execute([
-            "title" => $title,
-            "price" => $price,
-            "stock" => $stock,
-            "sold" => $sold,
+            "title"       => $title,
+            "price"       => $price,
+            "stock"       => $stock,
             "description" => $description,
-            "category" => $category,
-            "book_id" => $bookId
+            "category"    => $category,
+            "book_id"     => $bookId,
         ]);
 
         // Delete existing authors
@@ -82,8 +75,9 @@ try {
         }
 
         $pdo->commit();
-        $response['success'] = true;
-        $response['message'] = 'Book Updated Successfully!';
+        $response['success']  = true;
+        $response['message']  = 'Book Updated Successfully!';
+        $response['redirect'] = 'adminDashboard.html';
     } catch (PDOException $e) {
         $pdo->rollBack();
         throw new Exception("Error updating data: " . $e->getMessage());

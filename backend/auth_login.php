@@ -46,8 +46,11 @@ try {
     //success all
     $response["success"] = true;
     if ($user['category'] === 'customers') {
+        $stmt = $pdo->prepare("SELECT * FROM customers WHERE email = :email");
+        $stmt->execute(['email' => $email]);
+        $name                 = $stmt->fetch()['name'];
         $response["redirect"] = "index.html";
-        $response["message"]  = "Welcome back " . $user['name'] . "<br>Directing to the Homepage...";
+        $response["message"]  = "Welcome back " . $name . "<br>Directing to the Homepage...";
 
     } else {
         $response["redirect"] = "adminDashboard.html";

@@ -7,130 +7,100 @@
     <link rel="stylesheet" href="./assets/css/navbar.css" />
     <link rel="stylesheet" href="./assets/css/footer.css" />
     <link rel="stylesheet" href="./assets/css/addBooks.css" />
+    <link rel="stylesheet" href="./assets/css/admin.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo.png"
+      type="image/x-icon" />
 
-    <title>Readify</title>
+    <title>Readify Admin</title>
   </head>
   <body>
     <div class="alert"></div>
 
-    <div class="page">
-      <form id="addBookForm" enctype="multipart/form-data">
-        <input type="text" name="title" placeholder="Title" required />
-        <label for="bookPoster">Poster</label>
-        <input type="file" name="poster" id="bookPoster" required />
+    <div class="sidebar">
+      <a class="toggler" onclick="toggleSideBar()">
+        <i class="fa fa-bars"></i>
+      </a>
+      <img src="./assets/images/logo.png" alt="" />
+      <a href="adminDashboard.html">
+        <i class="fa fa-dashboard"></i>
+        <span class="names">Dashboard</span>
+      </a>
+      <a href="#">
+        <i class="fa fa-plus"></i>
+        <span class="names">Add Books</span>
+      </a>
+      <a href="updateBooks.html">
+        <i class="fa fa-pencil-square"></i>
+        <span class="names">Update books</span>
+      </a>
+      <a href="deleteBooks.html">
+        <i class="fa fa-trash"></i>
+        <span class="names">Delete Books</span>
+      </a>
+      <a href="ordersAdmin.html">
+        <i class="fa fa-sort-amount-desc"></i>
+        <span class="names">Ongoing Orders</span>
+      </a>
+      <a href="orderHistoryAdmin.html">
+        <i class="fa fa fa-history"></i>
+        <span class="names">Order history</span>
+      </a>
 
-        <div class="uploadedImage"><img id="preview" src="" alt="" /></div>
-        <input type="text" name="price" placeholder="Price (LKR)" required />
-        <input
-          type="text"
-          name="authors"
-          placeholder="Authors (Seperate with comma)"
-          required
-        />
-
-        <input type="text" name="quantity" placeholder="Quantity" required />
-        <textarea
-          name="description"
-          placeholder="Description"
-          required
-        ></textarea>
-
-        <select name="category" required>
-          <option value="">Select Category</option>
-          <option value="Fiction">Fiction</option>
-          <option value="Education">Education</option>
-          <option value="Science">Science</option>
-          <option value="History">History</option>
-        </select>
-        <button type="submit">Add Book</button>
-      </form>
+      <a href="" onclick="logout(event)">
+        <i class="fa fa-sign-out"></i>
+        <span class="names">Logout</span>
+      </a>
     </div>
-    <footer>
-      <div class="footer">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>Readify</h3>
-            <p>Your Next Chapter, Anytime, Anywhere.</p>
-            <p>
-              Your trusted online bookstore, bringing stories, knowledge, and
-              imagination together. Discover, learn, and enjoy books anytime,
-              anywhere.
-            </p>
-            <div class="quick-social-media">
-              <ul>
-                <li><a href="#" class="fa fa-facebook"></a></li>
-                <li><a href="#" class="fa fa-twitter"></a></li>
-                <li><a href="#" class="fa fa-instagram"></a></li>
-              </ul>
-            </div>
-          </div>
 
-          <div class="footer-section">
-            <h3>Quick Links</h3>
-            <div class="quick-media">
-              <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Books</a></li>
-                <li><a href="#">Reviews</a></li>
-              </ul>
-            </div>
-          </div>
+    <section class="summary">
+      <div class="page">
+        <form id="addBookForm" enctype="multipart/form-data">
+          <input type="text" name="title" placeholder="Title" required />
+          <label for="bookPoster">Poster</label>
+          <input type="file" name="poster" id="bookPoster" required />
+          <div class="uploadedImage"><img id="preview" src="" alt="" /></div>
+          <input type="text" name="price" placeholder="Price (LKR)" required />
+          <input
+            type="text"
+            name="authors"
+            placeholder="Authors (Seperate with comma)"
+            required />
+          <input type="text" name="quantity" placeholder="Quantity" required />
+          <textarea
+            name="description"
+            placeholder="Description"
+            required></textarea>
+          <select name="category" required>
+            <option value="">Select Category</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Education">Education</option>
+            <option value="Science">Science</option>
+            <option value="History">History</option>
+          </select>
+          <button type="submit">Add Book</button>
+        </form>
+      </div>
+    </section>
 
-          <div class="footer-section">
-            <h3>Help and Security</h3>
-            <div class="quick-media">
-              <ul>
-                <li><a href="#">Availability</a></li>
-                <li><a href="#">Status</a></li>
-                <li><a href="#">Support Center</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="footer-section">
-            <h3>Terms and Policies</h3>
-            <div class="quick-media">
-              <ul>
-                <li><a href="#">Privacy Choices</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Responsible Disclosure Policy</a></li>
-                <li><a href="#">Terms of Service: Commercial</a></li>
-                <li><a href="#">Terms of Service: Consumer</a></li>
-                <li><a href="#">Usage Policy</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="footer-section">
-            <h3>Contact Us</h3>
-            <div class="contact-item">
-              <div class="contact-label">Phone</div>
-              <div class="contact-value">+1 123 456 7890</div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-label">Address</div>
-              <div class="contact-value">
-                No. 123 Central street<br />New York, USA
-              </div>
-            </div>
-          </div>
+    <div id="custom-confirm" class="confirm-overlay hidden">
+      <div class="confirm-box">
+        <p class="confirm-message"></p>
+        <div class="confirm-buttons">
+          <button class="btn-confirm">Yes</button>
+          <button class="btn-cancel">No</button>
         </div>
       </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2025 Readify. All rights reserved.</p>
-      </div>
-    </footer>
-
+    </div>
     <script src="./assets/js/reusableFunctions.js"></script>
+    <script src="./assets/js/admin.js"></script>
     <script src="./assets/js/addBooks.js"></script>
   </body>
 </html>

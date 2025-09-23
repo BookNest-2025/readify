@@ -36,6 +36,93 @@ header p {
     margin-bottom: 15px;
 }
 
+/* Reviews List Container */
+.reviews-list {
+    margin-top: 25px;
+}
+
+.reviews-list h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Single Review Card */
+.review-item {
+    padding: 20px;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.review-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Review Header: Name + Profile + Date */
+.review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.reviewer-name {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1rem;
+}
+
+/* Profile Picture */
+.profilepic img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #eee;
+    margin-left: 10px;
+}
+
+/* Review Date */
+.review-date {
+    color: #7f8c8d;
+    font-size: 0.85rem;
+    margin-left: auto;
+}
+
+/* Review Rating Stars */
+.review-rating {
+    color: #f39c12;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* Review Text */
+.review-content {
+    color: #555;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-top: 8px;
+}
+
+/* No Reviews Placeholder */
+.no-reviews {
+    text-align: center;
+    padding: 30px;
+    color: #7f8c8d;
+    font-size: 1rem;
+    border: 1px dashed #ccc;
+    border-radius: 10px;
+    background: #fafafa;
+}
+
 .form-group label {
     display: block;
     margin-bottom: 5px;
@@ -141,6 +228,8 @@ header p {
     color: #7f8c8d;
     font-size: 14px;
 }
+
+
 
 .review-rating {
     color: #f39c12;

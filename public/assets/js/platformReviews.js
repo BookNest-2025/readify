@@ -34,15 +34,13 @@ function displayReviews(reviews) {
     }
 
     html += `
-                        <div class="review-item">
-                            <div class="review-header">
-                                <span class="reviewer-name">${review.name}</span>
-                                <span class="profilepic"><img src="./uploads/${review.photo}" alt="${review.name}"></span>
-                                <span class="review-date">${reviewDate}</span>
-                            </div>
-                            <div class="review-rating">${stars}</div>
-                            <p class="review-content">${review.review}</p>
-                        </div>
+                        <div class="box">
+                          <img src="./uploads/${review.photo}" alt="${review.name}" />
+      <h3>${review.name}</h3>
+      <div class="stars">${stars}</div>
+      <p class="review-text">"${review.review}"</p>
+      <span class="review-date">${reviewDate}</span>
+    </div>
                     `;
   });
 

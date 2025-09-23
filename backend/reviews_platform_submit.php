@@ -17,9 +17,12 @@ try {
 
     $rating = trim($_POST["rating"]) ?? "";
     $review = trim($_POST["review"]) ?? "";
-    $customerId = trim($_POST["customer_id"]) ?? "";
 
-    if (!$rating || !$review || !$customerId) {
+    $stmtCustomer = $pdo->prepare("SELECT * FROM customers WHERE email = :email");
+    $stmtCustomer->execute(["email" => $_SESSION['email']]);
+    $customer_id = $stmtCustomer->fetch()['customer_id'];
+
+    if (! $rating || ! $review) {
         throw new Exception("Please fill in all required fields.");
     }
 

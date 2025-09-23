@@ -22,9 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchIcon = document.getElementById("search-icon");
     const searchPanel = document.getElementById("search-panel");
     const searchInputField = document.getElementById("search-input-field");
-    const toggleHandlerSearch = document.getElementById(
-      "toggle-handler-search"
-    );
+
     const toggleHandlerMenu = document.getElementById("toggle-handler-menu");
     const menuToggle = document.getElementById("menu-toggle");
     const navbarCenter = document.querySelector(".navbar-center");
@@ -32,16 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- Search toggle ---
     searchIcon?.addEventListener("click", () => {
       searchPanel?.classList.toggle("active");
-      toggleHandlerSearch?.classList.toggle(
-        "active",
-        searchPanel?.classList.contains("active")
-      );
-      if (searchPanel?.classList.contains("active")) searchInputField?.focus();
-    });
-
-    toggleHandlerSearch?.addEventListener("click", () => {
-      searchPanel?.classList.remove("active");
-      toggleHandlerSearch?.classList.remove("active");
+      window.location.href = "search.html";
     });
 
     // --- Navbar toggle ---

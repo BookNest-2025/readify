@@ -21,7 +21,7 @@ header p {
 }
 
 .review-form {
-    background: var(color-background);
+    background: var(--color-background);
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 25px;

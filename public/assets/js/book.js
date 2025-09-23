@@ -57,8 +57,6 @@ const showBook = ({
             </div>
             <div class="price-section">
               <span class="current-price">${price} LKR</span>
-              <span class="original-price">${price} LKR</span>
-              <span class="discount">50% OFF</span>
               <span class="sold">${sold} sold</span>
             </div>
             <div class="book-about">

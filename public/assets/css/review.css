@@ -1,17 +1,9 @@
-body {
-    background-color: #f5f7fa;
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
-}
-
 .container {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 150px auto 50px auto;
     background: white;
     padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 header {
@@ -29,7 +21,7 @@ header p {
 }
 
 .review-form {
-    background: #f8f9fa;
+    background: var(color-background);
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 25px;
@@ -85,18 +77,17 @@ header p {
 .btn {
     padding: 10px 20px;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
     font-weight: 600;
 }
 
 .btn-primary {
-    background: #3498db;
+    background: var(--color-secondary);
     color: white;
 }
 
 .btn-primary:hover {
-    background: #2980b9;
+    background: var(--color-primary);
 }
 
 .btn-primary:disabled {

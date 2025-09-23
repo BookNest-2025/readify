@@ -6,12 +6,10 @@
     <title>Readify</title>
     <link
       href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="./assets/css/root.css" />
     <link rel="stylesheet" href="./assets/css/loginAndRegister.css" />
     <link rel="stylesheet" href="./assets/css/navbar.css" />
@@ -23,23 +21,43 @@
     <header>
       <nav class="navbar">
         <div class="navbar-left">
-          <img src="./assets/images/logo.png" alt="Logo" />
+          <img src="assets/images/logos/logo_transparent.png" alt="Logo" />
         </div>
         <ul class="navbar-center">
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./index.html">Books</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#books">Books</a></li>
           <li><a href="platformReviews.html">Reviews</a></li>
-          <li><a href="#">Admin</a></li>
         </ul>
         <div class="navbar-right">
           <div class="icon-row">
             <i class="fa fa-search" id="search-icon"></i>
-            <a href="#" id="user"><i class="fa fa-user"></i></a>
-            <a href="#" id="cart"><i class="fa fa-shopping-cart"></i></a>
+            <a href="#" id="user-icon"><i class="fa fa-user"></i></a>
+            <a href="#" id="cart-icon"><i class="fa fa-shopping-cart"></i></a>
             <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
           </div>
         </div>
       </nav>
+      <div id="toggle-handler-menu"></div>
+      <div class="navbar-background"></div>
+
+      <div class="cart-container">
+        <h2>Shopping Cart</h2>
+        <p class="cart-subtitle">Items in your cart</p>
+
+        <div class="cart-items-wrapper">
+          <div class="cart-items"></div>
+        </div>
+
+        <div class="cart-summary">
+          <p>Subtotal: <strong id="cart-total">0 LKR</strong></p>
+          <button class="checkout-btn">Checkout</button>
+        </div>
+
+        <button class="continue-shopping" onclick="hideCart(event)">
+          <i class="fa fa-arrow-left"></i>
+          Continue Shopping
+        </button>
+      </div>
     </header>
 
     <div class="page page-login">
@@ -52,8 +70,7 @@
               type="text"
               name="email"
               required
-              placeholder="Enter Your Email"
-            />
+              placeholder="Enter Your Email" />
             <button tabindex="-1" type="button">
               <i class="bx bxs-envelope"></i>
             </button>
@@ -67,14 +84,12 @@
               type="password"
               name="password"
               required
-              placeholder="Enter Your Password"
-            />
+              placeholder="Enter Your Password" />
             <button
               tabindex="-1"
               id="passBtn"
               type="button"
-              onclick="toggleView()"
-            >
+              onclick="toggleView()">
               <i class="bx bxs-eye-slash"></i>
             </button>
             <span class="input-type">

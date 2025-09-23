@@ -11,6 +11,7 @@ h1 {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
+  min-height: calc(100vh - 150px);
 }
 
 .card {
@@ -103,7 +104,7 @@ h1 {
   display: block;
   width: 100%;
   padding: 10px;
-  background: #2c3e50;
+  background: var(--color-secondary);
   color: #fff;
   text-align: center;
   border-radius: 6px;
@@ -113,7 +114,7 @@ h1 {
 }
 
 .btn:hover {
-  background: #1a252f;
+  background: var(--color-primary);
 }
 
 /* SELECT PAYMENT */
@@ -334,11 +335,10 @@ img.method-icon {
 
 .pay-button {
   width: 100%;
-  background-color: #f57224;
+  background-color: var(--color-secondary);
   color: white;
   padding: 15px;
   border: none;
-  border-radius: 8px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
@@ -347,7 +347,7 @@ img.method-icon {
 }
 
 .pay-button:hover {
-  background-color: #cd6021;
+  background-color: var(--color-primary);
 }
 
 /* Media Query for larger screens (e.g., desktops) */

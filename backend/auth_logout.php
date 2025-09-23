@@ -2,4 +2,4 @@
 session_start();
 session_unset();
 session_destroy();
-echo json_encode(['success' => true, "message" => "Logout successfully. <br> Directing to Homepage...", "redirect" => "index.html"]);
+echo json_encode(['success' => true, "message" => "Logout successfully. <br> Directing to Landing Page...", "redirect" => "../index.html"]);

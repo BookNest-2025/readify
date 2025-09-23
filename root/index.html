@@ -3,56 +3,83 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/css/root.css" />
-    <link rel="stylesheet" href="./assets/css/navbar.css" />
-    <link rel="stylesheet" href="./assets/css/footer.css" />
-    <link rel="stylesheet" href="./assets/css/addBooks.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-
-    <title>Readify</title>
+    <title>BookNook - Your Online Bookstore</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="../public/assets/css/root.css" />
+    <link rel="stylesheet" href="../public/assets/css/footer.css" />
   </head>
   <body>
-    <div class="alert"></div>
+    <header class="logo-header">
+      <img src="../public/assets/images/logos/logo_transparent.png" alt="" />
+    </header>
+    <section class="hero-slider">
+      <div
+        class="slide active"
+        style="
+          background-image: linear-gradient(
+              rgba(0, 0, 0, 0.5),
+              rgba(0, 0, 0, 0.5)
+            ),
+            url('../public/assets/images/carousel/slider_1.jpg');
+        "
+      >
+        <div class="slide-content">
+          <h1>Discover Your Next Favorite Book</h1>
+          <p>
+            Explore thousands of titles across all genres. From classics to
+            contemporary bestsellers.
+          </p>
+        </div>
+      </div>
+      <div
+        class="slide"
+        style="
+          background-image: linear-gradient(
+              rgba(0, 0, 0, 0.5),
+              rgba(0, 0, 0, 0.5)
+            ),
+            url('../public/assets/images/carousel/slider_2.jpg');
+        "
+      >
+        <div class="slide-content">
+          <h1>Curated Collections Just For You</h1>
+          <p>
+            Our expert librarians handpick books based on your reading
+            preferences.
+          </p>
+        </div>
+      </div>
+      <div
+        class="slide"
+        style="
+          background-image: linear-gradient(
+              rgba(0, 0, 0, 0.5),
+              rgba(0, 0, 0, 0.5)
+            ),
+            url('../public/assets/images/carousel/slider_3.jpg');
+        "
+      >
+        <div class="slide-content">
+          <h1>Join Our Reading Community</h1>
+          <p>
+            Share reviews, join book clubs, and connect with fellow book lovers.
+          </p>
+        </div>
+      </div>
 
-    <div class="page">
-      <form id="addBookForm" enctype="multipart/form-data">
-        <input type="text" name="title" placeholder="Title" required />
-        <label for="bookPoster">Poster</label>
-        <input type="file" name="poster" id="bookPoster" required />
+      <button class="slider-btn prev-btn">&#10094;</button>
+      <button class="slider-btn next-btn">&#10095;</button>
 
-        <div class="uploadedImage"><img id="preview" src="" alt="" /></div>
-        <input type="text" name="price" placeholder="Price (LKR)" required />
-        <input
-          type="text"
-          name="authors"
-          placeholder="Authors (Seperate with comma)"
-          required
-        />
+      <button class="get-started-btn">
+        <a href="../public/index.html">Get Started</a>
+      </button>
 
-        <input type="text" name="quantity" placeholder="Quantity" required />
-        <textarea
-          name="description"
-          placeholder="Description"
-          required
-        ></textarea>
-
-        <select name="category" required>
-          <option value="">Select Category</option>
-          <option value="Fiction">Fiction</option>
-          <option value="Education">Education</option>
-          <option value="Science">Science</option>
-          <option value="History">History</option>
-        </select>
-        <button type="submit">Add Book</button>
-      </form>
-    </div>
+      <div class="slider-nav">
+        <div class="slider-dot active"></div>
+        <div class="slider-dot"></div>
+        <div class="slider-dot"></div>
+      </div>
+    </section>
     <footer>
       <div class="footer">
         <div class="footer-content">
@@ -80,6 +107,7 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Books</a></li>
                 <li><a href="#">Reviews</a></li>
+                <li><a href="#">Admin</a></li>
               </ul>
             </div>
           </div>
@@ -130,7 +158,6 @@
       </div>
     </footer>
 
-    <script src="./assets/js/reusableFunctions.js"></script>
-    <script src="./assets/js/addBooks.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>

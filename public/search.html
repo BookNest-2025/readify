@@ -10,12 +10,10 @@
     <link rel="stylesheet" href="./assets/css/navbar.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   </head>
 
   <body>
@@ -27,9 +25,8 @@
         </div>
         <ul class="navbar-center">
           <li><a href="index.html">Home</a></li>
-          <li><a href="#">Books</a></li>
-          <li><a href="#">Reviews</a></li>
-          <li><a href="#">Admin</a></li>
+          <li><a href="index.html#books">Books</a></li>
+          <li><a href="platformReviews.html">Reviews</a></li>
         </ul>
         <div class="navbar-right">
           <div class="icon-row">
@@ -40,14 +37,6 @@
           </div>
         </div>
       </nav>
-      <div class="search-panel" id="search-panel">
-        <input
-          type="text"
-          id="search-input-field"
-          placeholder="Search books..."
-        />
-      </div>
-      <div id="toggle-handler-search"></div>
       <div id="toggle-handler-menu"></div>
       <div class="navbar-background"></div>
 
@@ -55,29 +44,19 @@
         <h2>Shopping Cart</h2>
         <p class="cart-subtitle">Items in your cart</p>
 
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>Product</th>
-                <th>Unit Price</th>
-                <th>Quantity</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody class="cart-items"></tbody>
-          </table>
+        <div class="cart-items-wrapper">
+          <div class="cart-items"></div>
         </div>
 
         <div class="cart-summary">
-          <p>Subtotal: <strong id="cart-total">0</strong></p>
+          <p>Subtotal: <strong id="cart-total">0 LKR</strong></p>
           <button class="checkout-btn">Checkout</button>
         </div>
 
-        <a class="continue-shopping" onclick="hideCart(event)">
+        <button class="continue-shopping" onclick="hideCart(event)">
           <i class="fa fa-arrow-left"></i>
           Continue Shopping
-        </a>
+        </button>
       </div>
     </header>
 
@@ -90,13 +69,11 @@
         <input
           type="text"
           id="search-bookname"
-          placeholder="Search by Book Title..."
-        />
+          placeholder="Search by Book Title..." />
         <input
           type="text"
           id="search-author"
-          placeholder="Search by Author Name..."
-        />
+          placeholder="Search by Author Name..." />
         <button id="search-btn" class="btn">Search</button>
       </div>
       <div class="main-layout">

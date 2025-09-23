@@ -18,80 +18,82 @@ async function getCachedImage(imgName) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  try {
-    const searchIcon = document.getElementById("search-icon");
-    const searchPanel = document.getElementById("search-panel");
-    const searchInputField = document.getElementById("search-input-field");
+  const searchIcon = document.getElementById("search-icon");
+  const toggleHandlerMenu = document.getElementById("toggle-handler-menu");
+  const menuToggle = document.getElementById("menu-toggle");
+  const navbarCenter = document.querySelector(".navbar-center");
 
-    const toggleHandlerMenu = document.getElementById("toggle-handler-menu");
-    const menuToggle = document.getElementById("menu-toggle");
-    const navbarCenter = document.querySelector(".navbar-center");
+  // --- Search toggle ---
+  searchIcon?.addEventListener("click", () => {
+    window.location.href = "search.html";
+  });
 
-    // --- Search toggle ---
-    searchIcon?.addEventListener("click", () => {
-      searchPanel?.classList.toggle("active");
-      window.location.href = "search.html";
+  // --- Navbar toggle ---
+  menuToggle?.addEventListener("click", () => {
+    navbarCenter?.classList.toggle("show");
+    toggleHandlerMenu?.classList.toggle(
+      "active",
+      navbarCenter?.classList.contains("show")
+    );
+  });
+
+  toggleHandlerMenu?.addEventListener("click", () => {
+    navbarCenter?.classList.remove("show");
+    toggleHandlerMenu?.classList.remove("active");
+  });
+
+  document.querySelectorAll(".navbar-center a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 900) {
+        navbarCenter?.classList.remove("show");
+        toggleHandlerMenu?.classList.remove("active");
+      }
     });
+  });
 
-    // --- Navbar toggle ---
-    menuToggle?.addEventListener("click", () => {
-      navbarCenter?.classList.toggle("show");
-      toggleHandlerMenu?.classList.toggle(
-        "active",
-        navbarCenter?.classList.contains("show")
-      );
-    });
-
-    toggleHandlerMenu?.addEventListener("click", () => {
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) {
       navbarCenter?.classList.remove("show");
       toggleHandlerMenu?.classList.remove("active");
-    });
+    }
+  });
 
-    document.querySelectorAll(".navbar-center a").forEach((link) => {
-      link.addEventListener("click", () => {
-        if (window.innerWidth <= 768) navbarCenter?.classList.remove("show");
-      });
-    });
-
-    // --- User & Cart logic ---
-    if (userIcon) {
-      connectBackEnd({
-        backendUrl: "../backend/auth_check_login.php",
-        callback: (data) => {
-          try {
-            if (data.isLoggedIn) {
-              if (data.category === "admin") {
-                userIcon.href = "adminDashboard.html";
-                cartIcon?.addEventListener("click", (e) => {
-                  e.preventDefault();
-                  addAlert("Need to log in as customer to view cart.");
-                });
-              } else {
-                userIcon.href = "profile.html";
-                fetchCart();
-                cartIcon?.addEventListener("click", (e) => {
-                  e.preventDefault();
-                  document
-                    .querySelector(".cart-container")
-                    ?.classList.toggle("active");
-                });
-              }
-            } else {
-              userIcon.href = "login.html";
+  // --- User & Cart logic ---
+  if (userIcon) {
+    connectBackEnd({
+      backendUrl: "../backend/auth_check_login.php",
+      callback: (data) => {
+        try {
+          if (data.isLoggedIn) {
+            if (data.category === "admin") {
+              userIcon.href = "adminDashboard.html";
               cartIcon?.addEventListener("click", (e) => {
                 e.preventDefault();
                 addAlert("Need to log in as customer to view cart.");
               });
+            } else {
+              userIcon.href = "profile.html";
+              fetchCart();
+              cartIcon?.addEventListener("click", (e) => {
+                e.preventDefault();
+                document
+                  .querySelector(".cart-container")
+                  ?.classList.toggle("active");
+              });
             }
-          } catch (err) {
-            console.error("User & Cart logic error:", err);
+          } else {
+            userIcon.href = "login.html";
+            cartIcon?.addEventListener("click", (e) => {
+              e.preventDefault();
+              addAlert("Need to log in as customer to view cart.");
+            });
           }
-        },
-        method: "GET",
-      });
-    }
-  } catch (err) {
-    console.error("Navbar DOM setup error:", err);
+        } catch (err) {
+          console.error("User & Cart logic error:", err);
+        }
+      },
+      method: "GET",
+    });
   }
 });
 

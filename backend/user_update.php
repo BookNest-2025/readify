@@ -63,7 +63,7 @@ try {
     }
 
     $response['success']  = true;
-    $response['message']  = 'Profile updated successfully! Redirecting to Profile';
+    $response['message']  = 'Profile updated successfully!<br>Redirecting to Profile';
     $response['redirect'] = 'profile.html';
 
 } catch (Exception $e) {

@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="./assets/css/navbar.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <link
       rel="shortcut icon"
       href="./assets/images/logo.png"
-      type="image/x-icon" />
+      type="image/x-icon"
+    />
   </head>
   <body>
     <div class="alert"></div>
@@ -62,6 +64,15 @@
     <h1>Order Details</h1>
     <div id="orderDetails"></div>
     <div class="buttons"></div>
+    <div id="custom-confirm" class="confirm-overlay hidden">
+      <div class="confirm-box">
+        <p class="confirm-message"></p>
+        <div class="confirm-buttons">
+          <button class="btn-confirm">Yes</button>
+          <button class="btn-cancel">No</button>
+        </div>
+      </div>
+    </div>
     <script src="./assets/js/reusableFunctions.js"></script>
     <script src="./assets/js/navbar.js"></script>
     <script src="./assets/js/orderDetails.js"></script>

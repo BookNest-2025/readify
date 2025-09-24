@@ -92,7 +92,8 @@ fetchOrderDetails();
 
 // Cancel order function
 const cancelOrder = () => {
-  connectBackEnd({
+ showConfirm("Are you sure you want to cancel this order?", () => {
+   connectBackEnd({
     backendUrl: `../backend/order_update_status.php?order_id=${order_id}&status=cancelled`,
     callback: (data) => {
       if (data.success) {
@@ -106,4 +107,5 @@ const cancelOrder = () => {
       if (data.redirect) redirect(data.redirect);
     },
   });
+ })
 };

@@ -1,6 +1,7 @@
 h1 {
   text-align: center;
-  margin: 140px 0 40px; /* leave space for navbar */
+  margin: 140px 0 40px;
+  /* leave space for navbar */
   font-size: 2rem;
   color: #222;
   font-weight: 700;
@@ -19,7 +20,7 @@ h1 {
 .details-box,
 .items-box {
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   padding: 24px;
 }
@@ -59,7 +60,7 @@ h1 {
 .list img {
   width: 80px;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 10px;
   margin-right: 20px;
   flex-shrink: 0;
 }
@@ -90,7 +91,7 @@ h1 {
   color: #fff;
   font-weight: 600;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 14px;
   text-align: center;
@@ -120,6 +121,7 @@ h1 {
 .platform-review {
   width: 100%;
 }
+
 .buttons {
   max-width: 1200px;
   margin: 0 auto 60px;

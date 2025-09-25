@@ -45,6 +45,7 @@
   color: white;
   text-decoration: none;
   font-weight: bold;
+  border-radius: 10px;
   font-size: clamp(1rem, 2vw, 1.2rem);
   transition: all 0.3s ease;
   text-transform: uppercase;
@@ -357,13 +358,10 @@
   margin-bottom: 2rem;
 }
 
-/* Fixed-size review card */
 .review-slider .box {
   background: #fff;
   width: 500px;
-  /* fixed width */
   height: auto;
-  /* auto height so text fits */
   padding: 1.5rem;
   border-radius: 10px;
   text-align: center;
@@ -378,9 +376,7 @@
 
 .review-slider .box img {
   width: 200px;
-  /* fixed size */
   height: 200px;
-  /* fixed size */
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 1rem;
@@ -414,6 +410,7 @@
   font-size: 1rem;
   font-weight: 500;
   border: none;
+  border-radius: 10px;
   padding: 0.8rem 2rem;
   cursor: pointer;
   transition: all 0.3s;

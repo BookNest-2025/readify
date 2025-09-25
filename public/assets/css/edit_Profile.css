@@ -32,7 +32,7 @@
     width: 500px;
     padding: 30px;
     background: #fff;
-    border-radius: 12px;
+    border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -86,6 +86,7 @@
     border: none;
     width: 250px;
     font-size: 1rem;
+    border-radius: 10px;
     font-weight: 600;
     cursor: pointer;
     background: var(--color-primary);
@@ -101,6 +102,7 @@
     padding: 12px 30px;
     border: none;
     width: 250px;
+    border-radius: 10px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;

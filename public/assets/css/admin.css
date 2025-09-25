@@ -41,7 +41,7 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 10px;
   transition: 0.3s;
 }
 
@@ -85,10 +85,12 @@ header {
   align-items: center;
   margin-bottom: 2rem;
 }
+
 header h1 {
   font-size: 1.8rem;
   color: #222;
 }
+
 .growth {
   font-weight: bold;
   font-size: 1rem;
@@ -101,18 +103,21 @@ header h1 {
   gap: 1rem;
   margin-bottom: 2rem;
 }
+
 .kpi .card {
   background: #fff;
-  border-radius: 12px;
+  border-radius: 10px;
   padding: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   text-align: center;
 }
+
 .kpi .card h3 {
   margin: 0 0 0.5rem;
   font-size: 0.9rem;
   color: #666;
 }
+
 .kpi .card p {
   font-size: 1.5rem;
   font-weight: bold;
@@ -123,40 +128,47 @@ header h1 {
 .orders {
   margin-bottom: 2rem;
 }
+
 .orders h3 {
   margin-bottom: 0.5rem;
   color: #333;
 }
+
 .orders-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1rem;
 }
+
 .orders-card {
   background: #fff;
-  border-radius: 12px;
+  border-radius: 10px;
   padding: 1rem;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
+
 .orders-card h4 {
   margin: 0 0 0.5rem;
   font-size: 0.9rem;
   color: #444;
 }
+
 .orders-card p {
   font-size: 1.5rem;
   font-weight: bold;
   margin: 0.5rem 0;
 }
+
 .orders-card button {
   background: #06b6d4;
   color: #fff;
   border: none;
   padding: 0.4rem 1rem;
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: pointer;
 }
+
 .orders-card button:hover {
   background: #0891b2;
 }
@@ -167,12 +179,14 @@ header h1 {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1rem;
 }
+
 .chart {
   background: #fff;
-  border-radius: 12px;
+  border-radius: 10px;
   padding: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
+
 .chart h3 {
   margin-bottom: 1rem;
   font-size: 1rem;
@@ -185,6 +199,7 @@ header h1 {
   align-items: flex-end;
   height: 220px;
 }
+
 .bar {
   width: 32px;
   background: linear-gradient(to top, #4f46e5, #a5b4fc);
@@ -193,6 +208,7 @@ header h1 {
   cursor: pointer;
   transition: 0.5s;
 }
+
 .bar span {
   position: absolute;
   bottom: 100%;
@@ -202,6 +218,7 @@ header h1 {
   opacity: 0;
   transition: 0.3s;
 }
+
 .bar:hover span {
   opacity: 1;
 }
@@ -220,13 +237,12 @@ header h1 {
   height: 220px;
   margin: 0 auto;
   border-radius: 50%;
-  background: conic-gradient(
-    #4f46e5 0 144deg,
-    #6366f1 0 252deg,
-    #818cf8 0 324deg,
-    #a5b4fc 0
-  );
+  background: conic-gradient(#4f46e5 0 144deg,
+      #6366f1 0 252deg,
+      #818cf8 0 324deg,
+      #a5b4fc 0);
 }
+
 .pie-center {
   position: absolute;
   top: 50%;
@@ -243,10 +259,12 @@ header h1 {
   color: #555;
   text-align: center;
 }
+
 .pie-legend {
   margin-top: 0.5rem;
   font-size: 0.85rem;
 }
+
 .pie-legend span {
   display: block;
   margin-bottom: 0.25rem;
@@ -266,7 +284,7 @@ header h1 {
 
 .card.orders button {
   padding: 8px 15px;
-  border-radius: 8px;
+  border-radius: 10px;
   background: var(--color-secondary);
   transition: 0.3s;
 }

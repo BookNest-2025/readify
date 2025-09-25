@@ -110,8 +110,9 @@
 
 .add-cart {
   border: 2px;
+  border-radius: 10px;
   color: #ffffff;
-  background: #f4a261;
+  background: #ff8a2a;
 }
 
 .add-cart:hover {
@@ -121,6 +122,7 @@
 
 .buy-now {
   background: var(--color-secondary);
+  border-radius: 10px;
   color: #fff;
 }
 
@@ -136,7 +138,7 @@
   margin: 60px auto;
   padding: 30px;
   background: #fff;
-  border-radius: 14px;
+  border-radius: 10px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
@@ -154,7 +156,6 @@
   margin-bottom: 10px;
 }
 
-/* Each review card */
 .review {
   padding: 18px 20px;
   border-radius: 10px;
@@ -208,7 +209,7 @@
   width: 100%;
   padding: 12px;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 14px;
   outline: none;
   transition: border 0.3s ease;
@@ -232,7 +233,7 @@
   font-weight: 600;
   border: none;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
 }
@@ -245,7 +246,7 @@
   text-align: center;
   padding: 15px;
   background: #fff3cd;
-  border-radius: 4px;
+  border-radius: 10px;
   margin-top: 15px;
   color: #856404;
 }

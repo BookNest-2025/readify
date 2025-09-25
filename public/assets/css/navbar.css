@@ -96,7 +96,7 @@
 
 .icon-row i:hover,
 .icon-row a i:hover {
-  color: var(--color-text-primary);
+  color: var(--color-secondary);
   transform: scale(1.25);
 }
 

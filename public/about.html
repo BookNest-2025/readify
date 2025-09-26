@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Readify</title>
+    <link rel="stylesheet" href="./assets/css/root.css" />
+    <link rel="stylesheet" href="./assets/css/navbar.css" />
+    <link rel="stylesheet" href="./assets/css/about.css" />
+    <link rel="stylesheet" href="./assets/css/footer.css" />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="alert"></div>
+    <header>
+      <nav class="navbar">
+        <div class="navbar-left">
+          <img src="assets/images/logos/logo_transparent.png" alt="Logo" />
+        </div>
+        <ul class="navbar-center">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#new-arrivals">Books</a></li>
+          <li><a href="platformReviews.html">Reviews</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="navbar-right">
+          <div class="icon-row">
+            <i class="fa fa-search" id="search-icon"></i>
+            <a href="#" id="user-icon"><i class="fa fa-user"></i></a>
+            <a href="#" id="cart-icon"><i class="fa fa-shopping-cart"></i></a>
+            <i class="fa fa-bars menu-toggle" id="menu-toggle"></i>
+          </div>
+        </div>
+      </nav>
+      <div id="toggle-handler-menu"></div>
+      <div class="navbar-background"></div>
+
+      <div class="cart-container">
+        <h2>Shopping Cart</h2>
+        <p class="cart-subtitle">Items in your cart</p>
+
+        <div class="cart-items-wrapper">
+          <div class="cart-items"></div>
+        </div>
+
+        <div class="cart-summary">
+          <p>Subtotal: <strong id="cart-total">0 LKR</strong></p>
+          <button class="checkout-btn">Checkout</button>
+        </div>
+
+        <button class="continue-shopping" onclick="hideCart(event)">
+          <i class="fa fa-arrow-left"></i>
+          Continue Shopping
+        </button>
+      </div>
+    </header>
+    <section class="page-header" data-aos="zoom-out-down">
+      <div>
+        <h1>About Readify</h1>
+        <p>
+          Discover our story, mission, and the passionate team behind your
+          favorite book destination
+        </p>
+      </div>
+    </section>
+
+    <section class="about-content" data-aos="fade-up">
+      <div class="about-section">
+        <h2>Our Story</h2>
+        <p>
+          Readify was founded in 2018 by a group of passionate bibliophiles who
+          believed that everyone should have access to quality literature. What
+          started as a small online bookstore has grown into a comprehensive
+          platform connecting readers with their next favorite book.
+        </p>
+        <p>
+          We've always believed that books have the power to transform lives,
+          open minds, and connect people across cultures and generations. Our
+          mission is to make that transformative power accessible to everyone,
+          regardless of their location or budget.
+        </p>
+      </div>
+
+      <div class="mission-vision">
+        <div class="mission">
+          <h3>Our Mission</h3>
+          <p>
+            To make quality literature accessible to everyone by providing a
+            curated selection of books across all genres, at affordable prices,
+            with exceptional customer service that helps each reader find their
+            perfect next read.
+          </p>
+        </div>
+        <div class="vision">
+          <h3>Our Vision</h3>
+          <p>
+            To create a world where reading is a fundamental part of everyday
+            life, where people of all ages and backgrounds have easy access to
+            books that educate, inspire, and entertain, fostering a more
+            connected and empathetic global community.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="team-section" data-aos="fade-up">
+      <div class="about-section">
+        <h2>Meet Our Team</h2>
+        <p>
+          The passionate book lovers behind Readify who work tirelessly to bring
+          you the best reading experience
+        </p>
+      </div>
+
+      <div class="team-container">
+        <div class="team-member">
+          <img src="" alt="" />
+          <div class="member-info">
+            <h3>Avishka Ishan</h3>
+            <p>Developer</p>
+            <p class="bio">
+              Avishka is a core member of our development team, specializing in
+              backend systems and database management. His expertise ensures
+              that Readify runs smoothly and efficiently.
+            </p>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <img src="" alt=""" />
+          <div class="member-info">
+            <h3>Sanira Deneth</h3>
+            <p>Developer</p>
+            <p class="bio">
+              Sanira is a key member of our development team, bringing his
+              expertise in web technologies to enhance the functionality and
+              design of Readify. He is dedicated to making book discovery easy
+              and enjoyable.
+            </p>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <img src="" alt="" />
+          <div class="member-info">
+            <h3>Hansi Tharaki</h3>
+            <p>Developer</p>
+            <p class="bio">
+              Hansi is a talented developer on our team, focusing on frontend
+              development and user experience. Her passion for books drives her
+              to create an engaging and intuitive platform for all readers.
+            </p>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <img src="" alt="" />
+          <div class="member-info">
+            <h3>Adithya Jayawardhana</h3>
+            <p>Developer</p>
+            <p class="bio">
+              Adithya is an integral part of our development team, specializing
+              in full-stack development. His dedication to technology and love
+              for books help him create innovative solutions that enhance the
+              Readify experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="values-section" data-aos="fade-up">
+      <div class="about-section">
+        <h2>Our Values</h2>
+        <p>The principles that guide everything we do at Readify</p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <h3>Love for Literature</h3>
+          <p>
+            We genuinely love books and believe in their power to transform
+            lives. This passion drives our curation and customer service.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Community Focus</h3>
+          <p>
+            We're more than a bookstore - we're a community of readers. We
+            foster connections between book lovers through events and
+            discussions.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-hand-holding-heart"></i>
+          </div>
+          <h3>Accessibility</h3>
+          <p>
+            We believe everyone should have access to great literature. We work
+            to keep our prices affordable and our platform easy to use.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-seedling"></i>
+          </div>
+          <h3>Sustainability</h3>
+          <p>
+            We're committed to environmentally responsible practices, from our
+            packaging choices to our supply chain management.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-section" data-aos="fade-up">
+      <div class="about-section">
+        <h2>By The Numbers</h2>
+        <p>Our impact in the reading community</p>
+      </div>
+
+      <div class="stats-container">
+        <div class="stat">
+          <div class="stat-number">50,000+</div>
+          <div class="stat-label">Books in Our Collection</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-number">100,000+</div>
+          <div class="stat-label">Happy Readers</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-number">150+</div>
+          <div class="stat-label">Countries Served</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Years of Service</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Readify</h3>
+            <p>Your Next Chapter, Anytime, Anywhere.</p>
+            <p>
+              Your trusted online bookstore, bringing stories, knowledge, and
+              imagination together. Discover, learn, and enjoy books anytime,
+              anywhere.
+            </p>
+            <div class="quick-social-media">
+              <ul>
+                <li><a href="#" class="fa fa-facebook"></a></li>
+                <li><a href="#" class="fa fa-twitter"></a></li>
+                <li><a href="#" class="fa fa-instagram"></a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <div class="quick-media">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#books">Books</a></li>
+                <li><a href="platformReviews.html">Reviews</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>Help and Security</h3>
+            <div class="quick-media">
+              <ul>
+                <li><a href="#">Availability</a></li>
+                <li><a href="#">Status</a></li>
+                <li><a href="#">Support Center</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>Terms and Policies</h3>
+            <div class="quick-media">
+              <ul>
+                <li><a href="#">Privacy Choices</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Responsible Disclosure Policy</a></li>
+                <li><a href="#">Terms of Service: Commercial</a></li>
+                <li><a href="#">Terms of Service: Consumer</a></li>
+                <li><a href="#">Usage Policy</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>Contact Us</h3>
+            <div class="contact-item">
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">+1 123 456 7890</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-label">Address</div>
+              <div class="contact-value">
+                No. 123 Central street<br />New York, USA
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Readify. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./assets/js/reusableFunctions.js"></script>
+    <script src="./assets/js/navbar.js"></script>
+    <script>
+      AOS.init({
+        duration: 1200,
+        once: false,
+        offset: 100,
+        easing: "ease-in-out",
+        mirror: true,
+      });
+    </script>
+  </body>
+</html>

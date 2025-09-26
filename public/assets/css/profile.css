@@ -61,6 +61,7 @@
   background: var(--color-secondary);
   color: #fff;
   border: none;
+  border-radius: 10px;
   cursor: pointer;
   transition: background 0.3s;
 }
@@ -150,6 +151,7 @@
 
   .profile-info {
     flex-direction: row;
+    margin-top: 40px;
     width: 80%;
     text-align: left;
   }

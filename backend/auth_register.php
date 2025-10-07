@@ -35,9 +35,19 @@ try {
         throw new Exception('Please fill in all fields.');
     }
 
+    if(!preg_match('/^0\d{9}$/', $tellno)){
+        throw new Exception("Please enter a valid mobile number.");
+    }
+
+
     // checks email is valid or not?
     if (! filter_var($email, FILTER_VALIDATE_EMAIL)) {
         throw new Exception('Email is not valid.');
+    }
+
+
+    if(strlen($password) < 8  ) {
+        throw new Exception("Password lenght must be greater than  or equal to 8.");
     }
 
     // checks paswords are equal or not?

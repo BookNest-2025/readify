@@ -36,6 +36,10 @@ try {
             throw new Exception("Can not add deleted books.");
         }
 
+        if($book['stock'] <= 0 ) {
+            throw new Exception("Out of stock. can not buy the book.");
+        }
+
         $stmtCart = $pdo->prepare("SELECT * FROM cart WHERE customer_id = :customer_id AND book_id = :book_id");
         $stmtCart->execute(["customer_id" => $customer_id, "book_id" => $book_id]);
         $cart = $stmtCart->fetch();

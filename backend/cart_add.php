@@ -36,11 +36,19 @@ try {
             throw new Exception("Can not add deleted books.");
         }
 
+        if($book['stock'] <= 0 ) {
+            throw new Exception("Out of stock. can not buy the book.");
+        }
+
+
         $stmtCart = $pdo->prepare("SELECT * FROM cart WHERE customer_id = :customer_id AND book_id = :book_id");
         $stmtCart->execute(["customer_id" => $customer_id, "book_id" => $book_id]);
         $cart = $stmtCart->fetch();
 
         if ($cart) {
+            if($cart['quantity']>= $book['stock']) {
+                throw new Exception("Cart item quantity can not be greater than stock.");
+            }
             $quantity = $cart["quantity"] + 1;
             $stmt     = $pdo->prepare("UPDATE cart SET quantity = :quantity WHERE cart_id = :cart_id");
             $stmt->execute([

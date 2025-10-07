@@ -17,7 +17,6 @@ try {
 
     if ($book !== '' || $author !== '' || (! empty($categories) && is_array($categories))
     ) {
-        // If no filters are set, return all popular books (or limit)
         if ($book === '' && $author === '' && (empty($categories) || ! is_array($categories))) {
             // Optional: you could show default popular or newest books here
             $sql = "
@@ -35,7 +34,7 @@ try {
         WHERE b.status = 1
         GROUP BY b.book_id
         ORDER BY b.sold DESC, b.updated_at DESC
-        LIMIT 20
+        LIMIT 15
     ";
 
             $stmt  = $pdo->query($sql);

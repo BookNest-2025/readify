@@ -134,3 +134,7 @@ const writeBookReview = () => {
 };
 
 writeBookReview();
+
+const buyNow = (bookId) => {
+  window.location.href = `checkout.html?book_id=${bookId}`;
+};

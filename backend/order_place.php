@@ -65,7 +65,7 @@ try {
         }
 
         if ($bookRow['stock'] < $quantity) {
-            throw new Exception("Not enough stock for book ID $book_id.");
+            throw new Exception("Not enough stock for the book");
         }
 
         $price = $bookRow['price'];

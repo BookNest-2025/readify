@@ -121,6 +121,14 @@
   max-height: 40vh;
 }
 
+.order-table button {
+  background: var(--color-secondary);
+  color: var(--color-text-secondary);
+  transition: 0.3s;
+  border-radius: 8px;
+  padding: 8px 15px;
+}
+
 .order-table table {
   width: 100%;
   border-collapse: collapse;

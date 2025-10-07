@@ -41,7 +41,7 @@ const fetchUserOrders = () => {
     backendUrl: "../backend/orders_get_from_status.php",
     callback: (data) => {
       let rows = "";
-      data.data.forEach((order) => {
+      data.data.reverse().forEach((order) => {
         if (order.status !== "cancelled") {
           rows += `
                   <tr>

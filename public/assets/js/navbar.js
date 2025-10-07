@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       cartIcon.addEventListener("click", (e) => {
         e.preventDefault();
-        addAlert("Need to log in as customer to view cart.");
+        addAlert("Need to log in to view cart.");
       });
     }
   }

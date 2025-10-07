@@ -1,3 +1,6 @@
+const urlParams = new URLSearchParams(window.location.search);
+const bookId = urlParams.get("book_id");
+
 const orderItems = document.querySelector(".order-items");
 const orderTotals = document.querySelectorAll(".order-total");
 
@@ -57,11 +60,11 @@ const fetchOrders = () => {
   });
 };
 
-showOrderItems = (orderItems) => {
+const showOrderItems = (orderItems) => {
   let html = "";
   let total = 0;
 
-  orderItems.map(({ cart_id, title, stock, image, price, quantity }) => {
+  orderItems.map(({ title, image, price, quantity }) => {
     const numericPrice = parseFloat(price);
     const numericQty = parseInt(quantity);
     total += numericPrice * numericQty;
@@ -82,14 +85,41 @@ showOrderItems = (orderItems) => {
   return html;
 };
 
-fetchOrders();
+if (bookId) {
+  connectBackEnd({
+    backendUrl: `../backend/books_get.php?id=${bookId}`,
+    method: "POST",
+    callback: (data) => {
+      if (data.success) {
+        const { title, image, price } = data.books;
+        orderItems.innerHTML = showOrderItems([
+          { title, image, price, quantity: 1 },
+        ]);
+      }
+      if (data.error) {
+        addAlert(data.error);
+      }
+      if (data.redirect) {
+        redirect(data.redirect);
+      }
+    },
+  });
+} else {
+  fetchOrders();
+}
+
 fetchUserData();
 
 //place order
 
 const placeOrder = () => {
+  let backendUrl = "";
+  if (bookId) backendUrl = `../backend/orders_buy_now.php?book_id=${bookId}`;
+  else backendUrl = "../backend/order_place.php";
+
   connectBackEnd({
-    backendUrl: "../backend/order_place.php",
+    backendUrl: backendUrl,
+    method: "POST",
     callback: (data) => {
       if (data.success) addAlert(data.message, false);
       if (data.error) addAlert(data.error);

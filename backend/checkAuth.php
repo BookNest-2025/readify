@@ -1,19 +1,17 @@
 <?php
-// backend/checkAuth.php
 session_start();
 header('Content-Type: application/json');
 
-// Check if user is logged in
-if (isset($_SESSION["customer_id"])) {
+if (isset($_SESSION["email"])) {
     echo json_encode([
-        'success' => true,
-        'logged_in' => true,
-        'customer_id' => $_SESSION["customer_id"]
+        'success'     => true,
+        'logged_in'   => true,
+        'customer_id' => $_SESSION["customer_id"],
     ]);
 } else {
     echo json_encode([
-        'success' => true,
+        'success'   => true,
         'logged_in' => false,
-        'message' => 'Not logged in'
+        'message'   => 'Not logged in',
     ]);
 }

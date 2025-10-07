@@ -36,8 +36,11 @@ try {
         throw new Exception("Order not found.");
     }
 
-    if ($_SESSION["user_type"] === "admin") {
-    } elseif ($_SESSION["user_type"] === "customers") {
+    if ($_SESSION["user_type"] !== "customers" && $_SESSION["user_type"] !== "admin") {
+        throw new Exception("Invalid user type.");
+    }
+
+    if ($_SESSION["user_type"] === "customers") {
         if ($order['email'] !== $_SESSION['email']) {
             throw new Exception("You are not allowed to update someone else's order.");
         }
@@ -47,9 +50,9 @@ try {
         if (strtolower($order['status']) !== 'pending') {
             throw new Exception("This order can no longer be cancelled.");
         }
-    } else {
-        throw new Exception("Invalid user type.");
     }
+
+    $pdo->beginTransaction();
 
     $stmtUpdate = $pdo->prepare("UPDATE orders SET status = :status WHERE order_id = :order_id");
     $stmtUpdate->execute([
@@ -61,10 +64,43 @@ try {
         throw new Exception("No order updated. Check the order ID or status.");
     }
 
+    // If cancelling, restore stock
+    if (strtolower($status) === 'cancelled') {
+        if (strtolower($order['status']) !== 'cancelled') {
+
+            $stmtItems = $pdo->prepare("
+                SELECT book_id, quantity FROM order_items WHERE order_id = :order_id
+            ");
+            $stmtItems->execute([":order_id" => $order_id]);
+            $items = $stmtItems->fetchAll();
+
+            if ($items) {
+                $stmtUpdateStock = $pdo->prepare("
+                    UPDATE books
+                    SET stock = stock + :quantity,
+                        sold  = GREATEST(sold - :quantity, 0)
+                    WHERE book_id = :book_id
+                ");
+
+                foreach ($items as $item) {
+                    $stmtUpdateStock->execute([
+                        ":quantity" => $item["quantity"],
+                        ":book_id"  => $item["book_id"],
+                    ]);
+                }
+            }
+        }
+    }
+
+    $pdo->commit();
+
     $response["success"] = true;
-    $response["message"] = "Status changed successfully.";
+    $response["message"] = "Order status updated successfully.";
 
 } catch (Exception $e) {
+    if ($pdo->inTransaction()) {
+        $pdo->rollBack();
+    }
     $response["error"] = $e->getMessage();
 }
 

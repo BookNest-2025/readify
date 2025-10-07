@@ -64,34 +64,51 @@
     </div>
 
     <section class="summary">
-      <div class="page">
-        <form id="addBookForm" enctype="multipart/form-data">
-          <input type="text" name="title" placeholder="Title" required />
-          <label for="bookPoster">Poster</label>
-          <input type="file" name="poster" id="bookPoster" required />
-          <div class="uploadedImage"><img id="preview" src="" alt="" /></div>
-          <input type="text" name="price" placeholder="Price (LKR)" required />
-          <input
-            type="text"
-            name="authors"
-            placeholder="Authors (Seperate with comma)"
-            required
-          />
-          <input type="text" name="quantity" placeholder="Quantity" required />
-          <textarea
-            name="description"
-            placeholder="Description"
-            required
-          ></textarea>
-          <select name="category" required>
-            <option value="">Select Category</option>
-            <option value="Fiction">Fiction</option>
-            <option value="Education">Education</option>
-            <option value="Science">Science</option>
-            <option value="History">History</option>
-          </select>
-          <button type="submit">Add Book</button>
-        </form>
+      <div class="container">
+        <h1>Add New Books</h1>
+        <p class="description">
+          Fill in the details below to add a new book to the inventory. Ensure
+          all fields are completed accurately.
+        </p>
+        <div class="page">
+          <form id="addBookForm" enctype="multipart/form-data">
+            <input type="text" name="title" placeholder="Title" required />
+            <label for="bookPoster">Poster</label>
+            <input type="file" name="poster" id="bookPoster" required />
+            <div class="uploadedImage"><img id="preview" src="" alt="" /></div>
+            <input
+              type="text"
+              name="price"
+              placeholder="Price (LKR)"
+              required
+            />
+            <input
+              type="text"
+              name="authors"
+              placeholder="Authors (Seperate with comma)"
+              required
+            />
+            <input
+              type="text"
+              name="quantity"
+              placeholder="Quantity"
+              required
+            />
+            <textarea
+              name="description"
+              placeholder="Description"
+              required
+            ></textarea>
+            <select name="category" required>
+              <option value="">Select Category</option>
+              <option value="Fiction">Fiction</option>
+              <option value="Education">Education</option>
+              <option value="Science">Science</option>
+              <option value="History">History</option>
+            </select>
+            <button type="submit">Add Book</button>
+          </form>
+        </div>
       </div>
     </section>
 

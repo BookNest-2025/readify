@@ -96,12 +96,12 @@ button {
 }
 
 #updateBtn {
-    background: #28a745;
+    background: var(--color-secondary);
     color: white;
 }
 
 #updateBtn:hover {
-    background: #218838;
+    background: var(--color-primary);
 }
 
 #cancelBtn {

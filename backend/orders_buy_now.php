@@ -80,6 +80,15 @@ try {
         "book_id"  => $book_id,
     ]);
 
+    $stmtCheckStock = $pdo->prepare("SELECT stock FROM books WHERE book_id = :book_id");
+    $stmtCheckStock->execute(["book_id" => $book_id]);
+    $updatedBook = $stmtCheckStock->fetch(PDO::FETCH_ASSOC);
+
+    if ($updatedBook && intval($updatedBook['stock']) <= 0) {
+        $stmtDeactivate = $pdo->prepare("UPDATE books SET status = 0 WHERE book_id = :book_id");
+        $stmtDeactivate->execute(["book_id" => $book_id]);
+    }
+
     $pdo->commit();
 
     $response["success"]  = true;

@@ -23,6 +23,7 @@ try {
         throw new Exception("Please provide both order id and new status.");
     }
 
+    // Fetch order with customer info
     $stmtOrder = $pdo->prepare("
         SELECT o.*, c.customer_id, c.email
         FROM orders o
@@ -64,30 +65,39 @@ try {
         throw new Exception("No order updated. Check the order ID or status.");
     }
 
-    // If cancelling, restore stock
-    if (strtolower($status) === 'cancelled') {
-        if (strtolower($order['status']) !== 'cancelled') {
+    // If cancelling order, restore stock
+    if (strtolower($status) === 'cancelled' && strtolower($order['status']) !== 'cancelled') {
 
-            $stmtItems = $pdo->prepare("
-                SELECT book_id, quantity FROM order_items WHERE order_id = :order_id
-            ");
-            $stmtItems->execute([":order_id" => $order_id]);
-            $items = $stmtItems->fetchAll();
+        $stmtItems = $pdo->prepare("
+            SELECT book_id, quantity FROM order_items WHERE order_id = :order_id
+        ");
+        $stmtItems->execute([":order_id" => $order_id]);
+        $items = $stmtItems->fetchAll();
 
-            if ($items) {
-                $stmtUpdateStock = $pdo->prepare("
-                    UPDATE books
-                    SET stock = stock + :quantity,
-                        sold  = GREATEST(sold - :quantity, 0)
-                    WHERE book_id = :book_id
-                ");
+        // Prepare statements once (better performance and safety)
+        $stmtUpdateStock = $pdo->prepare("
+            UPDATE books
+            SET stock = stock + :quantity,
+                sold  = GREATEST(sold - :quantity, 0)
+            WHERE book_id = :book_id
+        ");
 
-                foreach ($items as $item) {
-                    $stmtUpdateStock->execute([
-                        ":quantity" => $item["quantity"],
-                        ":book_id"  => $item["book_id"],
-                    ]);
-                }
+        $stmtGetStock   = $pdo->prepare("SELECT stock FROM books WHERE book_id = :book_id");
+        $stmtReactivate = $pdo->prepare("UPDATE books SET status = 1 WHERE book_id = :book_id");
+
+        foreach ($items as $item) {
+            $stmtUpdateStock->execute([
+                ":quantity" => $item["quantity"],
+                ":book_id"  => $item["book_id"],
+            ]);
+
+            // Check stock after update
+            $stmtGetStock->execute([":book_id" => $item["book_id"]]);
+            $book = $stmtGetStock->fetch();
+
+            // Reactivate book if stock > 0
+            if ($book && intval($book["stock"]) > 0) {
+                $stmtReactivate->execute([":book_id" => $item["book_id"]]);
             }
         }
     }

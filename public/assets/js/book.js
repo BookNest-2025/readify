@@ -67,7 +67,9 @@ const showBook = ({
             </div>
             <div class="book-button">
               <button class="btn add-cart" onclick="addToCart(${book_id})">Add to Cart</button>
-              <button class="btn buy-now" onclick="buyNow(${book_id})">Buy Now</button>
+              <button class="btn buy-now" onclick="buyNow(${
+                (book_id, stock)
+              })">Buy Now</button>
             </div>
           </div>
         </div>
@@ -135,6 +137,8 @@ const writeBookReview = () => {
 
 writeBookReview();
 
-const buyNow = (bookId) => {
-  window.location.href = `checkout.html?book_id=${bookId}`;
+const buyNow = (bookId, stock) => {
+  stock > 0
+    ? (window.location.href = `checkout.html?book_id=${bookId}`)
+    : addAlert("This book is out of stock.");
 };

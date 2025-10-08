@@ -1,5 +1,4 @@
 <?php
-// backend/updateBooks.php
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(403);
     exit("Forbidden");
@@ -50,10 +49,15 @@ try {
 
         $pdo->beginTransaction();
 
-        // Update book information
-        $stmt = $pdo->prepare("UPDATE books SET title = :title, price = :price, stock = :stock, description = :description, category = :category,
-                              updated_at = NOW()
-                              WHERE book_id = :book_id");
+        // Determine status based on stock
+        $status = ($stock > 0) ? 1 : 0;
+
+        // Update book information including status
+        $stmt = $pdo->prepare("UPDATE books
+            SET title = :title, price = :price, stock = :stock, description = :description, category = :category,
+                status = :status, updated_at = NOW()
+            WHERE book_id = :book_id"
+        );
 
         $stmt->execute([
             "title"       => $title,
@@ -61,6 +65,7 @@ try {
             "stock"       => $stock,
             "description" => $description,
             "category"    => $category,
+            "status"      => $status,
             "book_id"     => $bookId,
         ]);
 

@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  //uses to see changes after user stops typing for 500ms
   function debounce(func, delay) {
     let timeout;
     return (...args) => {
@@ -73,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const debouncedSearch = debounce(() => searchBooks(), 500);
 
-  // Event listeners
   [bookInput, authorInput].forEach((el) =>
     el?.addEventListener("input", debouncedSearch)
   );
@@ -82,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
     cb.addEventListener("change", debouncedSearch)
   );
 
-  // ---------- Initial load ----------
   const urlParams = getUrlParams();
   searchBooks(urlParams);
 });

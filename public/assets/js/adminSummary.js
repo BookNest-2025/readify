@@ -17,7 +17,8 @@ const showData = (summary) => {
 
   const kpi = summary.kpi;
 
-  /* ---------- KPIs ---------- */
+  // update kpis
+
   document.getElementById("sales").textContent = `${kpi.totalSales} LKR`;
   document.getElementById("orders").textContent = kpi.totalOrders;
   document.getElementById("customers").textContent = kpi.customers;
@@ -31,8 +32,7 @@ const showData = (summary) => {
   document.getElementById("weeklyGrowth").style.color =
     growth >= 0 ? "#10b981" : "#ef4444";
 
-  /* ---------- Ongoing Orders ---------- */
-
+  // order stats cards
   const orderStats = summary.orders;
   const oc = document.getElementById("orderCards");
   orderStats.forEach((o) => {
@@ -42,10 +42,8 @@ const showData = (summary) => {
     oc.appendChild(div);
   });
 
-  /* ---------- Bar chart ---------- */
-
+  // Bar Chart
   const sales = summary.sales;
-  const lastWeek = summary.prevSales;
   function getLast7DayLabels() {
     const labels = [];
     const today = new Date();
@@ -61,6 +59,7 @@ const showData = (summary) => {
 
   const days = getLast7DayLabels();
 
+  // spread sales data to ensure all 7 days are represented
   const max = Math.max(...sales);
 
   const barChart = document.getElementById("barChart");
@@ -80,8 +79,7 @@ const showData = (summary) => {
     barLabels.appendChild(span);
   });
 
-  /* ---------- Pie legend ---------- */
-
+  // Pie Chart
   const genres = summary.genres;
   const pie = document.querySelector(".pie");
   const legend = document.getElementById("pieLegend");
@@ -91,7 +89,7 @@ const showData = (summary) => {
   let start = 0;
   const stops = genres.map((g) => {
     const end = start + (g.percent / 100) * 360;
-    const s = document.createElement("span");
+    const s = document.createElement("span"); //spans for show fictions and their precentages.
     s.textContent = `${g.name} - ${g.percent}%`;
     s.style.color = g.color;
     legend.appendChild(s);
@@ -99,6 +97,8 @@ const showData = (summary) => {
     start = end;
     return css;
   });
+
+  // do like that background: conic-gradient(red 45deg 90deg, yellow 90deg 210deg, green 210deg 360deg);
 
   pie.style.background = `conic-gradient(${stops.join(",")})`;
 };

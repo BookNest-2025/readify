@@ -1,14 +1,8 @@
 <?php
-// backend/search_books.php
 header('Content-Type: application/json; charset=utf-8');
+require_once '../app/config/db.php';
 
 try {
-                                                    // adjust require path if your DB config is elsewhere
-    require_once __DIR__ . '/../app/config/db.php'; // expects $pdo
-
-    if (! isset($pdo) || ! ($pdo instanceof PDO)) {
-        throw new Exception("Database connection not found. Make sure ../app/config/db.php defines \$pdo (PDO).");
-    }
 
     $book       = isset($_GET['book']) ? trim($_GET['book']) : '';
     $author     = isset($_GET['author']) ? trim($_GET['author']) : '';
@@ -18,7 +12,6 @@ try {
     if ($book !== '' || $author !== '' || (! empty($categories) && is_array($categories))
     ) {
         if ($book === '' && $author === '' && (empty($categories) || ! is_array($categories))) {
-            // Optional: you could show default popular or newest books here
             $sql = "
         SELECT
             b.book_id,
@@ -49,7 +42,6 @@ try {
 
     }
 
-    // build base query: join authors to gather authors list
     $sql = "
         SELECT
             b.book_id,
@@ -67,7 +59,6 @@ try {
 
     $params = [];
 
-    // Add filters
     if ($book !== '') {
         $sql .= " AND b.title LIKE :book";
         $params[':book'] = '%' . $book . '%';

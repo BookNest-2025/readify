@@ -21,14 +21,13 @@ for ($i = 13; $i >= 7; $i--) {
 }
 
 try {
-    // looks login
     if (! isset($_SESSION["email"]) || ! isset($_SESSION["user_type"])) {
         $response["redirect"] = "login.html";
         throw new Exception("Please login to view summary.");
     }
 
     if ($_SESSION["user_type"] !== "admin") {
-        $response["redirect"] = "login.html";
+        $response["redirect"] = "index.html";
         throw new Exception("You should login as admin to view summary.");
     }
 
@@ -46,7 +45,7 @@ try {
     $prevStmt = $pdo->prepare("
     SELECT DATE(created_at) AS d, SUM(total) AS total
     FROM orders
-    WHERE created_at BETWEEN DATE_SUB(CURDATE(), INTERVAL 13 DAY)                    AND DATE_SUB(CURDATE(), INTERVAL 7 DAY)
+    WHERE created_at BETWEEN DATE_SUB(CURDATE(), INTERVAL 13 DAY) AND DATE_SUB(CURDATE(), INTERVAL 7 DAY)
     AND status IN ('shipped','delivered')
     GROUP BY d");
     $prevStmt->execute();
